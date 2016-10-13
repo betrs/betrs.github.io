@@ -4,24 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>js�հ����� | Betrs-blog</title>
+  <title>js闭包详解 | Betrs-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="�հ����������ԣ�
-1.����Ƕ�׺���2.�����ڲ����������ⲿ�Ĳ����ͱ���3.�����ͱ������ᱻ�������ջ��ƻ����հ��Ķ��弰����ȱ��
-�հ� ��ָ��Ȩ������һ�������������еı����ĺ����������հ�������ķ�ʽ������һ�������ڴ�����һ��������ͨ����һ�����">
+  <meta name="description" content="闭包有三个特性：
+1.函数嵌套函数2.函数内部可以引用外部的参数和变量3.参数和变量不会被垃圾回收机制回收闭包的定义及其优缺点
+闭包 是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量
+使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js�հ�����">
+<meta property="og:title" content="js闭包详解">
 <meta property="og:url" content="http://yoursite.com/2016/10/13/detailedClosure/index.html">
 <meta property="og:site_name" content="Betrs-blog">
-<meta property="og:description" content="�հ����������ԣ�
-1.����Ƕ�׺���2.�����ڲ����������ⲿ�Ĳ����ͱ���3.�����ͱ������ᱻ�������ջ��ƻ����հ��Ķ��弰����ȱ��
-�հ� ��ָ��Ȩ������һ�������������еı����ĺ����������հ�������ķ�ʽ������һ�������ڴ�����һ��������ͨ����һ�����">
-<meta property="og:updated_time" content="2016-10-13T07:51:44.385Z">
+<meta property="og:description" content="闭包有三个特性：
+1.函数嵌套函数2.函数内部可以引用外部的参数和变量3.参数和变量不会被垃圾回收机制回收闭包的定义及其优缺点
+闭包 是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量
+使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难">
+<meta property="og:updated_time" content="2016-10-13T07:53:36.465Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js�հ�����">
-<meta name="twitter:description" content="�հ����������ԣ�
-1.����Ƕ�׺���2.�����ڲ����������ⲿ�Ĳ����ͱ���3.�����ͱ������ᱻ�������ջ��ƻ����հ��Ķ��弰����ȱ��
-�հ� ��ָ��Ȩ������һ�������������еı����ĺ����������հ�������ķ�ʽ������һ�������ڴ�����һ��������ͨ����һ�����">
+<meta name="twitter:title" content="js闭包详解">
+<meta name="twitter:description" content="闭包有三个特性：
+1.函数嵌套函数2.函数内部可以引用外部的参数和变量3.参数和变量不会被垃圾回收机制回收闭包的定义及其优缺点
+闭包 是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量
+使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难">
   
     <link rel="alternative" href="/atom.xml" title="Betrs-blog" type="application/atom+xml">
   
@@ -151,7 +154,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js�հ�����
+      js闭包详解
     </h1>
   
 
@@ -159,12 +162,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>�հ����������ԣ�</p>
-<p>1.����Ƕ�׺���<br>2.�����ڲ����������ⲿ�Ĳ����ͱ���<br>3.�����ͱ������ᱻ�������ջ��ƻ���<br>�հ��Ķ��弰����ȱ��</p>
-<p>�հ� ��ָ��Ȩ������һ�������������еı����ĺ����������հ�������ķ�ʽ������һ�������ڴ�����һ��������ͨ����һ�������������������ľֲ�����</p>
-<p>ʹ�ñհ���һ���ŵ㣬Ҳ������ȱ�㣬���ǿ��԰Ѿֲ�����פ�����ڴ��У����Ա���ʹ��ȫ�ֱ�����ȫ�ֱ�����ÿ��ģ�鶼�ɵ��ã����Ʊؽ��������Եġ��������Ƽ�ʹ��˽�еģ���װ�ľֲ���������</p>
-<p>һ�㺯��ִ�����Ϻ󣬾ֲ�������ͱ����٣��ڴ��н�������ȫ�������򡣵��հ���������ͬ��</p>
-<p>Ƕ�׺����ıհ�</p>
+        <p>闭包有三个特性：</p>
+<p>1.函数嵌套函数<br>2.函数内部可以引用外部的参数和变量<br>3.参数和变量不会被垃圾回收机制回收<br>闭包的定义及其优缺点</p>
+<p>闭包 是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量</p>
+<p>使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）</p>
+<p>一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同！</p>
+<p>嵌套函数的闭包</p>
 <pre><code>function aaa() {  
   var a = 1;  
   return function(){
@@ -172,15 +175,15 @@
   };  
 }         
 var fun = aaa();  
-fun();// 1 ִ�к� a++����Ȼ��a����~  
+fun();// 1 执行后 a++，，然后a还在~  
 fun();// 2   
-fun = null;//a�����գ���
-</code></pre><p>�հ���ʹ����ʼ�ձ������ڴ��У���������ʹ�û������ڴ����ġ�</p>
-<p>javascript����������ԭ��</p>
-<p>��1������javascript�У�����һ���������ٱ����ã���ô���������ͻᱻGC���գ�<br>��2�����������������������ã������ٱ���3�������ã���ô�������������õĶ���Ҳ�ᱻ���ա�</p>
-<p>ʹ�ñհ��ĺô�</p>
-<p>��ôʹ�ñհ���ʲô�ô��أ�ʹ�ñհ��ĺô��ǣ�</p>
-<p>1.ϣ��һ����������פ�����ڴ���<br>2.����ȫ�ֱ�������Ⱦ<br>3.˽�г�Ա�Ĵ���<br>һ��ȫ�ֱ������ۼ�</p>
+fun = null;//a被回收！！
+</code></pre><p>闭包会使变量始终保存在内存中，如果不当使用会增大内存消耗。</p>
+<p>javascript的垃圾回收原理</p>
+<p>（1）、在javascript中，如果一个对象不再被引用，那么这个对象就会被GC回收；<br>（2）、如果两个对象互相引用，而不再被第3者所引用，那么这两个互相引用的对象也会被回收。</p>
+<p>使用闭包的好处</p>
+<p>那么使用闭包有什么好处呢？使用闭包的好处是：</p>
+<p>1.希望一个变量长期驻扎在内存中<br>2.避免全局变量的污染<br>3.私有成员的存在<br>一、全局变量的累加</p>
 <script>
 var a = 1;
 function abc(){
@@ -190,7 +193,7 @@ function abc(){
 abc();              //2
 abc();            //3
 </script>
-�����ֲ�����
+二、局部变量
 
 <script>
 function abc(){        
@@ -201,25 +204,25 @@ function abc(){
 abc();                       //2
 abc();                    //2
 </script>
-��ô��ô������������a���Ǿֲ������ֿ����ۼ��أ�
+那么怎么才能做到变量a既是局部变量又可以累加呢？
 
-�����ֲ��������ۼ�
+三、局部变量的累加
 
 <script>
 function outer(){        
     var x=10;        
-    return function(){             //����Ƕ�׺���
+    return function(){             //函数嵌套函数
                 x++;
                 alert(x);
     }
 }
-var y = outer();              //�ⲿ������������y;
-y();                 //y��������һ�Σ�����Ϊ11���൱��outer()()��
-y();                //y�������õڶ��Σ�����Ϊ12��ʵ�����ۼ�
+var y = outer();              //外部函数赋给变量y;
+y();                 //y函数调用一次，结果为11，相当于outer()()；
+y();                //y函数调用第二次，结果为12，实现了累加
 </script>
-���������뺯������ʽ
+函数声明与函数表达式
 
-��js�����ǿ���ͨ���ؼ���function������һ��������
+在js中我们可以通过关键字function来声明一个函数：
 
 <script>
 function abc(){
@@ -227,26 +230,26 @@ function abc(){
 }
 abc();
 </script>
-����Ҳ����ͨ��һ��"()"����������������һ������ʽ��
+我们也可以通过一个"()"来将这个声明变成一个表达式：
 
 <script>
 (function (){
     alert(123);
-})();                   //Ȼ��ͨ��()ֱ�ӵ���ǰ���ı���ʽ���ɣ����˺������Բ���д���֣�</script>
-�ġ�ģ�黯���룬����ȫ�ֱ�������Ⱦ
+})();                   //然后通过()直接调用前面的表达式即可，因此函数可以不必写名字；</script>
+四、模块化代码，减少全局变量的污染
 
 <script>
-var abc = (function(){      //abcΪ�ⲿ���������ķ���ֵ
+var abc = (function(){      //abc为外部匿名函数的返回值
            var a = 1;        
            return function(){
                 a++;
                 alert(a);
            }
 })();
-abc();    //2 ������һ��abc��������ʵ�ǵ��������ڲ������ķ���ֵ    
+abc();    //2 ；调用一次abc函数，其实是调用里面内部函数的返回值    
 abc();    //3
 </script>
-�塢˽�г�Ա�Ĵ���
+五、私有成员的存在
 
 <script>
 var aaa = (function(){        
@@ -260,40 +263,40 @@ var aaa = (function(){
                 alert(a);
         }        
     return {
-                b:bbb,             //json�ṹ
+                b:bbb,             //json结构
                 c:ccc
         }
 })();
 aaa.b();     //2
 aaa.c()      //3
 </script>
-��.ʹ����������ʵ���ۼ�
+六.使用匿名函数实现累加
 
-//ʹ����������ʵ�־ֲ�����פ���ڴ��У��Ӷ�ʵ���ۼ�<script type="text/javascript">
+//使用匿名函数实现局部变量驻留内存中，从而实现累加<script type="text/javascript">
  function box(){     
      var age = 100;     
-     return function(){          //��������
+     return function(){          //匿名函数
           age++;          
           return age;
      };
  } 
 var b = box();
 alert(b());
-alert(b());    //��alert(box()())��
+alert(b());    //即alert(box()())；
 alert(b());
 alert(b);              //     function () {
                         //   age++;
                        // return age;
                       //       }
-b = null��  //�������ã��ȴ���������
+b = null；  //解除引用，等待垃圾回收
 </script>
-����ʹ�ñհ��ᵼ�����ܵ��½����������������������������˱հ�
+过度使用闭包会导致性能的下降。函数里放匿名函数，则产生了闭包
 
-�ߡ���ѭ����ֱ���ҵ���ӦԪ�ص�����
+七、在循环中直接找到对应元素的索引
 
    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"��ҳ����
-    <html xmlns="��ҳ����
+"网页链接
+    <html xmlns="网页链接
     <head>
             <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
             <title></title>
@@ -301,7 +304,7 @@ b = null��  //�������ã��ȴ���������
     window.onload = function(){           
          var aLi = document.getElementsByTagName('li');            
          for (var i=0;i<aLi.length;i++){
-                    aLi[i].onclick = function(){        //������ʱforѭ���Ѿ�����
+                    aLi[i].onclick = function(){        //当点击时for循环已经结束
                     alert(i);
                     };
             }
@@ -316,11 +319,11 @@ b = null��  //�������ã��ȴ���������
             </ul>
     </body>
     
-�ˡ�ʹ�ñհ���д��������
+八、使用闭包改写上面代码
 
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"��ҳ����
-    <html xmlns="��ҳ����
+"网页链接
+    <html xmlns="网页链接
     <head>
             <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
             <title></title>
@@ -345,18 +348,18 @@ b = null��  //�������ã��ȴ���������
             </ul>
     </body>
     
-��.�ڴ�й¶����
+九.内存泄露问题
 
-����IE��js������DOM����ʹ�ò�ͬ�������ռ����������˱հ���IE�лᵼ���ڴ�й¶���⣬Ҳ�����޷�����פ�����ڴ��е�Ԫ��
+由于IE的js对象和DOM对象使用不同的垃圾收集方法，因此闭包在IE中会导致内存泄露问题，也就是无法销毁驻留在内存中的元素
 
 function closure(){    
-    var oDiv = document.getElementById('oDiv');//oDiv����֮��һֱפ�����ڴ���
+    var oDiv = document.getElementById('oDiv');//oDiv用完之后一直驻留在内存中
     oDiv.onclick = function () {
-        alert('oDiv.innerHTML');//������oDiv�����ڴ�й¶
+        alert('oDiv.innerHTML');//这里用oDiv导致内存泄露
     };
 }
 closure();
-//����Ӧ��oDiv���������������ڴ�й¶
+//最后应将oDiv解除引用来避免内存泄露
 function closure(){    
     var oDiv = document.getElementById('oDiv');    
     var test = oDiv.innerHTML;
@@ -365,23 +368,23 @@ function closure(){
     };
     oDiv = null;
 }
-ʮ.˼����
+十.思考题
 
-�������������������������н�����Ӧ�þ��������հ������л����ˡ�
+如果你能理解下面代码的运行结果，应该就算理解闭包的运行机制了。
 
-��
+　
 
 <script type="text/javascript">
     var name = "trigkit4";   
-    ����var segmentFault = {  
-    ��������name : "My SF",  
-    ��������getNameFunc : function(){  
-    ������������return function(){  
-    ����������������return this.name;  
-    ����������};   
-    ��������}   
+    　　var segmentFault = {  
+    　　　　name : "My SF",  
+    　　　　getNameFunc : function(){  
+    　　　　　　return function(){  
+    　　　　　　　　return this.name;  
+    　　　　　};   
+    　　　　}   
     };  
-    alert(segmentFault.getNameFunc()());  //����trigkit4
+    alert(segmentFault.getNameFunc()());  //弹出trigkit4
  </script>
       
     </div>
@@ -393,7 +396,7 @@ function closure(){
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js�հ�/">js�հ�</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js闭包/">js闭包</a></li></ul>
 	</div>
 
       
@@ -444,7 +447,7 @@ function closure(){
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="detailedClosure" data-title="js�հ�����" data-url="http://yoursite.com/2016/10/13/detailedClosure/"></div>
+	<div class="ds-thread" data-thread-key="detailedClosure" data-title="js闭包详解" data-url="http://yoursite.com/2016/10/13/detailedClosure/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -523,7 +526,7 @@ function closure(){
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/js�հ�/" style="font-size: 10px;">js�հ�</a>
+    				<a href="/tags/js闭包/" style="font-size: 10px;">js闭包</a>
     			</div>
     	</section>
     
