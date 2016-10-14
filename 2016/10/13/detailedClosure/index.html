@@ -16,7 +16,7 @@
 <meta property="og:description" content="闭包有三个特性：1.函数嵌套函数2.函数内部可以引用外部的参数和变量3.参数和变量不会被垃圾回收机制回收闭包的定义及其优缺点
 闭包 是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量
 使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性">
-<meta property="og:updated_time" content="2016-10-14T09:22:23.711Z">
+<meta property="og:updated_time" content="2016-10-14T09:25:51.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js闭包详解">
 <meta name="twitter:description" content="闭包有三个特性：1.函数嵌套函数2.函数内部可以引用外部的参数和变量3.参数和变量不会被垃圾回收机制回收闭包的定义及其优缺点
@@ -185,8 +185,15 @@ fun = null;//a被回收！！
 <p>使用闭包的好处</p>
 <p>那么使用闭包有什么好处呢？使用闭包的好处是：</p>
 <p>1.希望一个变量长期驻扎在内存中<br><br>2.避免全局变量的污染<br><br>3.私有成员的存在</p>
-<p>#一、全局变量的累加<br>    var a = 1;<br>    function abc(){<br>      a++;<br>      alert(a);<br>    }<br>    abc(); //2<br>    abc(); //3</p>
-<p>#二、局部变量</p>
+<p>#一、全局变量的累加</p>
+<pre><code>var a = 1;
+function abc(){
+  a++;
+  alert(a);
+}
+abc(); //2
+abc(); //3
+</code></pre><p>#二、局部变量</p>
 <pre><code>function abc(){        
     var a = 1;
     a++;
@@ -272,17 +279,17 @@ b = null；  //解除引用，等待垃圾回收
 <p>#七、在循环中直接找到对应元素的索引</p>
 <pre><code>&lt;html&gt;
 &lt;head&gt;
-        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;
-        &lt;title&gt;&lt;/title&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;
+    &lt;title&gt;&lt;/title&gt;
 
-
-     var aLi = document.getElementsByTagName(&apos;li&apos;);            
-     for (var i=0;i&lt;aLi.length;i++){
-    aLi[i].onclick = function(){        //当点击时for循环已经结束
-    alert(i);
-    };
-}
-
+    &lt;script&gt;         
+         var aLi = document.getElementsByTagName(&apos;li&apos;);            
+         for (var i=0;i&lt;aLi.length;i++){
+            aLi[i].onclick = function(){        //当点击时for循环已经结束
+                alert(i);
+               };
+        };
+       &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
         &lt;ul&gt;
@@ -327,8 +334,18 @@ b = null；  //解除引用，等待垃圾回收
     };
 }
 closure();
-</code></pre><p>//最后应将oDiv解除引用来避免内存泄露<br>    function closure(){<br>        var oDiv = document.getElementById(‘oDiv’);<br>        var test = oDiv.innerHTML;<br>        oDiv.onclick = function () {<br>        alert(test);<br>        };<br>        oDiv = null;<br>    }</p>
-<p>#十.思考题</p>
+
+//最后应将oDiv解除引用来避免内存泄露
+
+function closure(){    
+    var oDiv = document.getElementById(&apos;oDiv&apos;);    
+    var test = oDiv.innerHTML;
+    oDiv.onclick = function () {
+    alert(test);
+    };
+    oDiv = null;
+}
+</code></pre><p>#十.思考题</p>
 <p>如果你能理解下面代码的运行结果，应该就算理解闭包的运行机制了。</p>
 <pre><code>var name = &quot;trigkit4&quot;;   
 　　var segmentFault = {  
