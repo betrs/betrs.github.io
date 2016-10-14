@@ -18,7 +18,7 @@
 1.函数嵌套函数2.函数内部可以引用外部的参数和变量3.参数和变量不会被垃圾回收机制回收闭包的定义及其优缺点
 闭包 是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量
 使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难">
-<meta property="og:updated_time" content="2016-10-14T05:37:37.399Z">
+<meta property="og:updated_time" content="2016-10-14T06:01:48.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js闭包详解">
 <meta name="twitter:description" content="闭包有三个特性：
@@ -187,7 +187,7 @@ fun = null;//a被回收！！
 <p>1.希望一个变量长期驻扎在内存中<br>2.避免全局变量的污染<br>3.私有成员的存在<br>一、全局变量的累加<br>    var a = 1;<br>    function abc(){<br>      a++;<br>      alert(a);<br>    }<br>    abc(); //2<br>    abc(); //3</p>
 <p>二、局部变量<br>    function abc(){<br>        var a = 1;<br>        a++;<br>        alert(a);<br>    }<br>    abc(); //2<br>    abc(); //2</p>
 <p>那么怎么才能做到变量a既是局部变量又可以累加呢？</p>
-<p>三、局部变量的累加<br>    function outer(){<br>        var x=10;<br>        return function(){ //函数嵌套函数<br>            x++;<br>            alert(x);<br>        }<br>    }<br>    var y = outer(); //外部函数赋给变量y;<br>    y(); //y函数调用一次，结果为11，相当于outer()()；<br>    y(); //y函数调用第二次，结果为12，实现了累加</p>
+<p>三、局部变量的累加<br>    function outer(){<br>        var x=10;<br>        return function(){ //函数嵌套函数<br>        x++;<br>        alert(x);<br>        }<br>    }<br>    var y = outer(); //外部函数赋给变量y;<br>    y(); //y函数调用一次，结果为11，相当于outer()()；<br>    y(); //y函数调用第二次，结果为12，实现了累加</p>
 <p>函数声明与函数表达式</p>
 <p>在js中我们可以通过关键字function来声明一个函数：</p>
 <pre><code>function abc(){
@@ -198,9 +198,9 @@ abc();
 <pre><code>(function (){
     alert(123);
 })(); //然后通过()直接调用前面的表达式即可，因此函数可以不必写名字；
-</code></pre><p>四、模块化代码，减少全局变量的污染<br>    var abc = (function(){      //abc为外部匿名函数的返回值<br>       var a = 1;<br>       return function(){<br>        a++;<br>        alert(a);<br>       }<br>    })();<br>    abc(); //2 ；调用一次abc函数，其实是调用里面内部函数的返回值<br>    abc(); //3</p>
+</code></pre><p>四、模块化代码，减少全局变量的污染<br>    var abc = (function(){ //abc为外部匿名函数的返回值<br>       var a = 1;<br>       return function(){<br>        a++;<br>        alert(a);<br>       }<br>    })();<br>    abc(); //2  调用一次abc函数，其实是调用里面内部函数的返回值<br>    abc(); //3</p>
 <p>五、私有成员的存在<br>    var aaa = (function(){<br>        var a = 1;<br>        function bbb(){<br>        a++;<br>        alert(a);<br>       }<br>       function ccc(){<br>        a++;<br>        alert(a);<br>       }<br>       return {<br>        b:bbb,//json结构<br>        c:ccc<br>       }<br>    })();<br>    aaa.b();     //2<br>    aaa.c();      //3</p>
-<p>六.使用匿名函数实现累加<br>//使用匿名函数实现局部变量驻留内存中，从而实现累加<br>     function box(){<br>         var age = 100;<br>         return function(){   //匿名函数<br>          age++;<br>          return age;<br>         };<br>     };<br>    var b = box();<br>    alert(b());<br>    alert(b());    //即alert(box()())；<br>    alert(b());<br>    alert(b);<br>    function () {<br>       age++;<br>       return age;<br>    }<br>    b = null；  //解除引用，等待垃圾回收</p>
+<p>六.使用匿名函数实现累加<br>//使用匿名函数实现局部变量驻留内存中，从而实现累加<br>    function box(){<br>         var age = 100;<br>         return function(){   //匿名函数<br>          age++;<br>          return age;<br>         };<br>    };<br>    var b = box();<br>    alert(b());<br>    alert(b());    //即alert(box()())；<br>    alert(b());<br>    alert(b);<br>    function () {<br>       age++;<br>       return age;<br>    }<br>    b = null；  //解除引用，等待垃圾回收</p>
 <p>过度使用闭包会导致性能的下降。函数里放匿名函数，则产生了闭包</p>
 <p>七、在循环中直接找到对应元素的索引</p>
    <!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
@@ -242,11 +242,11 @@ abc();
 
 &lt;/head&gt;
 &lt;body&gt;
-        &lt;ul&gt;
-                &lt;li&gt;123&lt;/li&gt;
-                &lt;li&gt;456&lt;/li&gt;
-                &lt;li&gt;789&lt;/li&gt;
-        &lt;/ul&gt;
+    &lt;ul&gt;
+    &lt;li&gt;123&lt;/li&gt;
+    &lt;li&gt;456&lt;/li&gt;
+    &lt;li&gt;789&lt;/li&gt;
+    &lt;/ul&gt;
 &lt;/body&gt;
 &lt;/html&gt;--&gt;
 </code></pre><p>九.内存泄露问题</p>
