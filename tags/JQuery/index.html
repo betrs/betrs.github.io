@@ -4,21 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Js调试工具，万能的Console | 吴佳博客</title>
+  <title>Tag: JQuery | 吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
-#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Js调试工具，万能的Console">
-<meta property="og:url" content="http://yoursite.com/2016/10/14/console/index.html">
+  <meta name="description" content="爱生活，爱编程，爱前端 - 吴佳博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="吴佳博客">
+<meta property="og:url" content="http://yoursite.com/tags/JQuery/index.html">
 <meta property="og:site_name" content="吴佳博客">
-<meta property="og:description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
-#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
-<meta property="og:updated_time" content="2016-10-14T10:08:23.864Z">
+<meta property="og:description" content="爱生活，爱编程，爱前端 - 吴佳博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js调试工具，万能的Console">
-<meta name="twitter:description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
-#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
+<meta name="twitter:title" content="吴佳博客">
+<meta name="twitter:description" content="爱生活，爱编程，爱前端 - 吴佳博客">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -142,126 +138,54 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-console" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Js调试工具，万能的Console
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/10/14/JqSkill/" class="archive-article-date">
+  	<time datetime="2016-10-14T10:10:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/10/14/JqSkill/">一些好用的JQuery技巧</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#一 、什么是 Console<br>Console 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。</p>
-<p>#二、什么浏览器支持 Console<br>很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Console，但功能比较单调，显示对象的时候都是显示 [Object,Object]，而且不能点击查看对象里面的属性。IE6、IE7 虽然可以安装 Developer Toolbar，但也 不支持 console。Safari、Opera 都支持 Console，但使用上都没有 FireBug和 Chrome 的方便。 现在firebug推出了firebuglite工具，可以让所有浏览器都支持Console功能，而且使用上和FireBug 几乎一样。</p>
-<p>#三、为什么不直接使用 alert 或自己写的 log<br>使用 alert 不是一样可以显示信息，调试程序吗？alert 弹出窗口会中断程序， 如果要在循环中显示信息，手点击关闭窗口都累死。而且 alert 显示对象永远显示为[object ]。 自己写的 log 虽然可以显示一些 object 信息，但很多功能支持都没有 console 好，看完后面 console 的介绍就知道了。</p>
-<p>#四、Console.log(object[, object, …])<br>Console.log 是最简单输出信息到 console 窗口的方法，支持多个参数，该方法会把 这些参数组合在一起显示，e.g：</p>
-<a id="more"></a>
-<p>log 方法第一个参数支持类似 C 语言 printf 字符串替换模式，Log 支持下面几种替换模式：</p>
-<p>%s  代替字符串</p>
-<p>%d  代替整数</p>
-<p>%f  代替浮点值</p>
-<p>%o  代替 Object</p>
-<p>#五、console.debug，info，warn，error<br>这4种方法与log方法使用一模一样，只是显示的图标和文字颜色不一样.</p>
-<p>#六、console.assert(expression[, object, …])<br>assert 方法类似于单元测试中的断言，当 expression 表达式为 false 的时候，输出后面的信息,e.g： 注：assert 方法在 firebuglite 不支持，Chrome 和 FireBug 支持</p>
-<p>#七、console.clear()<br>该方法清空 console 中的所有信息 (Chrome中不支持)</p>
-<p>#八、console.dirxml(node)<br>把html元素的html代码打印出来,等同于log.</p>
-<p>#九、console.trace()<br>trace 方法可以查看当前函数的调用堆栈信息，即当前函数是如何调用的，e.g:</p>
-<p>#十、console.group(object[, object, …]), groupCollapsed, groupEnd<br>这3个函数用于把log等输出的信息进行分组，方便阅读查看。<br>groupCollapsed 方法与 group 方法一样，只是显示的分组默认是折叠的.</p>
-<p>#十一、console.time(name)/console.timeEnd(name)<br>我们经常需要测试 js 函数的执行时间，可能我们自己写代码在第1 条语句和 最后 1 条语句取当前时间相减。这组函数其实就实现了这样的功能，time(name)根据 name 创建 1 个新 的计时器。timeEnd(name)停止给定name 的计时器，并显示时间。</p>
-<p>#十二、console.profile(name)/console.profileEnd()<br>这组方法用于打开浏览器的分析器，用于分析这组函数之间的 js 执行情况， 注：firebuglite 不支持 profile 功能，Chrome 支持 profile，但分析的内容不详。</p>
-<p>#十三、console.count([title])<br>count 方法用于统计当前代码被执行过多少次，title 参数可以在次数前面输出额外的标题以帮助阅读。e.g:</p>
-<p>#十四、console.table(data)<br>table 方法把data 对象用表格的方式显示出来，这在显示数组或者格式一样的JSON 对象的时候非常有用。<br>注：table 只支持 FireBug，而且是在 firebug1.6+版本后才有。</p>
-<p>总结： Console 是帮助我们学习和调试 JS的 1 个非常好工具，如果你以前没用过，哪现在就开始用它吧。<br>你会发现它能帮你省很多开发时间的。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/14/console/" class="archive-article-date">
-  	<time datetime="2016-10-14T10:01:28.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
-</a>
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
 	</div>
 
-      
+          
 
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/10/14/JqSkill/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一些好用的JQuery技巧
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/10/14/learningClosure/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">教你分分钟学会javascript闭包操作</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-
-
-
-
-<div class="share_addthis share_jia">
-  <div class="sharing addthis_toolbox share">
-  	<span class="jiathis_txt">Share to: &nbsp; </span>
-    <a class="addthis_button_facebook_like"></a>
-    <a class="addthis_button_tweet"></a>
-    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
-</div>
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="console" data-title="Js调试工具，万能的Console" data-url="http://yoursite.com/2016/10/14/console/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"betrsblog"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 
       </div>
@@ -284,9 +208,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

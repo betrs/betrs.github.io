@@ -4,21 +4,33 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Js调试工具，万能的Console | 吴佳博客</title>
+  <title>一些好用的JQuery技巧 | 吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
-#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
+  <meta name="description" content="#一、返回顶部按钮
+通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
+// Back to top
+$(&amp;apos;.top&amp;apos;).click(function (e) {
+    e.preventDefault();
+    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Js调试工具，万能的Console">
-<meta property="og:url" content="http://yoursite.com/2016/10/14/console/index.html">
+<meta property="og:title" content="一些好用的JQuery技巧">
+<meta property="og:url" content="http://yoursite.com/2016/10/14/JqSkill/index.html">
 <meta property="og:site_name" content="吴佳博客">
-<meta property="og:description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
-#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
-<meta property="og:updated_time" content="2016-10-14T10:08:23.864Z">
+<meta property="og:description" content="#一、返回顶部按钮
+通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
+// Back to top
+$(&amp;apos;.top&amp;apos;).click(function (e) {
+    e.preventDefault();
+    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
+<meta property="og:updated_time" content="2016-10-14T10:18:22.142Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js调试工具，万能的Console">
-<meta name="twitter:description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
-#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
+<meta name="twitter:title" content="一些好用的JQuery技巧">
+<meta name="twitter:description" content="#一、返回顶部按钮
+通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
+// Back to top
+$(&amp;apos;.top&amp;apos;).click(function (e) {
+    e.preventDefault();
+    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -142,7 +154,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-console" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JqSkill" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -152,7 +164,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Js调试工具，万能的Console
+      一些好用的JQuery技巧
     </h1>
   
 
@@ -160,39 +172,153 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#一 、什么是 Console<br>Console 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。</p>
-<p>#二、什么浏览器支持 Console<br>很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Console，但功能比较单调，显示对象的时候都是显示 [Object,Object]，而且不能点击查看对象里面的属性。IE6、IE7 虽然可以安装 Developer Toolbar，但也 不支持 console。Safari、Opera 都支持 Console，但使用上都没有 FireBug和 Chrome 的方便。 现在firebug推出了firebuglite工具，可以让所有浏览器都支持Console功能，而且使用上和FireBug 几乎一样。</p>
-<p>#三、为什么不直接使用 alert 或自己写的 log<br>使用 alert 不是一样可以显示信息，调试程序吗？alert 弹出窗口会中断程序， 如果要在循环中显示信息，手点击关闭窗口都累死。而且 alert 显示对象永远显示为[object ]。 自己写的 log 虽然可以显示一些 object 信息，但很多功能支持都没有 console 好，看完后面 console 的介绍就知道了。</p>
-<p>#四、Console.log(object[, object, …])<br>Console.log 是最简单输出信息到 console 窗口的方法，支持多个参数，该方法会把 这些参数组合在一起显示，e.g：</p>
-<a id="more"></a>
-<p>log 方法第一个参数支持类似 C 语言 printf 字符串替换模式，Log 支持下面几种替换模式：</p>
-<p>%s  代替字符串</p>
-<p>%d  代替整数</p>
-<p>%f  代替浮点值</p>
-<p>%o  代替 Object</p>
-<p>#五、console.debug，info，warn，error<br>这4种方法与log方法使用一模一样，只是显示的图标和文字颜色不一样.</p>
-<p>#六、console.assert(expression[, object, …])<br>assert 方法类似于单元测试中的断言，当 expression 表达式为 false 的时候，输出后面的信息,e.g： 注：assert 方法在 firebuglite 不支持，Chrome 和 FireBug 支持</p>
-<p>#七、console.clear()<br>该方法清空 console 中的所有信息 (Chrome中不支持)</p>
-<p>#八、console.dirxml(node)<br>把html元素的html代码打印出来,等同于log.</p>
-<p>#九、console.trace()<br>trace 方法可以查看当前函数的调用堆栈信息，即当前函数是如何调用的，e.g:</p>
-<p>#十、console.group(object[, object, …]), groupCollapsed, groupEnd<br>这3个函数用于把log等输出的信息进行分组，方便阅读查看。<br>groupCollapsed 方法与 group 方法一样，只是显示的分组默认是折叠的.</p>
-<p>#十一、console.time(name)/console.timeEnd(name)<br>我们经常需要测试 js 函数的执行时间，可能我们自己写代码在第1 条语句和 最后 1 条语句取当前时间相减。这组函数其实就实现了这样的功能，time(name)根据 name 创建 1 个新 的计时器。timeEnd(name)停止给定name 的计时器，并显示时间。</p>
-<p>#十二、console.profile(name)/console.profileEnd()<br>这组方法用于打开浏览器的分析器，用于分析这组函数之间的 js 执行情况， 注：firebuglite 不支持 profile 功能，Chrome 支持 profile，但分析的内容不详。</p>
-<p>#十三、console.count([title])<br>count 方法用于统计当前代码被执行过多少次，title 参数可以在次数前面输出额外的标题以帮助阅读。e.g:</p>
-<p>#十四、console.table(data)<br>table 方法把data 对象用表格的方式显示出来，这在显示数组或者格式一样的JSON 对象的时候非常有用。<br>注：table 只支持 FireBug，而且是在 firebug1.6+版本后才有。</p>
-<p>总结： Console 是帮助我们学习和调试 JS的 1 个非常好工具，如果你以前没用过，哪现在就开始用它吧。<br>你会发现它能帮你省很多开发时间的。</p>
+        <p>#一、返回顶部按钮</p>
+<p>通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：</p>
+<pre><code>// Back to top
+$(&apos;.top&apos;).click(function (e) {
+    e.preventDefault();
+    $(&apos;html, body&apos;).animate({scrollTop: 0}, 800);
+});
+&lt;!-- Create an anchor tag --&gt;
+&lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;
+</code></pre><p>改变scrollTop 的值可以更改你想要放置滚动条的位置。所有你真正需要做的是在800毫秒的时间内设置文档主体的动画，直到它滚动到文档的顶部。<br>注：小心scrollTop的一些错误行为。</p>
+<p>#二、预加载图像</p>
+<p>如果你的网页要使用大量开始不可见的（例如，悬停的）图像，那么可以预加载这些图像：</p>
+<pre><code>$.preloadImages = function () {
+    for (var i = 0; i &lt; arguments.length; i++) {
+        $(&apos;&lt;img&gt;&apos;).attr(&apos;src&apos;, arguments[i]);
+    }
+};
+$.preloadImages(&apos;img/hover-on.png&apos;, &apos;img/hover-off.png&apos;);
+</code></pre><a id="more"></a>
+<p>#三、检查图像是否加载</p>
+<p>有时为了继续脚本，你可能需要检查图像是否全部加载完毕：</p>
+<pre><code>$(&apos;img&apos;).load(function () {
+    console.log(&apos;image load successful&apos;);
+});
+</code></pre><p>你也可以用ID或类替换<img>标签来检查某个特定的图像是否被加载。</p>
+<p>#四、自动修复破坏的图像</p>
+<p>逐个替换已经破坏的图像链接是非常痛苦的。不过，下面这段简单的代码可以帮助你：</p>
+<pre><code>$(&apos;img&apos;).on(&apos;error&apos;, function () {
+    if(!$(this).hasClass(&apos;broken-image&apos;)) {
+    $(this).prop(&apos;src&apos;, &apos;img/broken.png&apos;).addClass(&apos;broken-image&apos;);
+    }
+});
+</code></pre><p>即使没有任何断掉的链接，加上这一段代码也不会让你有任何损失。</p>
+<p>#五、悬停切换类</p>
+<p>假设你希望当用户将鼠标悬停在可点击的元素上时，它会改变颜色。那么你可以在用户悬停的时候添加类到元素中，反之则删除类：</p>
+<pre><code>$(&apos;.btn&apos;).hover(function () {
+    $(this).addClass(&apos;hover&apos;);
+}, function () {
+    $(this).removeClass(&apos;hover&apos;);
+});
+</code></pre><p>你只需要添加必要的CSS即可。更简单的方法是使用toggleClass 方法：</p>
+<pre><code>$(&apos;.btn&apos;).hover(function () {
+    $(this).toggleClass(&apos;hover&apos;);
+});
+</code></pre><p>注：可能在这种情况下，CSS这种解决方案更快，不过了解这个方法很有必要。</p>
+<p>#六、禁用输入字段</p>
+<p>有时候，你可能想要禁用表格的提交按钮或它的某一项文字输入直到用户执行了特定操作（例如，勾选“我已阅读相关条款”复选框）。添加 disabled属性到你的输入就可以在你想要的时候才启用它：</p>
+<pre><code>$(&apos;input[type=&quot;submit&quot;]&apos;).prop(&apos;disabled&apos;, true);
+</code></pre><p>然后你只需要运行输入的prop 方法就可以了，不过disabled 的值要设置为false：</p>
+<pre><code>$(&apos;input[type=&quot;submit&quot;]&apos;).prop(&apos;disabled&apos;, false);
+</code></pre><p>#七、停止加载链接</p>
+<p>有时候，你既不需要链接到某个特定的网页，也不想要重新加载页面——你可能希望链接做点别的事情，例如说触发一些其他脚本。这就要在阻止默认动作上做文章了：</p>
+<pre><code>$(&apos;a.no-link&apos;).click(function (e) {
+    e.preventDefault();
+});
+</code></pre><p>#八、淡入/滑动切换</p>
+<p>滑动和淡入都是我们用jQuery做动画的时候大量运用的东西。如果你只是想在用户点击之后展示一个元素的话，那么用fadeIn 和slideDown 方法就很完美。但是，如果你想要元素在第一次点击的时候出现，然后在第二次点击的时候消失的话，那么可以试试下面的代码：</p>
+<pre><code>// Fade
+$(&apos;.btn&apos;).click(function () {
+    $(&apos;.element&apos;).fadeToggle(&apos;slow&apos;);
+});
+
+// Toggle
+$(&apos;.btn&apos;).click(function () {
+    $(&apos;.element&apos;).slideToggle(&apos;slow&apos;);
+});
+</code></pre><p>#九、简单的手风琴</p>
+<p>这是一个可快速生成手风琴的简单方法：</p>
+<pre><code>// Close all panels
+$(&apos;#accordion&apos;).find(&apos;.content&apos;).hide();
+
+// Accordion
+$(&apos;#accordion&apos;).find(&apos;.accordion-header&apos;).click(function () {
+    var next = $(this).next();
+    next.slideToggle(&apos;fast&apos;);
+    $(&apos;.content&apos;).not(next).slideUp(&apos;fast&apos;);
+    return false;
+});
+</code></pre><p>通过添加这个脚本，你真正需要做的仅仅是在页面上添加必要的HTML元素，这样它就可以运行工作了。</p>
+<p>#十、让两个div高度相同</p>
+<p>有时候，你需要让两个div无论包含什么内容都拥有相同的高度：</p>
+<pre><code>$(&apos;.div&apos;).css(&apos;min-height&apos;, $(&apos;.main-div&apos;).height());
+</code></pre><p>设置 min-height，这意味着它可以比主div大但绝对不能比主div小。不过，还有一种更灵活的方法是遍历一组元素，然后将高度设置为最高的那个元素的高度：</p>
+<pre><code>var $columns = $(&apos;.column&apos;);
+var height = 0;
+$columns.each(function () {
+    if ($(this).height() &gt; height) {
+        height = $(this).height();
+    }
+});
+$columns.height(height);
+</code></pre><p>如果你希望所有列的高度相同：</p>
+<pre><code>var $rows = $(&apos;.same-height-columns&apos;);
+$rows.each(function () {
+$(this).find(&apos;.column&apos;).height($(this).height());
+});
+</code></pre><p>#十一、在新标签页/窗口打开外部链接</p>
+<p>在一个新的浏览器tab或窗口中打开外部链接，并确保同一个来源的链接能在同一个tab或者窗口中打开：</p>
+<pre><code>$(&apos;a[href^=&quot;http&quot;]&apos;).attr(&apos;target&apos;, &apos;_blank&apos;);
+$(&apos;a[href^=&quot;//&quot;]&apos;).attr(&apos;target&apos;, &apos;_blank&apos;);
+$(&apos;a[href^=&quot;&apos; + window.location.origin + &apos;&quot;]&apos;).attr(&apos;target&apos;, &apos;_self&apos;);
+</code></pre><p>注意：window.location.origin 在IE10中无效。修复的时候要小心这个问题。</p>
+<p>#十二、通过文本查找元素<br>通过使用jQuery中的contains() 选择器，你可以找到元素内容的文本。如果文本不存在，那就隐藏该元素：</p>
+<pre><code>var search = $(&apos;#search&apos;).val();
+$(&apos;div:not(:contains(&quot;&apos; + search + &apos;&quot;))&apos;).hide();
+13、在改变Visibility时触发
+</code></pre><p>当用户不再关注某个tab，或重新聚焦原来的那个tab上时，触发JavaScript：</p>
+<pre><code>$(document).on(&apos;visibilitychange&apos;, function (e) {
+    if (e.target.visibilityState === &quot;visible&quot;) {
+        console.log(&apos;Tab is now in view!&apos;);
+    } else if (e.target.visibilityState === &quot;hidden&quot;) {
+        console.log(&apos;Tab is now hidden!&apos;);
+    }
+});
+</code></pre><p>#十三、AJAX调用错误处理</p>
+<p>当Ajax调用返回404或500错误时，就执行错误处理程序。如果没有定义处理程序，其他的jQuery代码或会就此罢工。定义一个全局的Ajax错误处理程序：</p>
+<pre><code>$(document).ajaxError(function (e, xhr, settings, error) {
+    console.log(error);
+});
+</code></pre><p>#十四、链式插件调用</p>
+<p>jQuery允许“链式”插件的方法调用，以减轻反复查询DOM并创建多个jQuery对象的过程。比方说，下面的代码片段代表了你的插件方法调用：</p>
+<pre><code>$(&apos;#elem&apos;).show();
+$(&apos;#elem&apos;).html(&apos;bla&apos;);
+$(&apos;#elem&apos;).otherStuff();
+</code></pre><p>通过使用链式，可以大大改善：</p>
+<pre><code>$(&apos;#elem&apos;)
+.show()
+.html(&apos;bla&apos;)
+.otherStuff();
+</code></pre><p>还有一种方法是在（前缀$）变量中高速缓存元素：</p>
+<pre><code>var $elem = $(&apos;#elem&apos;);
+$elem.hide();
+$elem.html(&apos;bla&apos;);
+$elem.otherStuff();
+</code></pre><p>链式和高速缓存的方法都是jQuery中可以让代码变得更短和更快的代最佳做法。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/14/console/" class="archive-article-date">
-  	<time datetime="2016-10-14T10:01:28.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
+      <a href="/2016/10/14/JqSkill/" class="archive-article-date">
+  	<time datetime="2016-10-14T10:10:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
 	</div>
 
       
@@ -205,18 +331,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/10/14/JqSkill/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一些好用的JQuery技巧
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/10/14/learningClosure/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">教你分分钟学会javascript闭包操作</div>
+    <a href="/2016/10/14/console/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Js调试工具，万能的Console</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -243,7 +360,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="console" data-title="Js调试工具，万能的Console" data-url="http://yoursite.com/2016/10/14/console/"></div>
+	<div class="ds-thread" data-thread-key="JqSkill" data-title="一些好用的JQuery技巧" data-url="http://yoursite.com/2016/10/14/JqSkill/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
