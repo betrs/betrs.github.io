@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>吴佳博客</title>
+  <title>Js调试工具，万能的Console | 吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱生活，爱编程，爱前端 - 吴佳博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴佳博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
+#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js调试工具，万能的Console">
+<meta property="og:url" content="http://yoursite.com/2016/10/14/console/index.html">
 <meta property="og:site_name" content="吴佳博客">
-<meta property="og:description" content="爱生活，爱编程，爱前端 - 吴佳博客">
+<meta property="og:description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
+#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
+<meta property="og:updated_time" content="2016-10-14T10:06:51.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴佳博客">
-<meta name="twitter:description" content="爱生活，爱编程，爱前端 - 吴佳博客">
+<meta name="twitter:title" content="Js调试工具，万能的Console">
+<meta name="twitter:description" content="#一 、什么是 ConsoleConsole 是用于显示 JS和 DOM 对象信息的单独窗口。并且向 JS 中注入1个 console 对象，使用该对象 可以输出信息到 Console 窗口中。
+#二、什么浏览器支持 Console很多人可能都知道 Chrome 和 FireFox(FireBug)中都支持 Console。而其他浏览器都支 持不好。比如 IE8 自带的开发工具虽然支持 Conso">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -138,9 +142,7 @@
 </nav>
 
       <div class="body-wrap">
-        
-  
-    <article id="post-console" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-console" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -149,8 +151,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/14/console/">Js调试工具，万能的Console</a>
+    <h1 class="article-title" itemprop="name">
+      Js调试工具，万能的Console
     </h1>
   
 
@@ -199,187 +201,57 @@
   </div>
 </article>
 
-
-
-
-
-
-
-
-
-
   
-    <article id="post-learningClosure" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/14/learningClosure/">教你分分钟学会javascript闭包操作</a>
-    </h1>
   
+    <a href="/2016/10/14/learningClosure/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">教你分分钟学会javascript闭包操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>闭包，是javascript中独有的一个概念，对于初学者来讲，闭包是一个特别抽象的概念，特别是ECMA规范给的定义，如果没有实战经验，你很难从定义去理解它。因此，本文不会对闭包的概念进行大篇幅描述，直接上干货，让你分分钟学会闭包!</p>
-<p>#一、闭包–爱的初体验<br>　　在接触一个新技术的时候，我首先会做的一件事就是：找它的demo code。对于码农们来说，代码有时候比自然语言更能理解一个事物。 其实，闭包无处不在，比如：jQuery、zepto的主要代码都包含在一个大的闭包中，所以下面我先写一个最简单最原始的闭包demo，好让你在大脑里产生闭包的画面：</p>
-<pre><code>function A(){
-    function B(){
-        console.log(&quot;Hello Closure!&quot;);
-    }
-       return B;
-}
-var b = A();
-b();//Hello Closure!
-//这是史上最简单的闭包，不能再简单了，再简单就不是闭包了!
-</code></pre><p>有了初步的认识后，我们简单分析一下它和普通函数有什么不同，这样我们才能从“茫茫人海”中一眼认出“她”。</p>
-        <p class="article-more-link">
-          <a class="article-more-a"  href="/2016/10/14/learningClosure/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/14/learningClosure/" class="archive-article-date">
-  	<time datetime="2016-10-14T09:45:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
 
-      
 
-      <div class="clearfix"></div>
-    </div>
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-</article>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="console" data-title="Js调试工具，万能的Console" data-url="http://yoursite.com/2016/10/14/console/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-
-
-
-  
-    <article id="post-touchEvent" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/14/touchEvent/">手机端html5触屏事件(touch事件)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>touchstart：触摸开始的时候触发</br><br>touchmove：手指在屏幕上滑动的时候触发</br><br>touchend：触摸结束的时候触发</br></p>
-<p>而每个触摸事件都包括了三个触摸列表，每个列表里包含了对应的一系列触摸点（用来实现多点触控）：</br><br>touches：当前位于屏幕上的所有手指的列表。</br><br>targetTouches：位于当前DOM元素上手指的列表。</br><br>changedTouches：涉及当前事件手指的列表。</br></p>
-        <p class="article-more-link">
-          <a class="article-more-a"  href="/2016/10/14/touchEvent/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/14/touchEvent/" class="archive-article-date">
-  	<time datetime="2016-10-14T09:35:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-detailedClosure" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/13/detailedClosure/">js闭包详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>闭包有三个特性：</br><br>1.函数嵌套函数</br><br>2.函数内部可以引用外部的参数和变量</br><br>3.参数和变量不会被垃圾回收机制回收<br>闭包的定义及其优缺点</p>
-<p>闭包 是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量</p>
-<p>使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）</p>
-        <p class="article-more-link">
-          <a class="article-more-a"  href="/2016/10/13/detailedClosure/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/13/detailedClosure/" class="archive-article-date">
-  	<time datetime="2016-10-13T07:50:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-13</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-  
 
 
       </div>
@@ -401,8 +273,8 @@ b();//Hello Closure!
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
