@@ -450,14 +450,18 @@ function closure(){
 				return ''+num;
 			};
 		};
+		
 		var timeDate = new Date();
 		var hours    = toZero(timeDate.getHours());
 		var minutes  = toZero(timeDate.getMinutes());
 		var seconds  = toZero(timeDate.getSeconds());
-
+			
+		var time = "北京时间："+hours+":"+minutes+":"+seconds;
 		var footerLeft = document.getElementById("footer-left");
+	
 		setInterval(function(){
-			footerLeft.innerHTML = "北京时间："+hours+":"+minutes+":"+seconds;	
+			console.log(time)
+			footerLeft.innerHTML = time;	
 		},1000);
 	</script>
       	<div class="footer-right">
