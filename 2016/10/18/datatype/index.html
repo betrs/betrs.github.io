@@ -385,11 +385,10 @@ x.splice(1, 2) // 用于插入、删除或替换数组元素，这里为删除�
 		var hours    = toZero(timeDate.getHours());
 		var minutes  = toZero(timeDate.getMinutes());
 		var seconds  = toZero(timeDate.getSeconds());
-			
-		var time = "北京时间："+hours+":"+minutes+":"+seconds;
 		var footerLeft = document.getElementById("footer-left");
-	
+		
 		setInterval(function(){
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
 			console.log(time)
 			footerLeft.innerHTML = time;	
 		},1000);

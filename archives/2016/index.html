@@ -368,11 +368,10 @@
 		var hours    = toZero(timeDate.getHours());
 		var minutes  = toZero(timeDate.getMinutes());
 		var seconds  = toZero(timeDate.getSeconds());
-			
-		var time = "北京时间："+hours+":"+minutes+":"+seconds;
 		var footerLeft = document.getElementById("footer-left");
-	
+		
 		setInterval(function(){
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
 			console.log(time)
 			footerLeft.innerHTML = time;	
 		},1000);
