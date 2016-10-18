@@ -334,15 +334,15 @@ f(document);
 			};
 		};
 		
-		var timeDate = new Date();
-		var hours    = toZero(timeDate.getHours());
-		var minutes  = toZero(timeDate.getMinutes());
-		var seconds  = toZero(timeDate.getSeconds());
-		var footerLeft = document.getElementById("footer-left");
-		
 		setInterval(function(){
+			var timeDate = new Date();
+			var hours    = toZero(timeDate.getHours());
+			var minutes  = toZero(timeDate.getMinutes());
+			var seconds  = toZero(timeDate.getSeconds());
+			var footerLeft = document.getElementById("footer-left");
 			var time = "北京时间："+hours+":"+minutes+":"+seconds;
-			console.log(time)
+
+			//console.log(time)
 			footerLeft.innerHTML = time;	
 		},1000);
 	</script>
