@@ -158,9 +158,25 @@
 
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    <div class="article-info article-info-index">
       
-        <p>touchstart：触摸开始的时候触发<br><br>touchmove：手指在屏幕上滑动的时候触发<br><br>touchend：触摸结束的时候触发<br></p>
+      <a href="/2016/10/14/touchEvent/" class="archive-article-date">
+  	<time datetime="2016-10-14T09:35:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+	</div>
+
+      
+
+      <div class="article-entry" itemprop="articleBody" style="float:right;">
+	  
+		
+		
+		  <p>touchstart：触摸开始的时候触发<br><br>touchmove：手指在屏幕上滑动的时候触发<br><br>touchend：触摸结束的时候触发<br></p>
 <p>而每个触摸事件都包括了三个触摸列表，每个列表里包含了对应的一系列触摸点（用来实现多点触控）：<br><br>touches：当前位于屏幕上的所有手指的列表。<br><br>targetTouches：位于当前DOM元素上手指的列表。<br><br>changedTouches：涉及当前事件手指的列表。<br></p>
 <a id="more"></a>
 <p>每个触摸点由包含了如下触摸信息（常用）：<br><br>identifier：一个数值，唯一标识触摸会话（touch session）中的当前手指。一般为从0开始的流水号（android4.1，uc）<br><br>target：DOM元素，是动作所针对的目标。<br><br>pageX/pageX/clientX/clientY/screenX/screenY：一个数值，动作在屏幕上发生的位置（page包含滚动距离,client不包含滚动距离，screen则以屏幕为基准）。<br><br>radiusX/radiusY/rotationAngle：画出大约相当于手指形状的椭圆形，分别为椭圆形的两个半径和旋转角度。初步测试浏览器不支持，好在功能不常用，欢迎大家反馈。<br></p>
@@ -177,21 +193,9 @@ obj.addEventListener(&apos;touchmove&apos;, function(event) {
 }, false);
 </code></pre><p>注意：此功能只能在移动设备或模拟移动设备查看效果</p>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/14/touchEvent/" class="archive-article-date">
-  	<time datetime="2016-10-14T09:35:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+		
+	  
 	</div>
-
-      
-
       <div class="clearfix"></div>
     </div>
   </div>
