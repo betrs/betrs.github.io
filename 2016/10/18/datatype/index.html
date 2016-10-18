@@ -4,33 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>一些好用的JQuery技巧 | 吴佳博客</title>
+  <title>jQuery的14个数据类型 | 吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#一、返回顶部按钮
-通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
-// Back to top
-$(&amp;apos;.top&amp;apos;).click(function (e) {
-    e.preventDefault();
-    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
+  <meta name="description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
+#1. String
+String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
+var typeOfStr = typeof &amp;quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一些好用的JQuery技巧">
-<meta property="og:url" content="http://yoursite.com/2016/10/14/JqSkill/index.html">
+<meta property="og:title" content="jQuery的14个数据类型">
+<meta property="og:url" content="http://yoursite.com/2016/10/18/datatype/index.html">
 <meta property="og:site_name" content="吴佳博客">
-<meta property="og:description" content="#一、返回顶部按钮
-通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
-// Back to top
-$(&amp;apos;.top&amp;apos;).click(function (e) {
-    e.preventDefault();
-    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
-<meta property="og:updated_time" content="2016-10-14T10:18:22.142Z">
+<meta property="og:description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
+#1. String
+String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
+var typeOfStr = typeof &amp;quot;">
+<meta property="og:updated_time" content="2016-10-18T04:08:52.291Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一些好用的JQuery技巧">
-<meta name="twitter:description" content="#一、返回顶部按钮
-通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
-// Back to top
-$(&amp;apos;.top&amp;apos;).click(function (e) {
-    e.preventDefault();
-    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
+<meta name="twitter:title" content="jQuery的14个数据类型">
+<meta name="twitter:description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
+#1. String
+String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
+var typeOfStr = typeof &amp;quot;">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -154,7 +148,7 @@ $(&amp;apos;.top&amp;apos;).click(function (e) {
 </nav>
 
       <div class="body-wrap">
-        <article id="post-JqSkill" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-datatype" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -164,7 +158,7 @@ $(&amp;apos;.top&amp;apos;).click(function (e) {
         
   
     <h1 class="article-title" itemprop="name">
-      一些好用的JQuery技巧
+      jQuery的14个数据类型
     </h1>
   
 
@@ -172,148 +166,137 @@ $(&amp;apos;.top&amp;apos;).click(function (e) {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#一、返回顶部按钮</p>
-<p>通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：</p>
-<pre><code>// Back to top
-$(&apos;.top&apos;).click(function (e) {
-    e.preventDefault();
-    $(&apos;html, body&apos;).animate({scrollTop: 0}, 800);
-});
-&lt;!-- Create an anchor tag --&gt;
-&lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;
-</code></pre><p>改变scrollTop 的值可以更改你想要放置滚动条的位置。所有你真正需要做的是在800毫秒的时间内设置文档主体的动画，直到它滚动到文档的顶部。<br>注：小心scrollTop的一些错误行为。</p>
-<p>#二、预加载图像</p>
-<p>如果你的网页要使用大量开始不可见的（例如，悬停的）图像，那么可以预加载这些图像：</p>
-<pre><code>$.preloadImages = function () {
-    for (var i = 0; i &lt; arguments.length; i++) {
-        $(&apos;&lt;img&gt;&apos;).attr(&apos;src&apos;, arguments[i]);
-    }
+        <p>jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。</p>
+<p>#1. String</p>
+<p>String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如</p>
+<pre><code>var typeOfStr = typeof &quot;hello world&quot;;//typeOfStr为“string&quot;
+</code></pre><p>1.1 String内置方法</p>
+<pre><code>&quot;hello&quot;.charAt(0) // &quot;h&quot;
+&quot;hello&quot;.toUpperCase() // &quot;HELLO&quot;
+&quot;Hello&quot;.toLowerCase() // &quot;hello&quot;
+&quot;hello&quot;.replace(/e|o/g, &quot;x&quot;) // &quot;hxllx&quot;
+&quot;1,2,3&quot;.split(&quot;,&quot;) // [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]
+</code></pre><p>1.2 length属性：返回字符长度，比如”hello”.length返回5</p>
+<p>1.3 字符串转换为Boolean：</p>
+<p>一个空字符串（””）默认为false，而一个非空字符串为true（比如”hello”）。</p>
+<p>#2. Number</p>
+<p>数字类型，比如3.1415926或者1、2、3…</p>
+<pre><code>typeof 3.1415926 //返回的是&quot;number&quot;
+</code></pre><p>2.1 Number转换为Boolean：</p>
+<p>如果一个Number值为0，则默认为false，否则为true。</p>
+<p>2.2 由于Number是采用双精度浮点数实现的，所以下面这种情况是合理的：</p>
+<pre><code>0.1 + 0.2 // 0.30000000000000004
+</code></pre><p>#3. Math</p>
+<p>下面的方法与Java中的Math类的静态方法类似。</p>
+<pre><code>Math.PI // 3.141592653589793
+Math.cos(Math.PI) // -1
+</code></pre><p>3.1 将字符串化为数字：parseInt和parseFloat方法：</p>
+<pre><code>parseInt(&quot;123&quot;) = 123 (采用十进制转换)
+parseInt(&quot;010&quot;) = 8 (采用八进制转换)
+parseInt(&quot;0xCAFE&quot;) = 51966 (采用十六进制转换)
+parseInt(&quot;010&quot;, 10) = 10 (指定用10进制转换)
+parseInt(&quot;11&quot;, 2) = 3 (指定用二进制转换)
+parseFloat(&quot;10.10&quot;) = 10.1
+</code></pre><p>3.2 数字到字符串</p>
+<p>当将Number粘到（append）字符串后的时候，将得到字符串。</p>
+<pre><code>&quot;&quot; + 1 + 2; // &quot;12&quot;
+&quot;&quot; + (1 + 2); // &quot;3&quot;
+&quot;&quot; + 0.0000001; // &quot;1e-7&quot;
+</code></pre><p>或者用强制类型转换：</p>
+<pre><code>String(1) + String(2); //&quot;12&quot;
+String(1 + 2); //&quot;3&quot;
+</code></pre><p>#4. NaN 和 Infinity</p>
+<p>如果对一个非数字字符串调用parseInt方法，将返回NaN(Not a Number)，NaN常用来检测一个变量是否数字类型，如下：</p>
+<pre><code>isNaN(parseInt(&quot;hello&quot;, 10)) // true
+//Infinity表示数值无穷大或无穷小，比如1 / 0 // Infinity。
+//对NaN和Infinity调用typeof运算符都返回&quot;numuber&quot;。
+//另外 NaN==NaN 返回false，但是 Infinity==Infinity 返回true。
+</code></pre><p>#5. Integer 和 Float<br>分为表示整型和浮点型。</p>
+<pre><code>http://w去ww.cn掉blogs.c中文om/roucheng/
+</code></pre><p>#6. BOOLEAN<br>布尔类型，true或者false。</p>
+<p>#7. OBJECT<br>JavaScript中的一切皆对象。对一个对象进行typeof运算返回 “object”。</p>
+<pre><code>var x = {};
+var y = { name: &quot;Pete&quot;, age: 15 };
+</code></pre><p>对于上面的y对象，可以采用圆点获取属性值，比如y.name返回”Pete”，y.age返回15</p>
+<p>7.1 Array Notation（数组访问方式访问对象）</p>
+<pre><code>var operations = { increase: &quot;++&quot;, decrease: &quot;--&quot; }
+var operation = &quot;increase&quot;;
+operations[operation] // &quot;++&quot;;
+operations[&quot;multiply&quot;] = &quot;*&quot;; // &quot;*&quot;
+//上面operations[&quot;multiply&quot;]=&quot;*&quot;; 往operations对象中添加了一个key-value对。
+</code></pre><p>7.2 对象循环访问：for-in</p>
+<pre><code>var obj = { name: &quot;Pete&quot;, age: 15};
+for(key in obj) {
+    alert(&quot;key is &quot;+[key]+&quot;, value is &quot;+obj[key]);
+}
+</code></pre><p>7.3 任何对象不管有无属性和值，都默认为true</p>
+<p>7.4 对象的Prototype属性</p>
+<p>jQuery中用fn（Prototype的别名）动态为jQuery Instances添加对象（函数）</p>
+<pre><code>var form = $(&quot;#myform&quot;);
+form.clearForm; // undefined
+form.fn.clearForm = function() {
+    return this.find(&quot;:input&quot;).each(function() { this.value = &quot;&quot;; }).end();
 };
-$.preloadImages(&apos;img/hover-on.png&apos;, &apos;img/hover-off.png&apos;);
-</code></pre><a id="more"></a>
-<p>#三、检查图像是否加载</p>
-<p>有时为了继续脚本，你可能需要检查图像是否全部加载完毕：</p>
-<pre><code>$(&apos;img&apos;).load(function () {
-    console.log(&apos;image load successful&apos;);
+form.clearForm() // works for all instances of jQuery objects, because the new method was added
+</code></pre><p>#8. OPTIONS<br>几乎所有的jQuery插件都提供了一个基于OPTIONS的API，OPTIONS是JS对象，意味着该对象以及它的属性都是optional（可选的）。允许customization。</p>
+<p>比如采用Ajax方式提交表单，</p>
+<pre><code>$(&quot;#myform&quot;).ajaxForm();//默认采用Form的Action属性值作为Ajax-URL，Method值作为提交类型(GET/POST)
+$(&quot;#myform&quot;).ajaxForm({ url: &quot;mypage.php&quot;, type: &quot;POST&quot; });//则覆盖了提交到的URL和提交类型
+</code></pre><p>#9. ARRAY</p>
+<pre><code>var arr = [1, 2, 3];
+</code></pre><p>ARRAY是可变的lists。ARRAY也是对象。<br>读取或设置ARRAY中元素的值，采用这种方式：</p>
+<pre><code>var val = arr[0];//val为1
+arr[2] = 4;//现在arr第三个元素为4
+</code></pre><p>9.1 数组循环（遍历）</p>
+<pre><code>for (var i = 0; i &lt; a.length; i++) { // Do something with a[i] }
+</code></pre><p>但是当考虑性能时，则最好只读一次length属性，如下：</p>
+<pre><code>for (var i = 0, j = a.length; i &lt; j; i++) { // Do something with a[i] }
+</code></pre><p>jQuery提供了each方法遍历数组：</p>
+<pre><code>var x = [1, 2, 3];
+$.each(x,
+function(index, value) {
+    console.log(&quot;index&quot;, index, &quot;value&quot;, value);
 });
-</code></pre><p>你也可以用ID或类替换<img>标签来检查某个特定的图像是否被加载。</p>
-<p>#四、自动修复破坏的图像</p>
-<p>逐个替换已经破坏的图像链接是非常痛苦的。不过，下面这段简单的代码可以帮助你：</p>
-<pre><code>$(&apos;img&apos;).on(&apos;error&apos;, function () {
-    if(!$(this).hasClass(&apos;broken-image&apos;)) {
-    $(this).prop(&apos;src&apos;, &apos;img/broken.png&apos;).addClass(&apos;broken-image&apos;);
-    }
+</code></pre><p>9.2 对数组调用push方法意味着将一个元素添加到数组末尾，比如 x.push(5); 和 x.[x.length] = 5; 等价</p>
+<p>9.3 数组其他内置方法：</p>
+<pre><code>var x = [0, 3, 1, 2];
+x.reverse() // [2, 1, 3, 0]
+x.join(&quot; – &quot;) // &quot;2 - 1 - 3 - 0&quot;
+x.pop() // [2, 1, 3]
+x.unshift(-1) // [-1, 2, 1, 3]
+x.shift() // [2, 1, 3]
+x.sort() // [1, 2, 3]
+x.splice(1, 2) // 用于插入、删除或替换数组元素，这里为删除从index=1开始的2个元素
+</code></pre><p>9.4 数组为对象，所以始终为true</p>
+<p>#10. MAP</p>
+<p>The map type is used by the AJAX function to hold the data of a request. This type could be a string, an array<form elements="">, a jQuery object with form elements or an object with key/value pairs. In the last case, it is possible to assign multiple values to one key by assigning an array. As below:</form></p>
+<pre><code>{&apos;key[]&apos;:[&apos;valuea&apos;,&apos;valueb&apos;]}
+</code></pre><p>#11. FUNCTION:匿名和有名两种</p>
+<p>11.1 Context、Call和Apply</p>
+<p>In JavaScript, the variable “this” always refers to the current context.</p>
+<pre><code>$(document).ready(function() {
+    // this refers to window.document});
+    $(&quot;a&quot;).click(function() { // this refers to an anchor DOM element
 });
-</code></pre><p>即使没有任何断掉的链接，加上这一段代码也不会让你有任何损失。</p>
-<p>#五、悬停切换类</p>
-<p>假设你希望当用户将鼠标悬停在可点击的元素上时，它会改变颜色。那么你可以在用户悬停的时候添加类到元素中，反之则删除类：</p>
-<pre><code>$(&apos;.btn&apos;).hover(function () {
-    $(this).addClass(&apos;hover&apos;);
-}, function () {
-    $(this).removeClass(&apos;hover&apos;);
-});
-</code></pre><p>你只需要添加必要的CSS即可。更简单的方法是使用toggleClass 方法：</p>
-<pre><code>$(&apos;.btn&apos;).hover(function () {
-    $(this).toggleClass(&apos;hover&apos;);
-});
-</code></pre><p>注：可能在这种情况下，CSS这种解决方案更快，不过了解这个方法很有必要。</p>
-<p>#六、禁用输入字段</p>
-<p>有时候，你可能想要禁用表格的提交按钮或它的某一项文字输入直到用户执行了特定操作（例如，勾选“我已阅读相关条款”复选框）。添加 disabled属性到你的输入就可以在你想要的时候才启用它：</p>
-<pre><code>$(&apos;input[type=&quot;submit&quot;]&apos;).prop(&apos;disabled&apos;, true);
-</code></pre><p>然后你只需要运行输入的prop 方法就可以了，不过disabled 的值要设置为false：</p>
-<pre><code>$(&apos;input[type=&quot;submit&quot;]&apos;).prop(&apos;disabled&apos;, false);
-</code></pre><p>#七、停止加载链接</p>
-<p>有时候，你既不需要链接到某个特定的网页，也不想要重新加载页面——你可能希望链接做点别的事情，例如说触发一些其他脚本。这就要在阻止默认动作上做文章了：</p>
-<pre><code>$(&apos;a.no-link&apos;).click(function (e) {
-    e.preventDefault();
-});
-</code></pre><p>#八、淡入/滑动切换</p>
-<p>滑动和淡入都是我们用jQuery做动画的时候大量运用的东西。如果你只是想在用户点击之后展示一个元素的话，那么用fadeIn 和slideDown 方法就很完美。但是，如果你想要元素在第一次点击的时候出现，然后在第二次点击的时候消失的话，那么可以试试下面的代码：</p>
-<pre><code>// Fade
-$(&apos;.btn&apos;).click(function () {
-    $(&apos;.element&apos;).fadeToggle(&apos;slow&apos;);
-});
-
-// Toggle
-$(&apos;.btn&apos;).click(function () {
-    $(&apos;.element&apos;).slideToggle(&apos;slow&apos;);
-});
-</code></pre><p>#九、简单的手风琴</p>
-<p>这是一个可快速生成手风琴的简单方法：</p>
-<pre><code>// Close all panels
-$(&apos;#accordion&apos;).find(&apos;.content&apos;).hide();
-
-// Accordion
-$(&apos;#accordion&apos;).find(&apos;.accordion-header&apos;).click(function () {
-    var next = $(this).next();
-    next.slideToggle(&apos;fast&apos;);
-    $(&apos;.content&apos;).not(next).slideUp(&apos;fast&apos;);
-    return false;
-});
-</code></pre><p>通过添加这个脚本，你真正需要做的仅仅是在页面上添加必要的HTML元素，这样它就可以运行工作了。</p>
-<p>#十、让两个div高度相同</p>
-<p>有时候，你需要让两个div无论包含什么内容都拥有相同的高度：</p>
-<pre><code>$(&apos;.div&apos;).css(&apos;min-height&apos;, $(&apos;.main-div&apos;).height());
-</code></pre><p>设置 min-height，这意味着它可以比主div大但绝对不能比主div小。不过，还有一种更灵活的方法是遍历一组元素，然后将高度设置为最高的那个元素的高度：</p>
-<pre><code>var $columns = $(&apos;.column&apos;);
-var height = 0;
-$columns.each(function () {
-    if ($(this).height() &gt; height) {
-        height = $(this).height();
-    }
-});
-$columns.height(height);
-</code></pre><p>如果你希望所有列的高度相同：</p>
-<pre><code>var $rows = $(&apos;.same-height-columns&apos;);
-$rows.each(function () {
-$(this).find(&apos;.column&apos;).height($(this).height());
-});
-</code></pre><p>#十一、在新标签页/窗口打开外部链接</p>
-<p>在一个新的浏览器tab或窗口中打开外部链接，并确保同一个来源的链接能在同一个tab或者窗口中打开：</p>
-<pre><code>$(&apos;a[href^=&quot;http&quot;]&apos;).attr(&apos;target&apos;, &apos;_blank&apos;);
-$(&apos;a[href^=&quot;//&quot;]&apos;).attr(&apos;target&apos;, &apos;_blank&apos;);
-$(&apos;a[href^=&quot;&apos; + window.location.origin + &apos;&quot;]&apos;).attr(&apos;target&apos;, &apos;_self&apos;);
-</code></pre><p>注意：window.location.origin 在IE10中无效。修复的时候要小心这个问题。</p>
-<p>#十二、通过文本查找元素<br>通过使用jQuery中的contains() 选择器，你可以找到元素内容的文本。如果文本不存在，那就隐藏该元素：</p>
-<pre><code>var search = $(&apos;#search&apos;).val();
-$(&apos;div:not(:contains(&quot;&apos; + search + &apos;&quot;))&apos;).hide();
-13、在改变Visibility时触发
-</code></pre><p>当用户不再关注某个tab，或重新聚焦原来的那个tab上时，触发JavaScript：</p>
-<pre><code>$(document).on(&apos;visibilitychange&apos;, function (e) {
-    if (e.target.visibilityState === &quot;visible&quot;) {
-        console.log(&apos;Tab is now in view!&apos;);
-    } else if (e.target.visibilityState === &quot;hidden&quot;) {
-        console.log(&apos;Tab is now hidden!&apos;);
-    }
-});
-</code></pre><p>#十三、AJAX调用错误处理</p>
-<p>当Ajax调用返回404或500错误时，就执行错误处理程序。如果没有定义处理程序，其他的jQuery代码或会就此罢工。定义一个全局的Ajax错误处理程序：</p>
-<pre><code>$(document).ajaxError(function (e, xhr, settings, error) {
-    console.log(error);
-});
-</code></pre><p>#十四、链式插件调用</p>
-<p>jQuery允许“链式”插件的方法调用，以减轻反复查询DOM并创建多个jQuery对象的过程。比方说，下面的代码片段代表了你的插件方法调用：</p>
-<pre><code>$(&apos;#elem&apos;).show();
-$(&apos;#elem&apos;).html(&apos;bla&apos;);
-$(&apos;#elem&apos;).otherStuff();
-</code></pre><p>通过使用链式，可以大大改善：</p>
-<pre><code>$(&apos;#elem&apos;)
-.show()
-.html(&apos;bla&apos;)
-.otherStuff();
-</code></pre><p>还有一种方法是在（前缀$）变量中高速缓存元素：</p>
-<pre><code>var $elem = $(&apos;#elem&apos;);
-$elem.hide();
-$elem.html(&apos;bla&apos;);
-$elem.otherStuff();
-</code></pre><p>链式和高速缓存的方法都是jQuery中可以让代码变得更短和更快的代最佳做法。</p>
+</code></pre><p>#12. SELECTOR</p>
+<p>There are lot of plugins that leverage jQuery’s selectors in other ways. The validation plugin accepts a selector to specify a dependency, whether an input is required or not:</p>
+<pre><code>emailrules: { required: &quot;#email:filled&quot; }
+</code></pre><p>This would make a checkbox with name “emailrules” required only if the user entered an email address in the email field, selected via its id, filtered via a custom selector “:filled” that the validation plugin provides.</p>
+<p>#13. EVENT</p>
+<p>DOM标准事件包括：blur, focus, load, resize, scroll, unload, beforeunload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, andkeyup</p>
+<p>#14. JQUERY</p>
+<p>JQUERY对象包含DOM元素的集合。比如$(‘p’)即返回所有</p><p>…</p><p></p>
+<p>JQUERY对象行为类似数组，也有length属性，也可以通过index访问DOM元素集合中的某个。但是不是数组，不具备数组的某些方法，比如join()。</p>
+<p>许多jQuery方法返回jQuery对象本身，所以可以采用链式调用：</p>
+<pre><code>$(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;).find(&quot;.special&quot;).css(&quot;color&quot;, &quot;green&quot;);
+</code></pre><p>但是如果你调用的方法会破坏jQuery对象，比如find()和filter()，则返回的不是原对象。要返回到原对象只需要再调用end()方法即可。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/14/JqSkill/" class="archive-article-date">
-  	<time datetime="2016-10-14T10:10:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
+      <a href="/2016/10/18/datatype/" class="archive-article-date">
+  	<time datetime="2016-10-18T03:52:23.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-18</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -331,18 +314,9 @@ $elem.otherStuff();
   
 <nav id="article-nav">
   
-    <a href="/2016/10/18/datatype/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          jQuery的14个数据类型
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/10/14/console/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Js调试工具，万能的Console</div>
+    <a href="/2016/10/14/JqSkill/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一些好用的JQuery技巧</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -369,7 +343,7 @@ $elem.otherStuff();
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JqSkill" data-title="一些好用的JQuery技巧" data-url="http://yoursite.com/2016/10/14/JqSkill/"></div>
+	<div class="ds-thread" data-thread-key="datatype" data-title="jQuery的14个数据类型" data-url="http://yoursite.com/2016/10/18/datatype/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
