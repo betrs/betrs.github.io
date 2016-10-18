@@ -195,9 +195,22 @@
     	<div class="footer-left" id="footer-left">
     	</div>
 	<script>
+		//封装时间补零方法
+		function toZero(num){//补零操作
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;
+			};
+		};
+		var timeDate = new Date();
+		var hours    = toZero(timeDate.getHours());
+		var minutes  = toZero(timeDate.getMinutes());
+		var seconds  = toZero(timeDate.getSeconds());
+
 		var footerLeft = document.getElementById("footer-left");
 		setInterval(function(){
-			footerLeft.innerHTML = "北京时间：16:51:18";	
+			footerLeft.innerHTML = "北京时间："+hours+":"+minutes+":"+seconds;	
 		},1000);
 	</script>
       	<div class="footer-right">
