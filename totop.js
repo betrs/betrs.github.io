@@ -9,9 +9,9 @@
     $(window).scroll(function () {
         var scrollTop = $(document).scrollTop();
         if ( scrollTop > upperLimit ) {
-            $(scrollElem).stop().fadeTo(300, 1);
+            $(scrollElem).stop().fadeIn(300);
         }else{
-            $(scrollElem).stop().fadeTo(300, 0);
+            $(scrollElem).stop().fadeOut(300);
         }
     });
 
