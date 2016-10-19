@@ -1,4 +1,4 @@
-(function($) {
+$(function(){
 	$("#totop").hide();
 	$(window).scroll(function(){
 		var top = $(document).scrollTop();
@@ -14,4 +14,4 @@
 			scrollTop:0		
 		},300);
    });
-})(jQuery);
+});
