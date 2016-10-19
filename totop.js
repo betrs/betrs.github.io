@@ -7,6 +7,7 @@ $(function(){
 		}else{
 			$("#totop").fadeOut(300);
 		};
+		console.log(0)
 	});
 
    $("#totop").click(function(){
