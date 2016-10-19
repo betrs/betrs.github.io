@@ -1,4 +1,3 @@
-(function($) {
     // When to show the scroll link
     // higher number = scroll link appears further down the page
     var upperLimit = 300;
@@ -24,4 +23,3 @@
     $(scrollElem).click(function(){
         $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
     });
-})(jQuery);
