@@ -18,4 +18,5 @@
     $(scrollElem).click(function(){
         $('body').stop(true).animate({scrollTop:0}, scrollSpeed); return false;
     });
+	console.log(0)
 })(jQuery);
