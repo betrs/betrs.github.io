@@ -15,4 +15,5 @@ $(function(){
 			scrollTop:0		
 		},300);
    });
+   console.log($);
 });
