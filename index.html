@@ -229,8 +229,8 @@
 <p>通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：</p>
 <pre><code>// Back to top
 $(&apos;.top&apos;).click(function (e) {
-    e.preventDefault();
-    $(&apos;html, body&apos;).animate({scrollTop: 0}, 800);
+e.preventDefault();
+$(&apos;html, body&apos;).animate({scrollTop: 0}, 800);
 });
 &lt;!-- Create an anchor tag --&gt;
 &lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;
@@ -589,6 +589,11 @@ MathJax.Hub.Queue(function() {
 </script>
 
 
+
+<div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/totop.js"></script>
     
 <div class="tools-col">
   <ul class="btn-wrap">

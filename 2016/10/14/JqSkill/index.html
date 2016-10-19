@@ -10,8 +10,9 @@
 通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
 // Back to top
 $(&amp;apos;.top&amp;apos;).click(function (e) {
-    e.preventDefault();
-    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
+e.preventDefault();
+$(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0}, 800);
+}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一些好用的JQuery技巧">
 <meta property="og:url" content="http://yoursite.com/2016/10/14/JqSkill/index.html">
@@ -20,17 +21,19 @@ $(&amp;apos;.top&amp;apos;).click(function (e) {
 通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
 // Back to top
 $(&amp;apos;.top&amp;apos;).click(function (e) {
-    e.preventDefault();
-    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
-<meta property="og:updated_time" content="2016-10-14T10:18:22.142Z">
+e.preventDefault();
+$(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0}, 800);
+}">
+<meta property="og:updated_time" content="2016-10-19T01:09:40.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些好用的JQuery技巧">
 <meta name="twitter:description" content="#一、返回顶部按钮
 通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：
 // Back to top
 $(&amp;apos;.top&amp;apos;).click(function (e) {
-    e.preventDefault();
-    $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0},">
+e.preventDefault();
+$(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0}, 800);
+}">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -179,8 +182,8 @@ $(&amp;apos;.top&amp;apos;).click(function (e) {
 <p>通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：</p>
 <pre><code>// Back to top
 $(&apos;.top&apos;).click(function (e) {
-    e.preventDefault();
-    $(&apos;html, body&apos;).animate({scrollTop: 0}, 800);
+e.preventDefault();
+$(&apos;html, body&apos;).animate({scrollTop: 0}, 800);
 });
 &lt;!-- Create an anchor tag --&gt;
 &lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;
@@ -470,6 +473,11 @@ MathJax.Hub.Queue(function() {
 </script>
 
 
+
+<div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/totop.js"></script>
     
 <div class="tools-col">
   <ul class="btn-wrap">
