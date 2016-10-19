@@ -1,6 +1,6 @@
 (function($) {
 	$("#totop").hide();
-	$(window).scorll(function(){
+	$(window).scroll(function(){
 		var top = $(document).scrollTop();
 		if(top > 300){
 			$("#totop").fadeIn(300);
