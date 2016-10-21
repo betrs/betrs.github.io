@@ -4,17 +4,36 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: JavaScript | 吴佳博客</title>
+  <title>深入理解定时器：setTimeout与setInterval | 吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱生活，爱编程，爱前端 - 吴佳博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴佳博客">
-<meta property="og:url" content="http://yoursite.com/tags/JavaScript/index.html">
+  <meta name="description" content="#setTimeout
+setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。
+1    setTimeout(function(){
+2        console.log(&amp;apos;hello&amp;apos;)
+3    },1000)
+这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 
+s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解定时器：setTimeout与setInterval">
+<meta property="og:url" content="http://yoursite.com/2016/10/21/timer/index.html">
 <meta property="og:site_name" content="吴佳博客">
-<meta property="og:description" content="爱生活，爱编程，爱前端 - 吴佳博客">
+<meta property="og:description" content="#setTimeout
+setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。
+1    setTimeout(function(){
+2        console.log(&amp;apos;hello&amp;apos;)
+3    },1000)
+这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 
+s">
+<meta property="og:updated_time" content="2016-10-21T01:07:47.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴佳博客">
-<meta name="twitter:description" content="爱生活，爱编程，爱前端 - 吴佳博客">
+<meta name="twitter:title" content="深入理解定时器：setTimeout与setInterval">
+<meta name="twitter:description" content="#setTimeout
+setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。
+1    setTimeout(function(){
+2        console.log(&amp;apos;hello&amp;apos;)
+3    },1000)
+这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 
+s">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -141,150 +160,138 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-timer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      深入理解定时器：setTimeout与setInterval
+    </h1>
   
+
+      </header>
     
-    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+		
+		
+		  <p>#setTimeout</p>
+<p>setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。</p>
+<pre><code>1    setTimeout(function(){
+2        console.log(&apos;hello&apos;)
+3    },1000)
+</code></pre><p>这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 </p>
+<p>setTimeout创建的定时器会返回一个ID值，利用这个ID值配合cleartimeout可以取消要延迟执行的代码块：</p>
+<pre><code>1 var t =setTimeout(function(){
+2    alert(&apos;hello&apos;)
+3 },1000)
+4 clearTimeout(t)
+5 setInterval
+</code></pre><p>setInterval()与setTimeout()相同，区别在于后者是重复性的检测和执行：</p>
+<pre><code>1 var t = setInterval(function(){
+2     console.log(&apos;hello&apos;)
+3 },1000)
+</code></pre><p>上面的代码每隔1s在控制台输出‘ hello’</p>
+<p>setInterval创建的定时器可以使用clearInterval取消</p>
+<p>// …<br>clearInterval(t)<br>定时器的问题</p>
+<p>setTimeout的问题在于它并不是精准的，例如使用setTimeout设定一个任务在10ms后执行，但是在9ms后，有一个任务占用了5ms的cpu时间片，再次轮到定时器执行时，时间已经过期了4ms，那么是不是说setInterval就是准确的呢？</p>
+<p>然而并不是，setInterval存在两个问题：</p>
+<p>时间间隔可能会跳过<br>时间间隔可能小于定时器设定的时间<br>请看以下代码</p>
+<pre><code>1    function click() { 
+2       // code block1... 
+3        setInterval(function() { 
+4            // process ... 
+5        }, 200); 
+6        // code block2 
+7    }
+</code></pre><p>我们假设通过一个click, 触发了setInterval以实现每隔一个时间段执行process代码，在205ms时执行setInterval, 以此为一个时间点, 在205ms时插入process代码, process代码开始执行, 然而process代码执行的时间超过了接下来一个插入时间点405ms, 这样代码队列后又插入了一份process代码, process继续执行着, 而且超过了605ms这个插入时间点。</p>
+<p>下面问题来了, 由于代码队列中已经有了一份未执行的process代码(405m时插入的), 所以605ms这个插入时间点将会被跳过, 因为js引擎只允许有一份未执行的process代码</p>
+<p>为了避免这种情况可以使用setTimeout递归调用<br>代码如下:</p>
+<pre><code>1    setTimeout(function(){ 
+2        // processing 
+3        setTimeout(arguments.callee, interval); 
+4    }, interval);
+</code></pre><p>每次函数执行的时候都会创建一个新的定时器，第二个setTimeout调用使用了arguments.callee来获取对当前执行的函数的引用，并为其设置另外一个定时器。这样做是为了在前一个定时器代码执行完之前，不会向队列插入新的定时器代码，确保不会有任何缺失的间隔，也保证了在下一次定时器代码执行之前，至少要等待指定的间隔，避免了连续的运行。</p>
+
+		
+	  
+    </div>
+    <div class="article-info article-info-index">
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/21/timer/" class="archive-article-date">
+      <a href="/2016/10/21/timer/" class="archive-article-date">
   	<time datetime="2016-10-21T01:01:55.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-21</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/21/timer/">深入理解定时器：setTimeout与setInterval</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div id="more" style="float:right;"></div>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/14/console/" class="archive-article-date">
-  	<time datetime="2016-10-14T10:01:28.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/14/console/">Js调试工具，万能的Console</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/18/datatype/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jQuery的14个数据类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/14/learningClosure/" class="archive-article-date">
-  	<time datetime="2016-10-14T09:45:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/14/learningClosure/">教你分分钟学会javascript闭包操作</a>
-    </h1>
-  
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/13/detailedClosure/" class="archive-article-date">
-  	<time datetime="2016-10-13T07:50:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/13/detailedClosure/">js闭包详解</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="timer" data-title="深入理解定时器：setTimeout与setInterval" data-url="http://yoursite.com/2016/10/21/timer/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
 
 
       </div>
@@ -328,9 +335,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
