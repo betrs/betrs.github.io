@@ -22,7 +22,7 @@ setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式�
 2         console.log(&amp;apos;hello&amp;apos;)
 3    },1000)
 这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。">
-<meta property="og:updated_time" content="2016-10-21T01:09:34.107Z">
+<meta property="og:updated_time" content="2016-10-21T01:30:22.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解定时器：setTimeout与setInterval">
 <meta name="twitter:description" content="#setTimeout
@@ -196,6 +196,7 @@ setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式�
 3    },1000)
 </code></pre><p>上面的代码每隔1s在控制台输出‘ hello’</p>
 <p>setInterval创建的定时器可以使用clearInterval取消</p>
+<a id="more"></a>
 <p>// …<br>clearInterval(t)<br>定时器的问题</p>
 <p>setTimeout的问题在于它并不是精准的，例如使用setTimeout设定一个任务在10ms后执行，但是在9ms后，有一个任务占用了5ms的cpu时间片，再次轮到定时器执行时，时间已经过期了4ms，那么是不是说setInterval就是准确的呢？</p>
 <p>然而并不是，setInterval存在两个问题：</p>

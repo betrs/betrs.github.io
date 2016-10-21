@@ -6,28 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>ES6 你可能不知道的事 - 基础篇 | 吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="转自：http://taobaofed.org/blog/2016/07/22/es6-basics/
-#序
+  <meta name="description" content="#序
 ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。
 首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。
-对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚">
+对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6 你可能不知道的事 - 基础篇">
 <meta property="og:url" content="http://yoursite.com/2016/10/21/es6Basics/index.html">
 <meta property="og:site_name" content="吴佳博客">
-<meta property="og:description" content="转自：http://taobaofed.org/blog/2016/07/22/es6-basics/
-#序
+<meta property="og:description" content="#序
 ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。
 首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。
-对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚">
-<meta property="og:updated_time" content="2016-10-21T01:25:21.240Z">
+对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍">
+<meta property="og:updated_time" content="2016-10-21T01:29:56.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6 你可能不知道的事 - 基础篇">
-<meta name="twitter:description" content="转自：http://taobaofed.org/blog/2016/07/22/es6-basics/
-#序
+<meta name="twitter:description" content="#序
 ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。
 首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。
-对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚">
+对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -175,8 +172,7 @@ ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数�
 	  
 		
 		
-		  <p>转自：<a href="http://taobaofed.org/blog/2016/07/22/es6-basics/" target="_blank" rel="external">http://taobaofed.org/blog/2016/07/22/es6-basics/</a></p>
-<p>#序</p>
+		  <p>#序</p>
 <p>ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。</p>
 <p>首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。</p>
 <p>对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍砖、指正。</p>
@@ -200,7 +196,8 @@ ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数�
 14    let concat  = require(&apos;gulp-concat&apos;);
 15    let uglify  = require(&apos;gulp-uglify&apos;);
 16    let cssnano = require(&apos;gulp-cssnano&apos;);
-</code></pre><p>很多人看完概念之后，第一印象都是：“const 是表示不可变的值，而 let 则是用来替换原来的 var 的。”</p>
+</code></pre><a id="more"></a>
+<p>很多人看完概念之后，第一印象都是：“const 是表示不可变的值，而 let 则是用来替换原来的 var 的。”</p>
 <p>所以就会出现上面代码中的样子；一段代码中出现大量的 let，只有部分常量用 const 去做定义，这样的使用方式是错误的。</p>
 <p>你可能不知道的事</p>
 <p>const 的定义是不可重新赋值的值，与不可变的值(immutable value)不同；const 定义的 Object，在定义之后仍可以修改其属性。</p>
@@ -439,6 +436,7 @@ ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数�
 35    console.log(&apos;error test&apos;);  // 此行可以被正常执行
 </code></pre><p>#结语</p>
 <p>基础篇主要是讲了我们最常用的一些特性，后续如果大家感兴趣，还可以再来个 “进阶篇”，最后，希望文章中的部分内容可以对大家理解和使用 ES6 有所帮助。</p>
+<p>转自：<a href="http://taobaofed.org/blog/2016/07/22/es6-basics/" target="_blank" rel="external">http://taobaofed.org/blog/2016/07/22/es6-basics/</a></p>
 
 		
 	  

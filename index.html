@@ -162,13 +162,34 @@
 
     <div class="article-entry" itemprop="articleBody">
 	  
-		
-		
-		  <p>转自：<a href="http://taobaofed.org/blog/2016/07/22/es6-basics/" target="_blank" rel="external">http://taobaofed.org/blog/2016/07/22/es6-basics/</a></p>
-		  
-			<p class="article-more-link"><a href="/2016/10/21/es6Basics/#more">more >></a></p>
-	      
-		
+	    <p>#序</p>
+<p>ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。</p>
+<p>首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。</p>
+<p>对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍砖、指正。</p>
+<p>#正文</p>
+<p>Let + Const</p>
+<p>这个大概是开始了解 ES6 后，我们第一个感觉自己完全明白并兴致勃勃的开始使用的特性。</p>
+<p>以如下方式使用的同学请举下手？</p>
+<pre><code>1    // 定义常量
+2    const REG_GET_INPUT = /^\d{1,3}$/;
+3
+4    // 定义配置项
+5    let config = {
+6      isDev : false,
+7      pubDir: &apos;./admin/&apos;
+8    }
+9 
+10    // 引入 gulp
+11    let gulp    = require(&apos;gulp&apos;);
+12 
+13    // 引入gulp相关插件
+14    let concat  = require(&apos;gulp-concat&apos;);
+15    let uglify  = require(&apos;gulp-uglify&apos;);
+16    let cssnano = require(&apos;gulp-cssnano&apos;);
+</code></pre>
+	    
+		<p class="article-more-link"><a href="/2016/10/21/es6Basics/#more">more >></a></p>
+	    
 	  
     </div>
     <div class="article-info article-info-index">
@@ -219,13 +240,27 @@
 
     <div class="article-entry" itemprop="articleBody">
 	  
-		
-		
-		  <p>#setTimeout</p>
-		  
-			<p class="article-more-link"><a href="/2016/10/21/timer/#more">more >></a></p>
-	      
-		
+	    <p>#setTimeout</p>
+<p>setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。</p>
+<pre><code>1    setTimeout(function(){
+2         console.log(&apos;hello&apos;)
+3    },1000)
+</code></pre><p>这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 </p>
+<p>setTimeout创建的定时器会返回一个ID值，利用这个ID值配合cleartimeout可以取消要延迟执行的代码块：</p>
+<pre><code>1     var t =setTimeout(function(){
+2    alert(&apos;hello&apos;)
+3     },1000)
+4     clearTimeout(t)
+5     setInterval
+</code></pre><p>setInterval()与setTimeout()相同，区别在于后者是重复性的检测和执行：</p>
+<pre><code>1    var t = setInterval(function(){
+2        console.log(&apos;hello&apos;)
+3    },1000)
+</code></pre><p>上面的代码每隔1s在控制台输出‘ hello’</p>
+<p>setInterval创建的定时器可以使用clearInterval取消</p>
+	    
+		<p class="article-more-link"><a href="/2016/10/21/timer/#more">more >></a></p>
+	    
 	  
     </div>
     <div class="article-info article-info-index">
