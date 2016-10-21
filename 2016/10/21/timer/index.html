@@ -9,10 +9,9 @@
   <meta name="description" content="#setTimeout
 setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。
 1    setTimeout(function(){
-2        console.log(&amp;apos;hello&amp;apos;)
+2         console.log(&amp;apos;hello&amp;apos;)
 3    },1000)
-这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 
-s">
+这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解定时器：setTimeout与setInterval">
 <meta property="og:url" content="http://yoursite.com/2016/10/21/timer/index.html">
@@ -20,20 +19,18 @@ s">
 <meta property="og:description" content="#setTimeout
 setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。
 1    setTimeout(function(){
-2        console.log(&amp;apos;hello&amp;apos;)
+2         console.log(&amp;apos;hello&amp;apos;)
 3    },1000)
-这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 
-s">
-<meta property="og:updated_time" content="2016-10-21T01:07:47.206Z">
+这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。">
+<meta property="og:updated_time" content="2016-10-21T01:09:34.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解定时器：setTimeout与setInterval">
 <meta name="twitter:description" content="#setTimeout
 setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。
 1    setTimeout(function(){
-2        console.log(&amp;apos;hello&amp;apos;)
+2         console.log(&amp;apos;hello&amp;apos;)
 3    },1000)
-这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 
-s">
+这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -184,19 +181,19 @@ s">
 		  <p>#setTimeout</p>
 <p>setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。</p>
 <pre><code>1    setTimeout(function(){
-2        console.log(&apos;hello&apos;)
+2         console.log(&apos;hello&apos;)
 3    },1000)
 </code></pre><p>这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 </p>
 <p>setTimeout创建的定时器会返回一个ID值，利用这个ID值配合cleartimeout可以取消要延迟执行的代码块：</p>
-<pre><code>1 var t =setTimeout(function(){
+<pre><code>1     var t =setTimeout(function(){
 2    alert(&apos;hello&apos;)
-3 },1000)
-4 clearTimeout(t)
-5 setInterval
+3     },1000)
+4     clearTimeout(t)
+5     setInterval
 </code></pre><p>setInterval()与setTimeout()相同，区别在于后者是重复性的检测和执行：</p>
-<pre><code>1 var t = setInterval(function(){
-2     console.log(&apos;hello&apos;)
-3 },1000)
+<pre><code>1    var t = setInterval(function(){
+2        console.log(&apos;hello&apos;)
+3    },1000)
 </code></pre><p>上面的代码每隔1s在控制台输出‘ hello’</p>
 <p>setInterval创建的定时器可以使用clearInterval取消</p>
 <p>// …<br>clearInterval(t)<br>定时器的问题</p>
