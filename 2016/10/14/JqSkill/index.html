@@ -186,6 +186,13 @@ $(&amp;apos;html, body&amp;apos;).animate({scrollTop: 0}, 800);
   
 
       </header>
+      <script type="text/javascript">
+	 $(".article-title").hover(function(){
+		$(".article-header").stop(true).animate({width:"100%"},function(){
+			$(".article-title").css("color":"#fff");
+		});
+	 });
+      </script>
     
 
     <div class="article-entry" itemprop="articleBody">

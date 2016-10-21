@@ -171,6 +171,13 @@
   
 
       </header>
+      <script type="text/javascript">
+	 $(".article-title").hover(function(){
+		$(".article-header").stop(true).animate({width:"100%"},function(){
+			$(".article-title").css("color":"#fff");
+		});
+	 });
+      </script>
     
 
     <div class="article-entry" itemprop="articleBody">
