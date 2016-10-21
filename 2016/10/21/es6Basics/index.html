@@ -180,11 +180,11 @@ ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数�
       <script src="/js/jquery-2.1.4.min.js"></script>
       <script type="text/javascript">
 	 $(".article-title").hover(function(){
-		$(".article-header").stop(true).animate({
-			width:"100%"
-		},function(){
-			$(".article-title").css("color","#fff");
-		});
+		$(".article-header").css({"border-left":"5px solid #CFB7C4"});
+		$(this).css({color:"#CFB7C4"});
+	 },function(){
+		$(".article-header").css({"border-left":"5px solid #4D4D4D"});
+		$(this).css({color:"#696969"});
 	 });
       </script>
     
