@@ -175,21 +175,13 @@ setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式�
     
     
       <header class="article-header">
-	<div style="float:left">
-		
+	
   
     <h1 class="article-title" itemprop="name">
       深入理解定时器：setTimeout与setInterval
     </h1>
   
 
-	</div>
-	<div style="float:right">
-		<a href="/2016/10/21/timer/" class="archive-article-date">
-  	<time datetime="2016-10-21T01:01:55.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-21</time>
-</a>
-	</div>
-	<div class="clearfix"></div>
       </header>
     
 
@@ -236,23 +228,25 @@ setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式�
 4    }, interval);
 </code></pre><p>每次函数执行的时候都会创建一个新的定时器，第二个setTimeout调用使用了arguments.callee来获取对当前执行的函数的引用，并为其设置另外一个定时器。这样做是为了在前一个定时器代码执行完之前，不会向队列插入新的定时器代码，确保不会有任何缺失的间隔，也保证了在下一次定时器代码执行之前，至少要等待指定的间隔，避免了连续的运行。</p>
 
+		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 		
 	  
     </div>
     <div class="article-info article-info-index">
       
-      
-      
+      <a href="/2016/10/21/timer/" class="archive-article-date">
+  	<time datetime="2016-10-21T01:01:55.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-21</time>
+</a>   
+      <div id="more" style="float:right;">
+        
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
-      
+        
 
-      <div id="more" style="float:right;">
-	<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
-	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       </div>
       <div class="clearfix"></div>
     </div>
