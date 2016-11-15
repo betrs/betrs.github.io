@@ -6,75 +6,18 @@
   <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>JavaScript常用API总结 | 吴佳博客</title>
+  <title>学会JS的this这一篇就够了，根本不用记 | 吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="下面是我整理的一些JavaScript常用的API清单。
-目录
-元素查找
-class操作
-节点操作
-属性操作
-内容操作
-css操作
-位置大小
-事件
-DOM加载完毕
-绑定上下文
-去除空格
-Ajax
-JSON处理
-节点遍历
-元素查找
-// Node
-document.getElementById(id) // document.getElementById(&amp;apos;test&amp;apos;)
-docu">
+  <meta name="description" content="#以前看某本书上讲：掌握了JS中this的用法才算真正的跨过了JS的门槛我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript常用API总结">
-<meta property="og:url" content="http://yoursite.com/2016/11/08/jsapi/index.html">
+<meta property="og:title" content="学会JS的this这一篇就够了，根本不用记">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/javascriptThis/index.html">
 <meta property="og:site_name" content="吴佳博客">
-<meta property="og:description" content="下面是我整理的一些JavaScript常用的API清单。
-目录
-元素查找
-class操作
-节点操作
-属性操作
-内容操作
-css操作
-位置大小
-事件
-DOM加载完毕
-绑定上下文
-去除空格
-Ajax
-JSON处理
-节点遍历
-元素查找
-// Node
-document.getElementById(id) // document.getElementById(&amp;apos;test&amp;apos;)
-docu">
-<meta property="og:updated_time" content="2016-11-08T01:24:26.835Z">
+<meta property="og:description" content="#以前看某本书上讲：掌握了JS中this的用法才算真正的跨过了JS的门槛我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌">
+<meta property="og:updated_time" content="2016-11-15T01:10:18.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript常用API总结">
-<meta name="twitter:description" content="下面是我整理的一些JavaScript常用的API清单。
-目录
-元素查找
-class操作
-节点操作
-属性操作
-内容操作
-css操作
-位置大小
-事件
-DOM加载完毕
-绑定上下文
-去除空格
-Ajax
-JSON处理
-节点遍历
-元素查找
-// Node
-document.getElementById(id) // document.getElementById(&amp;apos;test&amp;apos;)
-docu">
+<meta name="twitter:title" content="学会JS的this这一篇就够了，根本不用记">
+<meta name="twitter:description" content="#以前看某本书上讲：掌握了JS中this的用法才算真正的跨过了JS的门槛我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -234,7 +177,7 @@ docu">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-jsapi" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-javascriptThis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -244,7 +187,7 @@ docu">
 	
   
     <h1 class="article-title" itemprop="name">
-      JavaScript常用API总结
+      学会JS的this这一篇就够了，根本不用记
     </h1>
   
 
@@ -255,355 +198,134 @@ docu">
 	  
 		
 		
-		  <p>下面是我整理的一些JavaScript常用的API清单。</p>
-<p>目录</p>
-<p>元素查找</p>
-<p>class操作</p>
-<p>节点操作</p>
-<p>属性操作</p>
-<p>内容操作</p>
-<p>css操作</p>
-<p>位置大小</p>
-<p>事件</p>
-<p>DOM加载完毕</p>
-<p>绑定上下文</p>
-<p>去除空格</p>
-<p>Ajax</p>
-<p>JSON处理</p>
-<p>节点遍历</p>
-<p>元素查找</p>
-<pre><code>// Node
-document.getElementById(id) // document.getElementById(&apos;test&apos;)
-document.querySelector(selectors) // document.querySelector(&apos;#test div&apos;)
-document.doctype
-document.documentElement
-document.head
-document.title
-document.body
-
-// NodeList
-document.getElementsByClassName(names) // document.getElementsByClassName(&apos;test&apos;)
-document.getElementsByName(name) // document.getElementsByName(&apos;demo&apos;)
-document.getElementsByTagName(name) // document.getElementsByTagName(&apos;div&apos;)
-document.getElementsByTagNameNS(namespace, name) // document.getElementsByTagNameNS(&apos;http://www.w3.org/1999/xhtml&apos;, &apos;div&apos;)
-document.querySelectorAll(selectors) // document.querySelectorAll(&apos;#test div&apos;)
-document.links
-document.scripts
-document.images
-document.embeds
-document.forms
-class操作
-
-// ie8
-// add class
-el.className += &apos; &apos; + className;
-
-// has class
-function hasClass(el,className){
-  return new RegExp(&apos;(^| )&apos; + className + &apos;( |$)&apos;, &apos;gi&apos;).test(el.className);
+		  <p>#以前看某本书上讲：<br>掌握了JS中this的用法才算真正的跨过了JS的门槛<br>我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌握了this的用法。然而可能是由于我太笨了，经常过一段时间就忘得一干二净了，这真的是一件很尴尬的事情……直到后来我仔细地琢磨又琢磨，终于感觉我可能以后不会再忘记了。所以想把我琢磨的内容和大家分享一下。</p>
+<p>说到this，就不得不提到function，相信看过其它类似文章的同学也知道，正是由于调用function的对象不同，才导致了this的指向不同。所以以前老是去记忆每种调用function的情况所对应的this，因为情况有限而且很少，所以这当然是可行的——对于聪明人来说。所以我不得不思考另外一些方式来让我记住。</p>
+<p>那么首先我们需要明确的一个事情是：function也是对象<br>同时我们还需要明确的一个事情是：function执行时是在某个特定的上下文中执行的。那什么是上下文呢？打个比方，比如你练会了辟邪剑谱，那这时候你的掌门让你用辟邪剑谱砍人。如果仅仅是这样的话，你是没法完成这个任务的，因为你必须得知道要砍谁吧，其次去哪儿砍吧，那么是个地下通道还是一望无尽的大草原，要是地下通道你走路都困难，还怎么用辟邪剑谱呢对吧。这就是上下文，函数执行时它也需要一些额外的信息来支撑它的运行。那么既然function是对象的话，就会有方法。而function中最核心的方法是call方法。因此我们就从这儿入手。</p>
+<p>#call方法<br>先来看一下如何使用call方法:</p>
+<pre><code>function say(content) {
+   console.log(&quot;From &quot; + this + &quot;: Hello &quot;+ content);
 }
-
-// toggle class
-function toggleClass(el,className){
-  var classes = el.className.split(&apos; &apos;);
-  var existingIndex = -1;
-  for (var i = classes.length; i--;) {
-    if (classes[i] === className){
-      existingIndex = i;
-    }
-  }
-  if (existingIndex &gt;= 0){
-    classes.splice(existingIndex, 1);
-  }
-  else{
-    classes.push(className);
-  }
-  el.className = classes.join(&apos; &apos;);
+say.call(&quot;Bob&quot;, &quot;World&quot;); //==&gt; From Bob: Hello World
+</code></pre><p>接下来仔细分析一下call的用法：<br>Step1: 把第二个到最后一个参数作为函数执行时要传入的参数<br>Step2: 把函数执行时的this指向第一个参数<br>Step3: 在上面这个特殊的上下文中执行函数<br>上面例子中，我们通过call方法，让say函数执行时的this指向”Bob”，然后把”World”作为参数传进去，所以输出结果是可以预见的。<br>js执行函数时会默认完成以上的步骤，你可以把直接调用函数理解为一种语法糖<br>比如：</p>
+<pre><code>function say(word) {
+   console.log(world);
 }
-
-// remove class
-function remove(el,className){
-  el.className = el.className.replace(new RegExp(&apos;(^|\\b)&apos; + className.split(&apos; &apos;).join(&apos;|&apos;) + &apos;(\\b|$)&apos;, &apos;gi&apos;), &apos; &apos;);
+say(&quot;Hello world&quot;);
+say.call(window, &quot;Hello world&quot;);
+</code></pre><p>以上可以把say(“Hello world”)看做是say.call(window,”Hello world”)的语法糖。</p>
+<p>这个结论非常关键，所以以后每次看见functionName(xxx)的时候，你需要马上在脑海中把它替换为functionName.call(window,xxxx)，这对你理解this的指向非常重要。不过也有例外，在ES5的strict mode中call的第一个参数不是window而是undefined。之后的例子我假设总是不在strictmode下，但你需要记住strictmode有一点儿不同。<br>对于匿名函数来说，上面的结论也是成立的</p>
+<pre><code>(function(name) {
+    //
+})(&quot;aa&quot;);
+//等价于
+(function(name) {    
+  //
+}).call(window, &quot;aa&quot;);
+</code></pre><p>函数作为对象的方法被调用<br>直接来看代码：</p>
+<pre><code>var person = {
+    name : &quot;caibirdme&quot;,
+    run : function(time) {
+        console.log(this.name + &quot;has been running for over &quot;+ time+ &quot; minutes&quot;);
+    }};
+person.run(30);
+//==&gt; caibirdme has been running for over 30 minutes//等价于
+person.run.call(person, 30); // the same
+</code></pre><p>你会发现这里call的第一个参数是person而不是window。<br>当你明白了这两点，下意识地把函数调用翻译成foo.call()的形式，明确call的第一个参数，那基本上this的问题就难不住你了。<br>还是来举几个例子吧</p>
+<p>#例一：</p>
+<pre><code>function hello(thing) {  
+  console.log(this + &quot; says hello &quot; + thing);
 }
-
-// ie 10
-el.classList.add(className); // add class
-el.classList.remove(className); // remove class
-el.classList.contains(className); // has class
-el.classList.toggle(className); // toggle class
-</code></pre><p>#节点操作</p>
-<pre><code>// 创建
-var el = document.createElement(name);
-
-// 复制
-el.cloneNode(true); // 默认为false(克隆节点及其后代), true(克隆节点及其属性，以及后代)
-
-// 向节点添加最后一个子节点
-parent.appendChild(el);
-
-// 在指定子节点之前插入新的子节点
-parent.insertBefore(el, parent.childNodes[0]);
-
-// insertAdjacentHTML方法
-el.insertAdjacentHTML(where, htmlString);
-el.insertAdjacentHTML(&apos;beforeBegin&apos;, htmlString); // 在该元素前插入
-el.insertAdjacentHTML(&apos;afterBegin&apos;, htmlString); // 在该元素第一个子元素前插入
-el.insertAdjacentHTML(&apos;beforeEnd&apos;, htmlString); // 在该元素最后一个子元素后面插入
-el.insertAdjacentHTML(&apos;afterEnd&apos;, htmlString); // 在该元素后插入
-
-// 父元素
-el.parentNode
-
-// 删除节点
-el.parentNode.removeChild(el);
-
-// 兄弟节点 ie9+
-var siblings = Array.prototype.filter.call(el.parentNode.children, function(child){
-  return child !== el;
-})
-
-// 下一个兄弟节点
-// ie8
-function nextElementSibling(el) {
-  do { el = el.nextSibling; } while ( el &amp;&amp; el.nodeType !== 1 );
-  return el;
-}
-nextElementSibling(el);
-// ie9+
-el.nextElementSibling;
-
-// 上一个兄弟节点
-// ie8
-function previousElementSibling(el) {
-  do { 
-    el = el.previousSibling;
-  } 
-  while ( el &amp;&amp; el.nodeType !== 1 );
-  return el;
-}
-previousElementSibling(el);
-// ie9+
-el.previousElementSibling;
-
-// Children
-// ie8
-var children = [];
-for (var i = el.children.length; i--;) {
-  // Skip comment nodes on IE8
-  if (el.children[i].nodeType != 8)
-    children.unshift(el.children[i]);
-}
-// ie9+
-el.children
-</code></pre><p>#属性操作</p>
-<pre><code>// 获取属性值
-el.getAttribute(&apos;alt&apos;);
-
-// 设置属性值
-el.setAttribute(&apos;alt&apos;, &apos;图片描述&apos;);
-</code></pre><p>#内容操作</p>
-<pre><code>// 获取元素内容
-el.innerHTML
-// 设置元素内容
-el.innerHTML = string
-// 获取元素内容(包含元素自身)
-el.outerHTML
-// 设置元素内容(包含元素自身)
-el.outerHTML = string
-
-// 获取文本内容
-// ie8
-el.innerText
-// ie9+
-el.textContent
-// 设置文本内容
-// ie8
-el.innerText = string
-// ie9+
-el.textContent = string
-</code></pre><p>#CSS操作</p>
-<pre><code>// 获取css样式
-// ie8
-el.currentStyle[attrName]
-// ie9+
-window.getComputedStyle(el)[attrName]
-// 伪类
-window.getComputedStyle(el , &quot;:after&quot;)[attrName];
-
-// 设置CSS样式
-el.style.display = &apos;none&apos;;
-</code></pre><p>#位置大小</p>
-<pre><code>// getBoundingClientRect返回一个对象，包含top,left,right,bottom,width,height
-// width、height 元素自身宽高
-// top 元素上外边界距窗口最上面的距离
-// right 元素右外边界距窗口最上面的距离
-// bottom 元素下外边界距窗口最上面的距离
-// left 元素左外边界距窗口最上面的距离
-// width 元素自身宽(包含border,padding) 
-// height 元素自身高(包含border,padding) 
-
-// 元素在页面上的偏移量
-var rect = el.getBoundingClientRect()
-return {
-  top: rect.top + document.body.scrollTop,
-  left: rect.left + document.body.scrollLeft
-}
-
-// 元素自身宽(包含border,padding) 
-el.offsetWidth
-// 元素自身高(包含border,padding) 
-el.offsetHeight
-// 元素的左外边框至包含元素的左内边框之间的像素距离
-el.offsetLeft
-// 元素的上外边框至包含元素的上内边框之间的像素距离
-el.offsetTop 
-
-//通常认为 &lt;html&gt; 元素是在 Web 浏览器的视口中滚动的元素（IE6 之前版本运行在混杂模式下时是 &lt;body&gt; 元素） 
-//因此，带有垂直滚动条的页面总高度就是 document.documentElement.scrollHeight
-// 在没有滚动条的情况下，元素内容的总高度
-scrollHeight
-// 在没有滚动条的情况下，元素内容的总宽度
-scrollWidth
-// 被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置
-scrollLeft
-// 被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置
-scrollTop
-
-// 视口大小
-// ie9+
-var pageWidth = window.innerWidth,
-    pageHeight = window.innerHeight;
-if (typeof pageWidth != &quot;number&quot;){ 
-  // ie8
-  if (document.compatMode == &quot;CSS1Compat&quot;){
-    pageWidth = document.documentElement.clientWidth;
-    pageHeight = document.documentElement.clientHeight;
-  } else { 
-    // ie6混杂模式
-    pageWidth = document.body.clientWidth;
-    pageHeight = document.body.clientHeight;
-  }
-}
-</code></pre><p>#事件</p>
-<pre><code>// 绑定事件
-// ie9+
-el.addEventListener(eventName, handler , Booleans); // Booleans默认false(事件在冒泡阶段执行),true(事件在捕获阶段执行)
-// ie8
-el.attachEvent(&apos;on&apos; + eventName, function(){
-  handler.call(el);
-});
-
-// 移除事件
-// ie9+
-el.removeEventListener(eventName, handler); 
-// ie8
-el.detachEvent(&apos;on&apos; + eventName, handler);
-
-// 事件触发
-if (document.createEvent) {
-  // ie9+
-  var event = document.createEvent(&apos;HTMLEvents&apos;);
-  event.initEvent(&apos;change&apos;, true, false);
-  el.dispatchEvent(event);
-} else {
-  // ie8
-  el.fireEvent(&apos;onchange&apos;);
-}
-
-// event对象
-var event = window.event||event;
-
-// 事件的目标节点
-var target = event.target || event.srcElement;
-
-// 事件代理
-ul.addEventListener(&apos;click&apos;, function(event) {
-  if (event.target.tagName.toLowerCase() === &apos;li&apos;) {
-    console.log(event.target.innerHTML)
-  }
-});
-</code></pre><p>#DOM加载完毕</p>
-<pre><code>function ready(fn) {
-  if (document.readyState != &apos;loading&apos;){
-    // ie9+
-    document.addEventListener(&apos;DOMContentLoaded&apos;, fn);
-  } else {
-    // ie8
-    document.attachEvent(&apos;onreadystatechange&apos;, function() {
-      if (document.readyState != &apos;loading&apos;){
-        fn();
-      }
-    });
-  }
-}
-</code></pre><p>#绑定上下文</p>
-<pre><code>// ie8
-fn.apply(context, arguments);
-// ie9+
-fn.bind(context);
-去除空格
-
-// ie8
-string.replace(/^\s+|\s+$/g, &apos;&apos;);
-// ie9+
-string.trim();
-ajax
-
-// GET
-var request = new XMLHttpRequest();
-request.open(&apos;GET&apos;, &apos;user.php?fname=Bill&amp;lname=Gates&apos;, true); // false（同步）
-request.send();
-
-// ie8
-request.onreadystatechange = function() {
-  if (this.readyState === 4) {
-    if (this.status &gt;= 200 &amp;&amp; this.status &lt; 400) {
-      // Success!
-      var data = JSON.parse(this.responseText);
-    } else {
-      // 错误
-    }
-  }
+  person = { name: &quot;caibirdme&quot; }  
+  person.hello = hello;
+  person.hello(&quot;world&quot;) 
+// 相当于执行 person.hello.call(person, &quot;world&quot;)
+hello(&quot;world&quot;) 
+// 相当于执行 hello.call(window, &quot;world&quot;)
+</code></pre><p>#例二：</p>
+<pre><code>var obj = {
+    x: 20,
+    f: function(){ console.log(this.x); }
 };
-
-// ie9+
-request.onload = function() {
-  if (request.status &gt;= 200 &amp;&amp; request.status &lt; 400) {
-    // Success!
-    var data = JSON.parse(request.responseText);
-  } else {
-    // 服务器返回出错
-  }
-};
-request.onerror = function() {
-  // 连接错误
-};
-
-// POST
-var request = new XMLHttpRequest(); 
-request.open(&apos;POST&apos;, &apos;user.php&apos;, true); // false（同步）
-request.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
-request.send(dataString);
-</code></pre><p>#JSON处理</p>
-<pre><code>JSON.parse(string);
-JSON.String(Object)
-</code></pre><p>#节点遍历</p>
-<pre><code>function forEach( nodeList, callback ) {
-  if(Array.prototype.forEach){
-    // ie9+
-    Array.prototype.forEach.call( nodeList, callback );
-  }else {
-    // ie8
-    for (var i = 0; i &lt; nodeList.length; i++){
-      callback(nodeList[i], i);
-    }
-  }
+    obj.f(); // obj.f.call(obj)//==&gt; 20
+obj.innerobj = {
+    x: 30,
+    f: function(){ console.log(this.x); }
 }
+obj.innerobj.f(); 
+// obj.innerobj.f.call(obj.innerobj)// ==&gt; 30
+</code></pre><p>#例三：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){
+        console.log(this.x); //this equals obj
+                // ==&gt; 20
+        var foo = function(){ console.log(this.x); }
+        foo(); 
+        // foo.call(window)
+        //foo中this被指定为window，所以==&gt; 10
+    }
+};
+obj.f();  // obj.f.call(obj)// ==&gt; 20 10
+</code></pre><p>由例三引出一个非常common的问题，如果我想让foo输出20怎么办？这时候需要用到一点小技巧</p>
+<p>#例四：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){
+        console.log(this.x);
+        var that = this; 
+//使用that保留当前函数执行上下文的this
+        var foo = function(){ console.log(that.x); } 
+//此时foo函数中的this仍然指向window，但我们使用that取得obj
+        foo(); // foo.call(window)
+    }
+};
+obj.f(); 
+obj.f.call(obj)// ==&gt; 20 20
+</code></pre><p>再来一个稍微难一点点的(但其实用call替换法一点儿也不难)</p>
+<p>#例五：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){ console.log(this.x); }
+};
+obj.f(); // obj.f.call(obj)// ==&gt; 20
+var fOut = obj.f;
+fOut(); 
+// fOut.call(window)//==&gt; 10
+var obj2 = {
+    x: 30,
+    f: obj.f
+}
+obj2.f(); // obj2.f.call(obj2)//==&gt; 30
+</code></pre><p>例五有些同学会可能出错的原因，是没有明确我上面说的：<br>this是在执行是才会被确认的<br>他可能会认为说obj.f那个函数定义在obj里面，那this就该指向obj。如果看完这篇文章你还这么想的话，我会觉得我的表达水平太失败了……<br>用于构造函数<br>先看一段代码：</p>
+<pre><code>func person(name) {
+    this.name = name;}
+    var caibirdme = new person(&quot;deen&quot;);
+    // caibirdme.name == deen
+</code></pre><p>我上面也说了，函数在用作构造函数时同样可以用call方法去代替，那这里怎么代替呢？<br>这里你又需要明确一点：<br>new constrcut()是一种创建对象的语法糖<br>它等价于</p>
+<pre><code>function person(name) {
+   this.name = name;
+}
+var foo = new person(&quot;deen&quot;);
+//通过new创建了一个对象
+//new是一种语法糖，new person等价于
+var bar = (function(name) {
+    var _newObj = {
+        constructor : person,
+        __proto__ : person.prototype,
+    };
+    _newObj.constructor(name);
+     // _newObj.constructor.call(_newObj, name)
+    return _newObj;
+})();
+</code></pre><p>So you can see……为什么new的时候this就指向新的对象了吧？<br>通过我这篇文章，我希望学会通过把一个函数调用替换成funcName.call的形式，从而理解运行时上下文中this到底指向谁。总结来说就是下面两个等价变形：</p>
+<pre><code>foo() ---&gt; foo.call(window)
+obj.foo() --&gt; obj.foo.call(obj)
+</code></pre><p>只要理解以上两个变形，this就不再是问题啦！！希望我的这种方法对各位同学认识this有所帮助，不要再像我曾经一样掉入this的坑中，相关面试题也不再怕怕啦，哈哈。</p>
+<p>（想了想，还是给朋友们说下我自己的理解吧，this：当前执行环境的上下文，call和apply：修改对象的上下文）</p>
 
-forEach(document.querySelectorAll(selector),function(el, i){
-
-})
-</code></pre>
 		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
 		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 		
@@ -620,8 +342,8 @@ forEach(document.querySelectorAll(selector),function(el, i){
       
 
       <div id="more" style="float:right;">
-        <a href="/2016/11/08/jsapi/" class="archive-article-date">
-  	<time datetime="2016-11-08T00:57:52.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-08</time>
+        <a href="/2016/11/15/javascriptThis/" class="archive-article-date">
+  	<time datetime="2016-11-15T01:04:33.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
 </a>   
       </div>
       <div class="clearfix"></div>
@@ -632,18 +354,9 @@ forEach(document.querySelectorAll(selector),function(el, i){
   
 <nav id="article-nav">
   
-    <a href="/2016/11/15/javascriptThis/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          学会JS的this这一篇就够了，根本不用记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/11/07/creatObject/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">javascript创建对象的7种模式</div>
+    <a href="/2016/11/08/jsapi/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript常用API总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -658,7 +371,7 @@ forEach(document.querySelectorAll(selector),function(el, i){
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="jsapi" data-title="JavaScript常用API总结" data-url="http://yoursite.com/2016/11/08/jsapi/"></div>
+	<div class="ds-thread" data-thread-key="javascriptThis" data-title="学会JS的this这一篇就够了，根本不用记" data-url="http://yoursite.com/2016/11/15/javascriptThis/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
