@@ -178,6 +178,87 @@
       <div class="body-wrap">
         
   
+    <article id="post-stringTurnNumber" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/stringTurnNumber/">JavaScript字符串转换为数字的方法</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+	    <p>#1. 函数转换<br>parseInt()和parseFloat()分别用来将数字型字符串或数字转换为整数和浮点数，其他则返回NaN(Not a Number)。 parseInt()支持进制参数，表示以何进制读取字符串，返回结果均为10进制数字。</p>
+<pre><code>parseInt() =&gt; NaN
+parseInt(&apos; &apos;) =&gt; NaN
+parseInt(null) =&gt; NaN
+parseInt(undefined) =&gt; NaN
+parseInt(false) =&gt; NaN
+parseInt(true) =&gt; NaN
+parseInt(NaN) =&gt; NaN
+parseInt(Infinity) =&gt; NaN
+parseInt(1) =&gt; 1
+parseInt(&apos;1&apos;) =&gt; 1
+parseInt(&apos; 1 &apos;) =&gt; 1
+parseInt(&apos;1x&apos;) =&gt; 1
+parseInt(-1.5) =&gt; -1
+parseInt(&apos;-1.5&apos;) =&gt; -1
+parseInt(&apos;-1.5x&apos;) =&gt; -1
+parseInt(&apos;0xA&apos;) =&gt; 10
+parseInt(&apos;0xAx&apos;) =&gt; 10
+parseInt(&apos;010&apos;) =&gt; 10
+parseInt(&apos;x&apos;) =&gt; NaN
+parseInt({}) =&gt; NaN
+parseInt(new Date()) =&gt; NaN
+parseInt(&apos;010&apos;) =&gt; 10 // 注意可能识别为8进制
+parseInt(&apos;A&apos;, 16) =&gt; 10 // 以16进制读取，结果为10进制数字10
+parseInt(&quot;012&quot;, 8) =&gt; 10 // 以8进制读取，结果为10进制数字10
+parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数字8
+</code></pre>
+	    
+		<p class="article-more-link"><a href="/2016/12/01/stringTurnNumber/#more">more >></a></p>
+	    
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/12/01/stringTurnNumber/" class="archive-article-date">
+  	<time datetime="2016-12-01T01:56:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-javascriptThis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -760,62 +841,6 @@ b();//Hello Closure!
       <div id="more" style="float:right;">
         <a href="/2016/10/14/learningClosure/" class="archive-article-date">
   	<time datetime="2016-10-14T09:45:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
-</a>   
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-touchEvent" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-	
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/14/touchEvent/">手机端html5触屏事件(touch事件)</a>
-    </h1>
-  
-
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>touchstart：触摸开始的时候触发</br><br>touchmove：手指在屏幕上滑动的时候触发</br><br>touchend：触摸结束的时候触发</br></p>
-<p>而每个触摸事件都包括了三个触摸列表，每个列表里包含了对应的一系列触摸点（用来实现多点触控）：</br><br>touches：当前位于屏幕上的所有手指的列表。</br><br>targetTouches：位于当前DOM元素上手指的列表。</br><br>changedTouches：涉及当前事件手指的列表。</br></p>
-	    
-		<p class="article-more-link"><a href="/2016/10/14/touchEvent/#more">more >></a></p>
-	    
-	  
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
-	</div>
-
-      
-
-      <div id="more" style="float:right;">
-        <a href="/2016/10/14/touchEvent/" class="archive-article-date">
-  	<time datetime="2016-10-14T09:35:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
 </a>   
       </div>
       <div class="clearfix"></div>
