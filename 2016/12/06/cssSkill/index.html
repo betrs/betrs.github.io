@@ -6,17 +6,57 @@
   <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: JQuery | 吴佳博客</title>
+  <title>12 个 CSS 高级技巧汇总 | 吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关注于前端领域，热爱JavaScript编程 - 吴佳博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴佳博客">
-<meta property="og:url" content="http://yoursite.com/tags/JQuery/index.html">
+  <meta name="description" content="下面这些CSS高级技巧，一般人我可不告诉他哦。
+使用 :not() 在菜单上应用/取消应用边框
+给body添加行高
+所有一切都垂直居中
+逗号分隔的列表
+使用负的 nth-child 选择项目
+对图标使用SVG
+优化显示文本
+对纯CSS滑块使用 max-height
+继承 box-sizing
+表格单元格等宽
+用Flexbox摆脱外边距的各种hack
+使用属性选择器用于空链接
+使用 :not() 在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12 个 CSS 高级技巧汇总">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/cssSkill/index.html">
 <meta property="og:site_name" content="吴佳博客">
-<meta property="og:description" content="关注于前端领域，热爱JavaScript编程 - 吴佳博客">
+<meta property="og:description" content="下面这些CSS高级技巧，一般人我可不告诉他哦。
+使用 :not() 在菜单上应用/取消应用边框
+给body添加行高
+所有一切都垂直居中
+逗号分隔的列表
+使用负的 nth-child 选择项目
+对图标使用SVG
+优化显示文本
+对纯CSS滑块使用 max-height
+继承 box-sizing
+表格单元格等宽
+用Flexbox摆脱外边距的各种hack
+使用属性选择器用于空链接
+使用 :not() 在">
+<meta property="og:updated_time" content="2016-12-06T05:26:13.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴佳博客">
-<meta name="twitter:description" content="关注于前端领域，热爱JavaScript编程 - 吴佳博客">
+<meta name="twitter:title" content="12 个 CSS 高级技巧汇总">
+<meta name="twitter:description" content="下面这些CSS高级技巧，一般人我可不告诉他哦。
+使用 :not() 在菜单上应用/取消应用边框
+给body添加行高
+所有一切都垂直居中
+逗号分隔的列表
+使用负的 nth-child 选择项目
+对图标使用SVG
+优化显示文本
+对纯CSS滑块使用 max-height
+继承 box-sizing
+表格单元格等宽
+用Flexbox摆脱外边距的各种hack
+使用属性选择器用于空链接
+使用 :not() 在">
   
     <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
   
@@ -176,86 +216,189 @@
 </nav>
 
       <div class="body-wrap">
-        
-  
-  
+        <article id="post-cssSkill" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/18/datatype/" class="archive-article-date">
-  	<time datetime="2016-10-18T03:52:23.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+	
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/18/datatype/">jQuery的14个数据类型</a>
+    <h1 class="article-title" itemprop="name">
+      12 个 CSS 高级技巧汇总
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+		
+		
+		  <p>下面这些CSS高级技巧，一般人我可不告诉他哦。</p>
+<p>使用 :not() 在菜单上应用/取消应用边框</p>
+<p>给body添加行高</p>
+<p>所有一切都垂直居中</p>
+<p>逗号分隔的列表</p>
+<p>使用负的 nth-child 选择项目</p>
+<p>对图标使用SVG</p>
+<p>优化显示文本</p>
+<p>对纯CSS滑块使用 max-height</p>
+<p>继承 box-sizing</p>
+<p>表格单元格等宽</p>
+<p>用Flexbox摆脱外边距的各种hack</p>
+<p>使用属性选择器用于空链接</p>
+<p>使用 :not() 在菜单上应用/取消应用边框</p>
+<p>先给每一个菜单项添加边框</p>
+<p>/<em> add border </em>/</p>
+<pre><code>.nav li {
+    border-right: 1px solid #666;
+}
+</code></pre><a id="more"></a>
+<p>……然后再除去最后一个元素……</p>
+<pre><code>// remove border /
+.nav li:last-child {
+  border-right: none;
+}
+</code></pre><p>……可以直接使用 :not() 伪类来应用元素：</p>
+<pre><code>.nav li:not(:last-child) {
+  border-right: 1px solid #666;
+}
+</code></pre><p>这样代码就干净，易读，易于理解了。<br>当然，如果你的新元素有兄弟元素的话，也可以使用通用的兄弟选择符（~）：</p>
+<pre><code>.nav li:first-child ~ li {
+  border-left: 1px solid #666;
+}
+</code></pre><p>给 body添加行高<br>你不需要分别添加 line-height 到每个 </p><p>，<h*>等。只要添加到 body 即可：</h*></p>
+<pre><code>body {
+  line-height: 1;}
+</code></pre><p>这样文本元素就可以很容易地从 body 继承。<br>所有一切都垂直居中<br>要将所有元素垂直居中，太简单了：</p>
+<pre><code>html, body {
+  height: 100%;
+  margin: 0;}body {
+  -webkit-align-items: center;  
+  -ms-flex-align: center;  
+  align-items: center;
+  display: -webkit-flex;
+  display: flex;
+}
+</code></pre><p>看，是不是很简单。<br>注：在IE11中要小心flexbox。<br>逗号分隔的列表<br>让HTML列表项看上去像一个真正的，用逗号分隔的列表：</p>
+<pre><code>ul &gt; li:not(:last-child)::after {
+  content: &quot;,&quot;;
+}
+</code></pre><p>对最后一个列表项使用 :not() 伪类。<br>使用负的 nth-child 选择项目<br>在CSS中使用负的 nth-child 选择项目1到项目n。</p>
+<pre><code>li {
+  display: none;}/* select items 1 through 3 and display them */li:nth-child(-n+3) {
+  display: block;
+}
+</code></pre><p>就是这么容易。<br>对图标使用SVG<br>我们没有理由不对图标使用SVG：</p>
+<pre><code>.logo {
+  background: url(&quot;logo.svg&quot;);
+}
+</code></pre><p>SVG对所有的分辨率类型都具有良好的扩展性，并支持所有浏览器都回归到IE9。这样可以避开.png、.jpg或.gif文件了。<br>优化显示文本<br>有时，字体并不能在所有设备上都达到最佳的显示，所以可以让设备浏览器来帮助你：</p>
+<pre><code>html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+</code></pre><p>注：请负责任地使用 optimizeLegibility。此外，IE /Edge没有 text-rendering 支持。<br>对纯CSS滑块使用 max-height<br>使用 max-height 和溢出隐藏来实现只有CSS的滑块：</p>
+<pre><code>.slider ul {
+  max-height: 0;
+  overlow: hidden;}.slider:hover ul {
+  max-height: 1000px;
+  transition: .3s ease;
+}
+</code></pre><p>继承 box-sizing<br>让 box-sizing 继承 html：</p>
+<pre><code>html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+</code></pre><p>这样在插件或杠杆其他行为的其他组件中就能更容易地改变 box-sizing 了。<br>表格单元格等宽<br>表格工作起来很麻烦，所以务必尽量使用 table-layout: fixed 来保持单元格的等宽：</p>
+<pre><code>.calendar {
+  table-layout: fixed;
+}
+</code></pre><p>用Flexbox摆脱外边距的各种hack<br>当需要用到列分隔符时，通过flexbox的 space-between 属性，你就可以摆脱nth-，first-，和 last-child 的hack了：</p>
+<pre><code>.list {
+  display: flex;
+  justify-content: space-between;
+}
+.list .person {
+  flex-basis: 23%;
+}
+</code></pre><p>现在，列表分隔符就会在均匀间隔的位置出现。<br>使用属性选择器用于空链接<br>当 <a> 元素没有文本值，但 href 属性有链接的时候显示链接：</a></p>
+<pre><code>a[href^=&quot;http&quot;]:empty::before {
+  content: attr(href);
+}
+</code></pre><p>相当方便。<br>支持这些高级技巧在Chrome、Firefox、Safari、Edge的当前版本，以及IE11中都能有效工作。</p>
+<p>转自：<a href="http://www.imooc.com/article/1794" target="_blank" rel="external">http://www.imooc.com/article/1794</a></p>
+
+		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div id="more" style="float:right;">
+        <a href="/2016/12/06/cssSkill/" class="archive-article-date">
+  	<time datetime="2016-12-06T05:19:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-06</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/14/JqSkill/" class="archive-article-date">
-  	<time datetime="2016-10-14T10:10:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/14/JqSkill/">一些好用的JQuery技巧</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/12/01/stringTurnNumber/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript字符串转换为数字的方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
 
-    
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="cssSkill" data-title="12 个 CSS 高级技巧汇总" data-url="http://yoursite.com/2016/12/06/cssSkill/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 
       </div>
@@ -311,9 +454,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
