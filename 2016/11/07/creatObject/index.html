@@ -1,20 +1,812 @@
-extends partial/layout
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="fe1ccc3f8d5847fb7e83dc2b87fe66dc"/>
+  <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>javascript创建对象的7种模式 | 吴佳博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#1）工厂模式这种模式抽象了创建具体对象的过程考虑到在 ECMAScript 中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节
+1 function createPerson(name, age, job){
+2     var o = new Object();
+3    o.name = name;
+4    o.age = age;
+5    o.job = jo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript创建对象的7种模式">
+<meta property="og:url" content="http://yoursite.com/2016/11/07/creatObject/index.html">
+<meta property="og:site_name" content="吴佳博客">
+<meta property="og:description" content="#1）工厂模式这种模式抽象了创建具体对象的过程考虑到在 ECMAScript 中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节
+1 function createPerson(name, age, job){
+2     var o = new Object();
+3    o.name = name;
+4    o.age = age;
+5    o.job = jo">
+<meta property="og:updated_time" content="2016-11-07T01:36:00.442Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript创建对象的7种模式">
+<meta name="twitter:description" content="#1）工厂模式这种模式抽象了创建具体对象的过程考虑到在 ECMAScript 中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节
+1 function createPerson(name, age, job){
+2     var o = new Object();
+3    o.name = name;
+4    o.age = age;
+5    o.job = jo">
+  
+    <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+  
 
-block site_title
-  != page.title + " | " + config.title
+  <style>
+	.left-col { 
+		background:url(/img/blog_left.jpg) center center !important;
+		background-size:cover; 
+		width: 300px; 
+		position:fixed; 
+		opacity:1; 
+		transition:all .2s ease-in; 
+		height:100%;
 
-block description
-  - var desc = page.desc || page.title + ' - ' + config.author;
-  meta(name="description", content=desc)
+		    .overlay{
+			width: 100%;
+			height: 180px;
+			background-color: black;
+			position: absolute;
+			opacity: 0.7;
+			z-index: -1;//������
+		    }
 
-block container
-  include mixins/post
-  +post(page)
+		    .intrude-less {
+			width: 76%;
+			text-align: center;
+			margin: 112px auto 0;
+		    }
+	}
+	
+  </style>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?e491c72fc1b629cfa350015981ca1691";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
 
-block pagination
-  include mixins/paginator
-  +post()
-  include partial/comment
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/betrs.png" class="js-avatar">
+			
+		</a>
 
-block copyright
-  include partial/copyright
+		<hgroup>
+		  <h1 class="header-author"><a href="/">吴佳</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">关注前端领域,热爱JavaScript编程，努力奉献开源事业。</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+		        
+					<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">吴佳</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/betrs.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">吴佳</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">关注前端领域,热爱JavaScript编程，努力奉献开源事业。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-creatObject" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 class="article-title" itemprop="name">
+      javascript创建对象的7种模式
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+		
+		
+		  <p>#1）工厂模式<br>这种模式抽象了创建具体对象的过程<br>考虑到在 ECMAScript 中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节</p>
+<pre><code>1 function createPerson(name, age, job){
+2     var o = new Object();
+3    o.name = name;
+4    o.age = age;
+5    o.job = job;
+6    o.sayName = function(){
+7        alert(this.name);
+8    };
+9     return o;
+10 }
+11 var person1 = createPerson(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+12 var person2 = createPerson(&quot;Greg&quot;, 27, &quot;Doctor&quot;);
+</code></pre><p>函数 createPerson() 能够根据接受的参数来构建一个包含所有必要信息的 Person 对象。<br>可以无数次地调用这个函数，而每次它都会返回一个包含三个属性一个方法的对象。<br>工厂模式虽然解决了创建多个相似对象的问题，但却没有解决对象识别的问题（即怎样知道一个对象的类型） 。<br>随着 JavaScript的发展，又一个新模式出现了。</p>
+<a id="more"></a>
+<p>#2）构造函数模式<br>ECMAScript 中的构造函数可用来创建特定类型的对象，例如Object 和 Array 这样的原生构造函数</p>
+<pre><code>1 function Person(name, age, job){
+2    this.name = name;
+3    this.age = age;
+4    this.job = job;
+5    this.sayName = function(){
+6        alert(this.name);
+7    };
+8 }
+9  var person1 = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+10 var person2 = new Person(&quot;Greg&quot;, 27, &quot;Doctor&quot;);
+</code></pre><p>在这个例子中， Person() 函数取代了 createPerson() 函数。<br>我们注意到， Person() 中的代码除了与 createPerson() 中相同的部分外，还存在以下不同之处：<br>  没有显式地创建对象；<br>  直接将属性和方法赋给了 this 对象；<br>  没有 return 语句。<br>要创建 Person 的新实例，必须使用 new 操作符。以这种方式调用构造函数实际上会经历以下 4个步骤：<br>(1) 创建一个新对象；<br>(2) 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象） ；<br>(3) 执行构造函数中的代码（为这个新对象添加属性） ；<br>(4) 返回新对象。<br>在前面例子的最后， person1 和 person2 分别保存着 Person 的一个不同的实例。这两个对象都有一个 constructor （构造函数）属性，该属性指向 Person ，如下所示。</p>
+<pre><code>1 alert(person1.constructor == Person); //true
+2 alert(person2.constructor == Person); //true
+</code></pre><p>但是，提到检测对象类型，还是 instan-<br>ceof 操作符要更可靠一些。 我们在这个例子中创建的所有对象既是 Object 的实例， 同时也是 Person的实例，这一点通过 instanceof 操作符可以得到验证。</p>
+<pre><code>1 alert(person1 instanceof Object); //true
+2 alert(person1 instanceof Person); //true
+3 alert(person2 instanceof Object); //true
+4 alert(person2 instanceof Person); //true
+</code></pre><p>构造函数的问题<br>使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍<br>person1 和 person2 都有一个名为 sayName() 的方法，但那两个方法不是同一个 Function 的实例</p>
+<pre><code>1 function Person(name, age, job){
+2    this.name = name;
+3    this.age = age;
+4    this.job = job;
+5    this.sayName = new Function(&quot;alert(this.name)&quot;); //  与声明函数在逻辑上是等价的
+6 }
+</code></pre><p>以下代码可以证明这一点。</p>
+<pre><code>1 alert(person1.sayName == person2.sayName); //false
+</code></pre><p>因此，大可像下面这样，通过把函数定义转移到构造函数外部来解决这个问题。</p>
+<pre><code>1 function Person(name, age, job){
+2    this.name = name;
+3    this.age = age;
+4    this.job = job;
+5    this.sayName = sayName;
+6 }
+7 function sayName(){
+8    alert(this.name);
+9 }
+10 var person1 = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+11 var person2 = new Person(&quot;Greg&quot;, 27, &quot;Doctor&quot;);
+</code></pre><p>#3）原型模式<br>我们创建的每个函数都有一个 prototype （原型）属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。<br>如果按照字面意思来理解，那么 prototype 就是通过调用构造函数而创建的那个对象实例的原型对象。<br>使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。<br>换句话说，不必在构造函数中定义对象实例的信息，而是可以将这些信息直接添加到原型对象中</p>
+<pre><code>1 function Person(){
+2 }
+3 Person.prototype.name = &quot;Nicholas&quot;;
+4 Person.prototype.age = 29;
+5 Person.prototype.job = &quot;Software Engineer&quot;;
+6 Person.prototype.sayName = function(){
+7 alert(this.name);
+8 };
+9 var person1 = new Person();
+10 person1.sayName(); //&quot;Nicholas&quot;
+11 var person2 = new Person();
+12 person2.sayName(); //&quot;Nicholas&quot;
+13 alert(person1.sayName == person2.sayName); //true
+</code></pre><p>但与构造函数模式不同的是，新对象的这些属性和方法是由所有实例共享的。换句话说，person1 和 person2 访问的都是同一组属性和同一个 sayName() 函数。</p>
+<ol>
+<li>理解原型对象</li>
+</ol>
+<p>只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype属性，这个属性指向函数的原型对象。在默认情况下，所有原型对象都会自动获得一个 constructor（构造函数）属性，这个属性包含一个指向 prototype 属性所在函数的指针。<br>就拿前面的例子来说，Person.prototype. constructor 指向 Person 。而通过这个构造函数，我们还可继续为原型对象添加其他属性和方法。<br>当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性） ，指向构造函数的原型对象。<br>ECMA-262 第 5 版中管这个指针叫 [[Prototype]] 。虽然在脚本中没有标准的方式访问 [[Prototype]] ，但 Firefox、Safari 和 Chrome 在每个对象上都支持一个属性<strong>proto</strong> ；而在其他实现中，这个属性对脚本则是完全不可见的。<br>不过，要明确的真正重要的一点就是，这个连接存在于实例与构造函数的原型对象之间，而不是存在于实例与构造函数之间。</p>
+<p>此外，要格外注意的是，虽然这两个实例都不包含属性和方法，但我们却可以调用 person1.sayName() 。<br>这是通过查找对象属性的过程来实现的。（属性-&gt;原型-&gt;原型…）</p>
+<p>虽然在所有实现中都无法访问到 [[Prototype]] ，但可以通过 isPrototypeOf() 方法来确定对象之间是否存在这种关系。从本质上讲，如果 [[Prototype]] 指向调用 isPrototypeOf() 方法的对象（ Person.prototype ） ，那么这个方法就返回 true ，如下所示：</p>
+<pre><code>1 alert(Person.prototype.isPrototypeOf(person1)); //true
+2 alert(Person.prototype.isPrototypeOf(person2)); //true
+</code></pre><p>ECMAScript 5 增加了一个新方法，叫 Object.getPrototypeOf() ，在所有支持的实现中，这个方法返回 [[Prototype]] 的值。例如：</p>
+<pre><code>1 alert(Object.getPrototypeOf(person1) == Person.prototype); //true
+2 alert(Object.getPrototypeOf(person1).name); //&quot;Nicholas&quot;
+</code></pre><p>当为对象实例添加一个属性时，这个属性就会屏蔽原型对象中保存的同名属性；换句话说，添加这个属性只会阻止我们访问原型中的那个属性，但不会修改那个属性。即使将这个属性设置为 null ，也只会在实例中设置这个属性，而不会恢复其指向原型的连接。不过，使用 delete 操作符则可以完全删除实例属性，从而让我们能够重新访问原型中的属性</p>
+<p>使用 hasOwnProperty() 方法可以检测一个属性是存在于实例中， 还是存在于原型中。<br>这个方法 （不要忘了它是从 Object 继承来的）只在给定属性存在于对象实例中时，才会返回 true 。</p>
+<pre><code>1 function Person(){
+2 }
+3 Person.prototype.name = &quot;Nicholas&quot;;
+4 Person.prototype.age = 29;
+5 Person.prototype.job = &quot;Software Engineer&quot;;
+6 Person.prototype.sayName = function(){
+7     alert(this.name);
+8 };
+9 
+10 var person1 = new Person();
+11 var person2 = new Person();
+12 alert(person1.hasOwnProperty(&quot;name&quot;)); // 属性中没有 返回false
+13 person1.name = &quot;Greg&quot;;
+14 alert(person1.name); // &quot;Greg&quot;——来自实例
+15 alert(person1.hasOwnProperty(&quot;name&quot;)); //true
+16 alert(person2.name); // &quot;Nicholas&quot;——来自原型
+17 alert(person2.hasOwnProperty(&quot;name&quot;)); //false
+18 delete person1.name;
+19 alert(person1.name); //&quot;Nicholas&quot;——来自原型
+20 alert(person1.hasOwnProperty(&quot;name&quot;)); //false
+</code></pre><ol>
+<li><p>原型与 in 操作符<br>有两种方式使用 in 操作符：单独使用和在 for-in 循环中使用。<br>在单独使用时， in 操作符会在通过对象能够访问给定属性时返回 true ，无论该属性存在于实例中还是原型中。</p>
+<pre><code>1 function Person(){
+2 }
+3 Person.prototype.name = &quot;Nicholas&quot;;
+4 Person.prototype.age = 29;
+5 Person.prototype.job = &quot;Software Engineer&quot;;
+6 Person.prototype.sayName = function(){
+7    alert(this.name);
+8 };
+9 
+10 var person1 = new Person();
+11 var person2 = new Person();
+12 alert(person1.hasOwnProperty(&quot;name&quot;)); //false
+13 alert(&quot;name&quot; in person1); //true
+14 person1.name = &quot;Greg&quot;;
+15 alert(person1.name); //&quot;Greg&quot; ——来自实例
+16 alert(person1.hasOwnProperty(&quot;name&quot;)); //true
+17 alert(&quot;name&quot; in person1); //true
+18 alert(person2.name); //&quot;Nicholas&quot; ——来自原型
+19 alert(person2.hasOwnProperty(&quot;name&quot;)); //false
+20 alert(&quot;name&quot; in person2); //true
+21 delete person1.name;
+22 alert(person1.name); //&quot;Nicholas&quot; ——来自原型
+23 alert(person1.hasOwnProperty(&quot;name&quot;)); //false
+24 alert(&quot;name&quot; in person1); //true
+</code></pre></li>
+</ol>
+<p>结合hasOwnProperty 判断一个属性是否存在切存在于原型中</p>
+<pre><code>1 function hasPrototypeProperty(object, name){
+2    return !object.hasOwnProperty(name) &amp;&amp; (name in object);
+3 }
+</code></pre><ol>
+<li><p>更简单的原型语法</p>
+<pre><code>1   function Person(){
+2   }
+3   Person.prototype = {
+4      name : &quot;Nicholas&quot;,
+5      age : 29,
+6     job: &quot;Software Engineer&quot;,
+7       sayName : function () {
+8       alert(this.name);
+9      }
+10  }; 
+</code></pre></li>
+</ol>
+<p>在上面的代码中，我们将 Person.prototype 设置为等于一个以对象字面量形式创建的新对象。<br>最终结果相同，但有一个例外： constructor 属性不再指向 Person 了。<br>前面曾经介绍过，每创建一个函数，就会同时创建它的 prototype 对象，这个对象也会自动获得 constructor 属性。<br>而我们在这里使用的语法，本质上完全重写了默认的 prototype 对象，因此 constructor 属性也就变成了新对象的 constructor 属性 （指向 Object 构造函数） ， 不再指向 Person 函数。<br>此时， 尽管 instanceof操作符还能返回正确的结果，但通过 constructor 已经无法确定对象的类型了，如下所示。</p>
+<pre><code>1 var friend = new Person();
+2 alert(friend instanceof Object); //true
+3 alert(friend instanceof Person); //true
+4 alert(friend.constructor == Person); //false
+5 alert(friend.constructor == Object); //true
+</code></pre><p>解决办法很简单，手动指定</p>
+<pre><code>1 function Person(){
+2 }
+3 Person.prototype = {
+4    constructor : Person,
+5    name : &quot;Nicholas&quot;,
+6    age : 29,
+7    job: &quot;Software Engineer&quot;,
+8    sayName : function () {
+9    alert(this.name);
+10    }
+11 };
+</code></pre><p>注意，以这种方式重设 constructor 属性会导致它的 [[Enumerable]] 特性被设置为 true。默认情况下，原生的 constructor 属性是不可枚举的，因此如果你使用兼容 ECMAScript 5 的 JavaScript 引擎，可以试一试 Object.defineProperty() 。</p>
+<p>// 重设构造函数，只适用于 ECMAScript 5  兼容的浏览器</p>
+<pre><code>1 Object.defineProperty(Person.prototype, &quot;constructor&quot;, {
+2    enumerable: false,
+3    value: Person
+4 });
+</code></pre><ol>
+<li><p>原型的动态性<br>由于在原型中查找值的过程是一次搜索， 因此我们对原型对象所做的任何修改都能够立即从实例上反映出来——即使是先创建了实例后修改原型也照样如此</p>
+<pre><code>1 var friend = new Person();
+2 Person.prototype.sayHi = function(){
+3    alert(&quot;hi&quot;);
+4 };
+5 friend.sayHi(); //&quot;hi&quot;（没有问题！）
+</code></pre></li>
+</ol>
+<p>但是，如果我们使用对象字面量的方式修改Person的原型，此时的Person.protptype指向的是一个新对象<br>我们知道，调用构造函数时会为实例添加一个指向最初原型的[[Prototype]] 指针，而把原型修改为另外一个对象就等于切断了构造函数与最初原型之间的联系。</p>
+<pre><code>1 function Person(){
+2 }
+3 var friend = new Person();
+4 Person.prototype = {
+5    constructor: Person,
+6    name : &quot;Nicholas&quot;,
+7    age : 29,
+8    job : &quot;Software Engineer&quot;,
+9    sayName : function () {
+10    alert(this.name);
+11    }
+12 };
+13 friend.sayName(); //error
+</code></pre><p>过程如下图所示</p>
+<ol>
+<li><p>原生对象的原型<br>原型模式的重要性不仅体现在创建自定义类型方面，就连所有原生的引用类型，都是采用这种模式创建的。所有原生引用类型（ Object 、 Array 、 String ，等等）都在其构造函数的原型上定义了方法。例如，在 Array.prototype 中可以找到 sort() 方法，而在 String.prototype 中可以找到substring() 方法</p>
+<pre><code>1 alert(typeof Array.prototype.sort); //&quot;function&quot;
+2 alert(typeof String.prototype.substring); //&quot;function&quot;
+</code></pre></li>
+</ol>
+<p>通过原生对象的原型，不仅可以取得所有默认方法的引用，而且也可以定义新方法。可以像修改自定义对象的原型一样修改原生对象的原型，因此可以随时添加方法。下面的代码就给基本包装类型String 添加了一个名为 startsWith() 的方法。</p>
+<pre><code>1 String.prototype.startsWith = function (text) {
+2    return this.indexOf(text) == 0;
+3 };
+4 var msg = &quot;Hello world!&quot;;
+5 alert(msg.startsWith(&quot;Hello&quot;)); //true
+</code></pre><ol>
+<li><p>原型对象的问题<br>原型模式也不是没有缺点。首先，它省略了为构造函数传递初始化参数这一环节，结果所有实例在默认情况下都将取得相同的属性值。 虽然这会在某种程度上带来一些不方便， 但还不是原型的最大问题。原型模式的最大问题是由其共享的本性所导致的。<br>尤其对于包含引用类型值的属性来说（基本值还可以隐藏）</p>
+<pre><code>1 function Person(){
+2 }
+3 Person.prototype = {
+4    constructor: Person,
+5    name : &quot;Nicholas&quot;,
+6    age : 29,
+7    job : &quot;Software Engineer&quot;,
+8    friends : [&quot;Shelby&quot;, &quot;Court&quot;],
+9    sayName : function () {
+10    alert(this.name);
+11    }
+12 };
+13 var person1 = new Person();
+14 var person2 = new Person();
+15 person1.friends.push(&quot;Van&quot;);
+16 alert(person1.friends); //&quot;Shelby,Court,Van&quot;
+17 alert(person2.friends); //&quot;Shelby,Court,Van&quot;
+18 alert(person1.friends === person2.friends); //true
+</code></pre></li>
+</ol>
+<p>#4）组合使用构造函数模式和原型模式<br>创建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。<br>构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。<br>结果，每个实例都会有自己的一份实例属性的副本，但同时又共享着对方法的引用，最大限度地节省了内存。<br>另外，这种混成模式还支持向构造函数传递参数；可谓是集两种模式之长。</p>
+<pre><code>1 function Person(name, age, job){
+2    this.name = name;
+3    this.age = age;
+4    this.job = job;
+5    this.friends = [&quot;Shelby&quot;, &quot;Court&quot;];
+6 }
+7 Person.prototype = {
+8 constructor : Person,
+9 sayName : function(){
+10 alert(this.name);
+11  }
+12 }
+13 var person1 = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+14 var person2 = new Person(&quot;Greg&quot;, 27, &quot;Doctor&quot;);
+15 person1.friends.push(&quot;Van&quot;);
+16 alert(person1.friends); //&quot;Shelby,Count,Van&quot;
+17 alert(person2.friends); //&quot;Shelby,Count&quot;
+18 alert(person1.friends === person2.friends); //false
+19 alert(person1.sayName === person2.sayName); //true
+</code></pre><p>是目前在 ECMAScript中使用最广泛、认同度最高的一种创建自定义类型的方法</p>
+<p>#5）动态原型模式<br>动态原型模式致力于解决这样一个问题，它把所有信息都封装在了构造函数中，而通过在构造函数中初始化原型（仅在必要的情况下） ，又保持了同时使用构造函数和原型的优点。换句话说，可以通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型。</p>
+<pre><code>1 function Person(name, age, job){
+2    //属性
+3    this.name = name;
+4    this.age = age;
+5    this.job = job;
+6    // 方法
+7    if (typeof this.sayName != &quot;function&quot;){
+8        Person.prototype.sayName = function(){
+9            alert(this.name);
+10        };
+11    }
+12 }
+13 var friend = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+14 friend.sayName();
+</code></pre><p>注意构造函数代码中加粗的部分。这里只在 sayName() 方法不存在的情况下，才会将它添加到原型中。<br>使用动态原型模式时，不能使用对象字面量重写原型。前面已经解释过了，如果在已经创建了实例的情况下重写原型，那么就会切断现有实例与新原型之间的联系。</p>
+<p>#6）寄生构造函数模式<br>通常，在前述的几种模式都不适用的情况下，可以使用寄生（parasitic）构造函数模式。这种模式的基本思想是创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新创建的对象；但从表面上看，这个函数又很像是典型的构造函数。</p>
+<pre><code>1 function Person(name, age, job){
+2    var o = new Object();
+3    o.name = name;
+4    o.age = age;
+5    o.job = job;
+6    o.sayName = function(){
+7        alert(this.name);
+8    };
+9    return o;
+10 }
+11 var friend = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+12 friend.sayName(); //&quot;Nicholas&quot;
+</code></pre><p>除了使用 new 操作符并把使用的包装函数叫做构造函数之外， 这个模式跟工厂模式其实是一模一样的。<br>工厂模式为</p>
+<pre><code>1 function createPerson(name, age, job){
+2    var o = new Object();
+3    o.name = name;
+4    o.age = age;
+5    o.job = job;
+6    o.sayName = function(){
+7        alert(this.name);
+8    };
+9    return o;
+10 }
+11 var person1 = createPerson(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+12 var person2 = createPerson(&quot;Greg&quot;, 27, &quot;Doctor&quot;);
+</code></pre><p>关于寄生构造函数模式，有一点需要说明：首先，返回的对象与构造函数或者与构造函数的原型属性之间没有关系；也就是说，构造函数返回的对象与在构造函数外部创建的对象没有什么不同。为此，不能依赖 instanceof 操作符来确定对象类型。 由于存在上述问题， 我们建议在可以使用其他模式的情况下，不要使用这种模式。</p>
+<p>#7）稳妥构造函数模式<br>所谓稳妥对象，指的是没有公共属性，而且其方法也不引用 this 的对象。<br>稳妥对象最适合在一些安全的环境中 （这些环境中会禁止使用 this 和 new ） ， 或者在防止数据被其他应用程序 （如 Mashup程序）改动时使用。<br>稳妥构造函数遵循与寄生构造函数类似的模式，但有两点不同：<br>一是新创建对象的实例方法不引用 this ；<br>二是不使用 new 操作符调用构造函数。按照稳妥构造函数的要求，可以将前面的 Person 构造函数重写如下。</p>
+<pre><code>1 function Person(name, age, job){
+2    //创建要返回的对象
+3    var o = new Object();
+4    //可以在这里定义私有变量和函数
+5    //添加方法
+6    o.sayName = function(){
+7        alert(name);
+8    };
+9    //返回对象
+10    return o;
+11 }
+12 var friend = Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+13 friend.sayName(); //&quot;Nicholas&quot;
+</code></pre><p>注意， 在以这种模式创建的对象中， 除了使用 sayName() 方法之外， 没有其他办法访问 name 的值。<br>与寄生构造函数模式类似， 使用稳妥构造函数模式创建的对象与构造函数之间也没有什么关系，因此 instanceof 操作符对这种对象也没有意义。</p>
+
+		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/11/07/creatObject/" class="archive-article-date">
+  	<time datetime="2016-11-07T01:16:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-07</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/08/jsapi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaScript常用API总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/21/es6Basics/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6 你可能不知道的事 - 基础篇</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="creatObject" data-title="javascript创建对象的7种模式" data-url="http://yoursite.com/2016/11/07/creatObject/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left" id="footer-left">
+    	</div>
+	<script>
+		//封装时间补零方法
+		function toZero(num){//补零操作
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;
+			};
+		};
+		
+		setInterval(function(){
+			var timeDate = new Date();
+			var hours    = toZero(timeDate.getHours());
+			var minutes  = toZero(timeDate.getMinutes());
+			var seconds  = toZero(timeDate.getSeconds());
+			var footerLeft = document.getElementById("footer-left");
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
+
+			//console.log(time)
+			footerLeft.innerHTML = time;	
+		},1000);
+	</script>
+      	<div class="footer-right">
+		&copy; 2015-2016 <a href="https://betrs.github.io/" target="_blank"> 吴佳 </a>  All Rights Reserved 
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cspan id='cnzz_stat_icon_1260617449'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260617449%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+      	</div>
+    </div>
+    <script type="text/javascript">
+	  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+	  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+	  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+	  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+	  
+	  _st('install','z3dx7kRzWg4zhAjxxqUx','2.0.0');
+	</script>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 15px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xuanmomo.com">轩陌博客</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.njalex.com">alex博客</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">真实姓名 :吴佳显&lt;br&gt;破蛋日 :1994-11-03&lt;br&gt;籍贯 :湖北省孝感市&lt;br&gt;职业 :程序员&lt;br&gt;前端Q群：62365713</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

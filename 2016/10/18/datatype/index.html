@@ -1,20 +1,621 @@
-extends partial/layout
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="fe1ccc3f8d5847fb7e83dc2b87fe66dc"/>
+  <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>jQuery的14个数据类型 | 吴佳博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
+#1. String
+String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
+var typeOfStr = typeof &amp;quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery的14个数据类型">
+<meta property="og:url" content="http://yoursite.com/2016/10/18/datatype/index.html">
+<meta property="og:site_name" content="吴佳博客">
+<meta property="og:description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
+#1. String
+String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
+var typeOfStr = typeof &amp;quot;">
+<meta property="og:updated_time" content="2016-10-18T04:56:49.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery的14个数据类型">
+<meta name="twitter:description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
+#1. String
+String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
+var typeOfStr = typeof &amp;quot;">
+  
+    <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+  
 
-block site_title
-  != page.title + " | " + config.title
+  <style>
+	.left-col { 
+		background:url(/img/blog_left.jpg) center center !important;
+		background-size:cover; 
+		width: 300px; 
+		position:fixed; 
+		opacity:1; 
+		transition:all .2s ease-in; 
+		height:100%;
 
-block description
-  - var desc = page.desc || page.title + ' - ' + config.author;
-  meta(name="description", content=desc)
+		    .overlay{
+			width: 100%;
+			height: 180px;
+			background-color: black;
+			position: absolute;
+			opacity: 0.7;
+			z-index: -1;//������
+		    }
 
-block container
-  include mixins/post
-  +post(page)
+		    .intrude-less {
+			width: 76%;
+			text-align: center;
+			margin: 112px auto 0;
+		    }
+	}
+	
+  </style>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?e491c72fc1b629cfa350015981ca1691";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
 
-block pagination
-  include mixins/paginator
-  +post()
-  include partial/comment
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/betrs.png" class="js-avatar">
+			
+		</a>
 
-block copyright
-  include partial/copyright
+		<hgroup>
+		  <h1 class="header-author"><a href="/">吴佳</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">关注前端领域,热爱JavaScript编程，努力奉献开源事业。</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+		        
+					<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">吴佳</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/betrs.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">吴佳</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">关注前端领域,热爱JavaScript编程，努力奉献开源事业。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-datatype" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery的14个数据类型
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+		
+		
+		  <p>jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。</p>
+<p>#1. String</p>
+<p>String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如</p>
+<pre><code>var typeOfStr = typeof &quot;hello world&quot;;//typeOfStr为“string&quot;
+</code></pre><p>1.1 String内置方法</p>
+<pre><code>&quot;hello&quot;.charAt(0) // &quot;h&quot;
+&quot;hello&quot;.toUpperCase() // &quot;HELLO&quot;
+&quot;Hello&quot;.toLowerCase() // &quot;hello&quot;
+&quot;hello&quot;.replace(/e|o/g, &quot;x&quot;) // &quot;hxllx&quot;
+&quot;1,2,3&quot;.split(&quot;,&quot;) // [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]
+</code></pre><p>1.2 length属性：返回字符长度，比如”hello”.length返回5</p>
+<p>1.3 字符串转换为Boolean：</p>
+<p>一个空字符串（””）默认为false，而一个非空字符串为true（比如”hello”）。</p>
+<a id="more"></a>
+<p>#2. Number</p>
+<p>数字类型，比如3.1415926或者1、2、3…</p>
+<pre><code>typeof 3.1415926 //返回的是&quot;number&quot;
+</code></pre><p>2.1 Number转换为Boolean：</p>
+<p>如果一个Number值为0，则默认为false，否则为true。</p>
+<p>2.2 由于Number是采用双精度浮点数实现的，所以下面这种情况是合理的：</p>
+<pre><code>0.1 + 0.2 // 0.30000000000000004
+</code></pre><p>#3. Math</p>
+<p>下面的方法与Java中的Math类的静态方法类似。</p>
+<pre><code>Math.PI // 3.141592653589793
+Math.cos(Math.PI) // -1
+</code></pre><p>3.1 将字符串化为数字：parseInt和parseFloat方法：</p>
+<pre><code>parseInt(&quot;123&quot;) = 123 (采用十进制转换)
+parseInt(&quot;010&quot;) = 8 (采用八进制转换)
+parseInt(&quot;0xCAFE&quot;) = 51966 (采用十六进制转换)
+parseInt(&quot;010&quot;, 10) = 10 (指定用10进制转换)
+parseInt(&quot;11&quot;, 2) = 3 (指定用二进制转换)
+parseFloat(&quot;10.10&quot;) = 10.1
+</code></pre><p>3.2 数字到字符串</p>
+<p>当将Number粘到（append）字符串后的时候，将得到字符串。</p>
+<pre><code>&quot;&quot; + 1 + 2; // &quot;12&quot;
+&quot;&quot; + (1 + 2); // &quot;3&quot;
+&quot;&quot; + 0.0000001; // &quot;1e-7&quot;
+</code></pre><p>或者用强制类型转换：</p>
+<pre><code>String(1) + String(2); //&quot;12&quot;
+String(1 + 2); //&quot;3&quot;
+</code></pre><p>#4. NaN 和 Infinity</p>
+<p>如果对一个非数字字符串调用parseInt方法，将返回NaN(Not a Number)，NaN常用来检测一个变量是否数字类型，如下：</p>
+<pre><code>isNaN(parseInt(&quot;hello&quot;, 10)) // true
+//Infinity表示数值无穷大或无穷小，比如1 / 0 // Infinity。
+//对NaN和Infinity调用typeof运算符都返回&quot;numuber&quot;。
+//另外 NaN==NaN 返回false，但是 Infinity==Infinity 返回true。
+</code></pre><p>#5. Integer 和 Float<br>分为表示整型和浮点型。</p>
+<pre><code>http://w去ww.cn掉blogs.c中文om/roucheng/
+</code></pre><p>#6. BOOLEAN<br>布尔类型，true或者false。</p>
+<p>#7. OBJECT<br>JavaScript中的一切皆对象。对一个对象进行typeof运算返回 “object”。</p>
+<pre><code>var x = {};
+var y = { name: &quot;Pete&quot;, age: 15 };
+</code></pre><p>对于上面的y对象，可以采用圆点获取属性值，比如y.name返回”Pete”，y.age返回15</p>
+<p>7.1 Array Notation（数组访问方式访问对象）</p>
+<pre><code>var operations = { increase: &quot;++&quot;, decrease: &quot;--&quot; }
+var operation = &quot;increase&quot;;
+operations[operation] // &quot;++&quot;;
+operations[&quot;multiply&quot;] = &quot;*&quot;; // &quot;*&quot;
+//上面operations[&quot;multiply&quot;]=&quot;*&quot;; 往operations对象中添加了一个key-value对。
+</code></pre><p>7.2 对象循环访问：for-in</p>
+<pre><code>var obj = { name: &quot;Pete&quot;, age: 15};
+for(key in obj) {
+    alert(&quot;key is &quot;+[key]+&quot;, value is &quot;+obj[key]);
+}
+</code></pre><p>7.3 任何对象不管有无属性和值，都默认为true</p>
+<p>7.4 对象的Prototype属性</p>
+<p>jQuery中用fn（Prototype的别名）动态为jQuery Instances添加对象（函数）</p>
+<pre><code>var form = $(&quot;#myform&quot;);
+form.clearForm; // undefined
+form.fn.clearForm = function() {
+    return this.find(&quot;:input&quot;).each(function() { this.value = &quot;&quot;; }).end();
+};
+form.clearForm() // works for all instances of jQuery objects, because the new method was added
+</code></pre><p>#8. OPTIONS<br>几乎所有的jQuery插件都提供了一个基于OPTIONS的API，OPTIONS是JS对象，意味着该对象以及它的属性都是optional（可选的）。允许customization。</p>
+<p>比如采用Ajax方式提交表单，</p>
+<pre><code>$(&quot;#myform&quot;).ajaxForm();//默认采用Form的Action属性值作为Ajax-URL，Method值作为提交类型(GET/POST)
+$(&quot;#myform&quot;).ajaxForm({ url: &quot;mypage.php&quot;, type: &quot;POST&quot; });//则覆盖了提交到的URL和提交类型
+</code></pre><p>#9. ARRAY</p>
+<pre><code>var arr = [1, 2, 3];
+</code></pre><p>ARRAY是可变的lists。ARRAY也是对象。<br>读取或设置ARRAY中元素的值，采用这种方式：</p>
+<pre><code>var val = arr[0];//val为1
+arr[2] = 4;//现在arr第三个元素为4
+</code></pre><p>9.1 数组循环（遍历）</p>
+<pre><code>for (var i = 0; i &lt; a.length; i++) { // Do something with a[i] }
+</code></pre><p>但是当考虑性能时，则最好只读一次length属性，如下：</p>
+<pre><code>for (var i = 0, j = a.length; i &lt; j; i++) { // Do something with a[i] }
+</code></pre><p>jQuery提供了each方法遍历数组：</p>
+<pre><code>var x = [1, 2, 3];
+$.each(x,
+function(index, value) {
+    console.log(&quot;index&quot;, index, &quot;value&quot;, value);
+});
+</code></pre><p>9.2 对数组调用push方法意味着将一个元素添加到数组末尾，比如 x.push(5); 和 x.[x.length] = 5; 等价</p>
+<p>9.3 数组其他内置方法：</p>
+<pre><code>var x = [0, 3, 1, 2];
+x.reverse() // [2, 1, 3, 0]
+x.join(&quot; – &quot;) // &quot;2 - 1 - 3 - 0&quot;
+x.pop() // [2, 1, 3]
+x.unshift(-1) // [-1, 2, 1, 3]
+x.shift() // [2, 1, 3]
+x.sort() // [1, 2, 3]
+x.splice(1, 2) // 用于插入、删除或替换数组元素，这里为删除从index=1开始的2个元素
+</code></pre><p>9.4 数组为对象，所以始终为true</p>
+<p>#10. MAP</p>
+<p>The map type is used by the AJAX function to hold the data of a request. This type could be a string, an array<form elements="">, a jQuery object with form elements or an object with key/value pairs. In the last case, it is possible to assign multiple values to one key by assigning an array. As below:</form></p>
+<pre><code>{&apos;key[]&apos;:[&apos;valuea&apos;,&apos;valueb&apos;]}
+</code></pre><p>#11. FUNCTION:匿名和有名两种</p>
+<p>11.1 Context、Call和Apply</p>
+<p>In JavaScript, the variable “this” always refers to the current context.</p>
+<pre><code>$(document).ready(function() {
+    // this refers to window.document});
+    $(&quot;a&quot;).click(function() { // this refers to an anchor DOM element
+});
+</code></pre><p>#12. SELECTOR</p>
+<p>There are lot of plugins that leverage jQuery’s selectors in other ways. The validation plugin accepts a selector to specify a dependency, whether an input is required or not:</p>
+<pre><code>emailrules: { required: &quot;#email:filled&quot; }
+</code></pre><p>This would make a checkbox with name “emailrules” required only if the user entered an email address in the email field, selected via its id, filtered via a custom selector “:filled” that the validation plugin provides.</p>
+<p>#13. EVENT</p>
+<p>DOM标准事件包括：blur, focus, load, resize, scroll, unload, beforeunload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, andkeyup</p>
+<p>#14. JQUERY</p>
+<p>JQUERY对象包含DOM元素的集合。比如$(‘p’)即返回所有</p><p>…</p><p></p>
+<p>JQUERY对象行为类似数组，也有length属性，也可以通过index访问DOM元素集合中的某个。但是不是数组，不具备数组的某些方法，比如join()。</p>
+<p>许多jQuery方法返回jQuery对象本身，所以可以采用链式调用：</p>
+<pre><code>$(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;).find(&quot;.special&quot;).css(&quot;color&quot;, &quot;green&quot;);
+</code></pre><p>但是如果你调用的方法会破坏jQuery对象，比如find()和filter()，则返回的不是原对象。要返回到原对象只需要再调用end()方法即可。</p>
+
+		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/10/18/datatype/" class="archive-article-date">
+  	<time datetime="2016-10-18T03:52:23.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-18</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/21/timer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          深入理解定时器：setTimeout与setInterval
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/14/JqSkill/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一些好用的JQuery技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="datatype" data-title="jQuery的14个数据类型" data-url="http://yoursite.com/2016/10/18/datatype/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left" id="footer-left">
+    	</div>
+	<script>
+		//封装时间补零方法
+		function toZero(num){//补零操作
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;
+			};
+		};
+		
+		setInterval(function(){
+			var timeDate = new Date();
+			var hours    = toZero(timeDate.getHours());
+			var minutes  = toZero(timeDate.getMinutes());
+			var seconds  = toZero(timeDate.getSeconds());
+			var footerLeft = document.getElementById("footer-left");
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
+
+			//console.log(time)
+			footerLeft.innerHTML = time;	
+		},1000);
+	</script>
+      	<div class="footer-right">
+		&copy; 2015-2016 <a href="https://betrs.github.io/" target="_blank"> 吴佳 </a>  All Rights Reserved 
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cspan id='cnzz_stat_icon_1260617449'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260617449%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+      	</div>
+    </div>
+    <script type="text/javascript">
+	  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+	  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+	  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+	  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+	  
+	  _st('install','z3dx7kRzWg4zhAjxxqUx','2.0.0');
+	</script>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 15px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xuanmomo.com">轩陌博客</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.njalex.com">alex博客</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">真实姓名 :吴佳显&lt;br&gt;破蛋日 :1994-11-03&lt;br&gt;籍贯 :湖北省孝感市&lt;br&gt;职业 :程序员&lt;br&gt;前端Q群：62365713</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

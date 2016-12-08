@@ -1,20 +1,614 @@
-extends partial/layout
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="fe1ccc3f8d5847fb7e83dc2b87fe66dc"/>
+  <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>学会JS的this这一篇就够了，根本不用记 | 吴佳博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#以前看某本书上讲：掌握了JS中this的用法才算真正的跨过了JS的门槛我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学会JS的this这一篇就够了，根本不用记">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/javascriptThis/index.html">
+<meta property="og:site_name" content="吴佳博客">
+<meta property="og:description" content="#以前看某本书上讲：掌握了JS中this的用法才算真正的跨过了JS的门槛我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌">
+<meta property="og:updated_time" content="2016-11-15T01:10:18.679Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学会JS的this这一篇就够了，根本不用记">
+<meta name="twitter:description" content="#以前看某本书上讲：掌握了JS中this的用法才算真正的跨过了JS的门槛我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌">
+  
+    <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+  
 
-block site_title
-  != page.title + " | " + config.title
+  <style>
+	.left-col { 
+		background:url(/img/blog_left.jpg) center center !important;
+		background-size:cover; 
+		width: 300px; 
+		position:fixed; 
+		opacity:1; 
+		transition:all .2s ease-in; 
+		height:100%;
 
-block description
-  - var desc = page.desc || page.title + ' - ' + config.author;
-  meta(name="description", content=desc)
+		    .overlay{
+			width: 100%;
+			height: 180px;
+			background-color: black;
+			position: absolute;
+			opacity: 0.7;
+			z-index: -1;//������
+		    }
 
-block container
-  include mixins/post
-  +post(page)
+		    .intrude-less {
+			width: 76%;
+			text-align: center;
+			margin: 112px auto 0;
+		    }
+	}
+	
+  </style>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?e491c72fc1b629cfa350015981ca1691";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
 
-block pagination
-  include mixins/paginator
-  +post()
-  include partial/comment
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/betrs.png" class="js-avatar">
+			
+		</a>
 
-block copyright
-  include partial/copyright
+		<hgroup>
+		  <h1 class="header-author"><a href="/">吴佳</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">关注前端领域,热爱JavaScript编程，努力奉献开源事业。</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+		        
+					<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">吴佳</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/betrs.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">吴佳</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">关注前端领域,热爱JavaScript编程，努力奉献开源事业。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-javascriptThis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 class="article-title" itemprop="name">
+      学会JS的this这一篇就够了，根本不用记
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+		
+		
+		  <p>#以前看某本书上讲：<br>掌握了JS中this的用法才算真正的跨过了JS的门槛<br>我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌握了this的用法。然而可能是由于我太笨了，经常过一段时间就忘得一干二净了，这真的是一件很尴尬的事情……直到后来我仔细地琢磨又琢磨，终于感觉我可能以后不会再忘记了。所以想把我琢磨的内容和大家分享一下。</p>
+<p>说到this，就不得不提到function，相信看过其它类似文章的同学也知道，正是由于调用function的对象不同，才导致了this的指向不同。所以以前老是去记忆每种调用function的情况所对应的this，因为情况有限而且很少，所以这当然是可行的——对于聪明人来说。所以我不得不思考另外一些方式来让我记住。</p>
+<p>那么首先我们需要明确的一个事情是：function也是对象<br>同时我们还需要明确的一个事情是：function执行时是在某个特定的上下文中执行的。那什么是上下文呢？打个比方，比如你练会了辟邪剑谱，那这时候你的掌门让你用辟邪剑谱砍人。如果仅仅是这样的话，你是没法完成这个任务的，因为你必须得知道要砍谁吧，其次去哪儿砍吧，那么是个地下通道还是一望无尽的大草原，要是地下通道你走路都困难，还怎么用辟邪剑谱呢对吧。这就是上下文，函数执行时它也需要一些额外的信息来支撑它的运行。那么既然function是对象的话，就会有方法。而function中最核心的方法是call方法。因此我们就从这儿入手。</p>
+<p>#call方法<br>先来看一下如何使用call方法:</p>
+<pre><code>function say(content) {
+   console.log(&quot;From &quot; + this + &quot;: Hello &quot;+ content);
+}
+say.call(&quot;Bob&quot;, &quot;World&quot;); //==&gt; From Bob: Hello World
+</code></pre><p>接下来仔细分析一下call的用法：<br>Step1: 把第二个到最后一个参数作为函数执行时要传入的参数<br>Step2: 把函数执行时的this指向第一个参数<br>Step3: 在上面这个特殊的上下文中执行函数<br>上面例子中，我们通过call方法，让say函数执行时的this指向”Bob”，然后把”World”作为参数传进去，所以输出结果是可以预见的。<br>js执行函数时会默认完成以上的步骤，你可以把直接调用函数理解为一种语法糖<br>比如：</p>
+<pre><code>function say(word) {
+   console.log(world);
+}
+say(&quot;Hello world&quot;);
+say.call(window, &quot;Hello world&quot;);
+</code></pre><p>以上可以把say(“Hello world”)看做是say.call(window,”Hello world”)的语法糖。</p>
+<p>这个结论非常关键，所以以后每次看见functionName(xxx)的时候，你需要马上在脑海中把它替换为functionName.call(window,xxxx)，这对你理解this的指向非常重要。不过也有例外，在ES5的strict mode中call的第一个参数不是window而是undefined。之后的例子我假设总是不在strictmode下，但你需要记住strictmode有一点儿不同。<br>对于匿名函数来说，上面的结论也是成立的</p>
+<pre><code>(function(name) {
+    //
+})(&quot;aa&quot;);
+//等价于
+(function(name) {    
+  //
+}).call(window, &quot;aa&quot;);
+</code></pre><p>函数作为对象的方法被调用<br>直接来看代码：</p>
+<pre><code>var person = {
+    name : &quot;caibirdme&quot;,
+    run : function(time) {
+        console.log(this.name + &quot;has been running for over &quot;+ time+ &quot; minutes&quot;);
+    }};
+person.run(30);
+//==&gt; caibirdme has been running for over 30 minutes//等价于
+person.run.call(person, 30); // the same
+</code></pre><p>你会发现这里call的第一个参数是person而不是window。<br>当你明白了这两点，下意识地把函数调用翻译成foo.call()的形式，明确call的第一个参数，那基本上this的问题就难不住你了。<br>还是来举几个例子吧</p>
+<p>#例一：</p>
+<pre><code>function hello(thing) {  
+  console.log(this + &quot; says hello &quot; + thing);
+}
+  person = { name: &quot;caibirdme&quot; }  
+  person.hello = hello;
+  person.hello(&quot;world&quot;) 
+// 相当于执行 person.hello.call(person, &quot;world&quot;)
+hello(&quot;world&quot;) 
+// 相当于执行 hello.call(window, &quot;world&quot;)
+</code></pre><p>#例二：</p>
+<pre><code>var obj = {
+    x: 20,
+    f: function(){ console.log(this.x); }
+};
+    obj.f(); // obj.f.call(obj)//==&gt; 20
+obj.innerobj = {
+    x: 30,
+    f: function(){ console.log(this.x); }
+}
+obj.innerobj.f(); 
+// obj.innerobj.f.call(obj.innerobj)// ==&gt; 30
+</code></pre><p>#例三：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){
+        console.log(this.x); //this equals obj
+                // ==&gt; 20
+        var foo = function(){ console.log(this.x); }
+        foo(); 
+        // foo.call(window)
+        //foo中this被指定为window，所以==&gt; 10
+    }
+};
+obj.f();  // obj.f.call(obj)// ==&gt; 20 10
+</code></pre><p>由例三引出一个非常common的问题，如果我想让foo输出20怎么办？这时候需要用到一点小技巧</p>
+<p>#例四：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){
+        console.log(this.x);
+        var that = this; 
+//使用that保留当前函数执行上下文的this
+        var foo = function(){ console.log(that.x); } 
+//此时foo函数中的this仍然指向window，但我们使用that取得obj
+        foo(); // foo.call(window)
+    }
+};
+obj.f(); 
+obj.f.call(obj)// ==&gt; 20 20
+</code></pre><p>再来一个稍微难一点点的(但其实用call替换法一点儿也不难)</p>
+<p>#例五：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){ console.log(this.x); }
+};
+obj.f(); // obj.f.call(obj)// ==&gt; 20
+var fOut = obj.f;
+fOut(); 
+// fOut.call(window)//==&gt; 10
+var obj2 = {
+    x: 30,
+    f: obj.f
+}
+obj2.f(); // obj2.f.call(obj2)//==&gt; 30
+</code></pre><p>例五有些同学会可能出错的原因，是没有明确我上面说的：<br>this是在执行是才会被确认的<br>他可能会认为说obj.f那个函数定义在obj里面，那this就该指向obj。如果看完这篇文章你还这么想的话，我会觉得我的表达水平太失败了……<br>用于构造函数<br>先看一段代码：</p>
+<pre><code>func person(name) {
+    this.name = name;}
+    var caibirdme = new person(&quot;deen&quot;);
+    // caibirdme.name == deen
+</code></pre><p>我上面也说了，函数在用作构造函数时同样可以用call方法去代替，那这里怎么代替呢？<br>这里你又需要明确一点：<br>new constrcut()是一种创建对象的语法糖<br>它等价于</p>
+<pre><code>function person(name) {
+   this.name = name;
+}
+var foo = new person(&quot;deen&quot;);
+//通过new创建了一个对象
+//new是一种语法糖，new person等价于
+var bar = (function(name) {
+    var _newObj = {
+        constructor : person,
+        __proto__ : person.prototype,
+    };
+    _newObj.constructor(name);
+     // _newObj.constructor.call(_newObj, name)
+    return _newObj;
+})();
+</code></pre><p>So you can see……为什么new的时候this就指向新的对象了吧？<br>通过我这篇文章，我希望学会通过把一个函数调用替换成funcName.call的形式，从而理解运行时上下文中this到底指向谁。总结来说就是下面两个等价变形：</p>
+<pre><code>foo() ---&gt; foo.call(window)
+obj.foo() --&gt; obj.foo.call(obj)
+</code></pre><p>只要理解以上两个变形，this就不再是问题啦！！希望我的这种方法对各位同学认识this有所帮助，不要再像我曾经一样掉入this的坑中，相关面试题也不再怕怕啦，哈哈。</p>
+<p>（想了想，还是给朋友们说下我自己的理解吧，this：当前执行环境的上下文，call和apply：修改对象的上下文）</p>
+
+		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/11/15/javascriptThis/" class="archive-article-date">
+  	<time datetime="2016-11-15T01:04:33.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/12/01/stringTurnNumber/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaScript字符串转换为数字的方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/08/jsapi/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript常用API总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascriptThis" data-title="学会JS的this这一篇就够了，根本不用记" data-url="http://yoursite.com/2016/11/15/javascriptThis/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left" id="footer-left">
+    	</div>
+	<script>
+		//封装时间补零方法
+		function toZero(num){//补零操作
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;
+			};
+		};
+		
+		setInterval(function(){
+			var timeDate = new Date();
+			var hours    = toZero(timeDate.getHours());
+			var minutes  = toZero(timeDate.getMinutes());
+			var seconds  = toZero(timeDate.getSeconds());
+			var footerLeft = document.getElementById("footer-left");
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
+
+			//console.log(time)
+			footerLeft.innerHTML = time;	
+		},1000);
+	</script>
+      	<div class="footer-right">
+		&copy; 2015-2016 <a href="https://betrs.github.io/" target="_blank"> 吴佳 </a>  All Rights Reserved 
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cspan id='cnzz_stat_icon_1260617449'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260617449%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+      	</div>
+    </div>
+    <script type="text/javascript">
+	  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+	  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+	  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+	  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+	  
+	  _st('install','z3dx7kRzWg4zhAjxxqUx','2.0.0');
+	</script>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 15px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xuanmomo.com">轩陌博客</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.njalex.com">alex博客</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">真实姓名 :吴佳显&lt;br&gt;破蛋日 :1994-11-03&lt;br&gt;籍贯 :湖北省孝感市&lt;br&gt;职业 :程序员&lt;br&gt;前端Q群：62365713</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
