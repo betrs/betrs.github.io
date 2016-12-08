@@ -1,67 +1,213 @@
-
-
-
-
-
-
-<!doctype html>
-<html lang="">
-
-<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" 
-src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
-</script>
-<link href=  "/plugins/code-theme/tomorrow-night.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" href="/plugins/github-markdown.css">
-
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="fe1ccc3f8d5847fb7e83dc2b87fe66dc"/>
+  <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
   
-    
-    
-      <link rel="stylesheet" href="/css/legend.css">
-    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>ES6 你可能不知道的事 - 基础篇 | 吴佳博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#序
+ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。
+首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。
+对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6 你可能不知道的事 - 基础篇">
+<meta property="og:url" content="http://yoursite.com/2016/10/21/es6Basics/index.html">
+<meta property="og:site_name" content="吴佳博客">
+<meta property="og:description" content="#序
+ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。
+首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。
+对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍">
+<meta property="og:updated_time" content="2016-10-21T01:29:56.060Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6 你可能不知道的事 - 基础篇">
+<meta name="twitter:description" content="#序
+ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。
+首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。
+对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍">
   
+    <link rel="alternative" href="/atom.xml" title="吴佳博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+  
+
+  <style>
+	.left-col { 
+		background:url(/img/blog_left.jpg) center center !important;
+		background-size:cover; 
+		width: 300px; 
+		position:fixed; 
+		opacity:1; 
+		transition:all .2s ease-in; 
+		height:100%;
+
+		    .overlay{
+			width: 100%;
+			height: 180px;
+			background-color: black;
+			position: absolute;
+			opacity: 0.7;
+			z-index: -1;//������
+		    }
+
+		    .intrude-less {
+			width: 76%;
+			text-align: center;
+			margin: 112px auto 0;
+		    }
+	}
+	
+  </style>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?e491c72fc1b629cfa350015981ca1691";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
 </head>
 
-<body id="body-x">
-<div id="layout-content">
-  <div id="menu-outer-x">
-  <div id="menu-inner">
-    
-    
-    <div id="site-title">
-      吴佳博客
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/betrs.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">吴佳</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">关注前端领域,热爱JavaScript编程。</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+		        
+					<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
     </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">吴佳</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/betrs.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">吴佳</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">关注前端领域,热爱JavaScript编程。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-es6Basics" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 class="article-title" itemprop="name">
+      ES6 你可能不知道的事 - 基础篇
+    </h1>
+  
+
+      </header>
     
 
-     
-    <div>
-    
-      
-      <a href="/">首页</a>
-      
-    
-      
-      <a href="/archives">归档</a>
-      
-    
-    </div>
-  </div>
-</div> 
-  <div id="content-outer">
-    <div id="content-inner">
-      
-      
-  <article class="markdown-body">
-    <h1 id="post-title">ES6 你可能不知道的事 - 基础篇
-       
-        <div id="post-time" datetime="2016-10-21T01:12:07.000Z">
-          2016-10-21
-        </div>
-      
-    </h1>
-    <p>#序</p>
+    <div class="article-entry" itemprop="articleBody">
+	  
+		
+		
+		  <p>#序</p>
 <p>ES6，或许应该叫 ES2015（2015 年 6 月正式发布），对于大多数前端同学都不陌生。</p>
 <p>首先这篇文章不是工具书，不会去过多谈概念，而是想聊聊关于每个特性 你可能不知道的事，希望能为各位同学 正确使用 ES6，提供一些指导。</p>
 <p>对于 ES6，有些同学已经在项目中有过深入使用了，有些则刚刚开始认识他，但不论你是属于哪一类，相信这篇文章都有适合你的部分。针对文章中的问题或不同意见，欢迎随时拍砖、指正。</p>
@@ -327,136 +473,289 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
 <p>基础篇主要是讲了我们最常用的一些特性，后续如果大家感兴趣，还可以再来个 “进阶篇”，最后，希望文章中的部分内容可以对大家理解和使用 ES6 有所帮助。</p>
 <p>转自：<a href="http://taobaofed.org/blog/2016/07/22/es6-basics/" target="_blank" rel="external">http://taobaofed.org/blog/2016/07/22/es6-basics/</a></p>
 
-  </article>
+		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/10/21/es6Basics/" class="archive-article-date">
+  	<time datetime="2016-10-21T01:12:07.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-21</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
 
   
-    
-    
-      <div id="page-prev-next">
+<nav id="article-nav">
+  
+    <a href="/2016/11/07/creatObject/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
         
-        
-          <a id="page-prev-a" href="/2016/11/07/creatObject/"> ← javascript创建对象的7种模式 </a>
-        
-
-        
-        
-          <a id="page-next-a" href="/2016/10/21/timer/"> 深入理解定时器：setTimeout与setInterval → </a>
+          javascript创建对象的7种模式
         
       </div>
-    
-    
-    
-    
-      
-      <div id="play-button"  style="background-color: #6d5aca; border: solid 2px #6d5aca;">
-  <img id="play-img" src="/images/playback_play.png"></img>
-</div>
-<audio id="bgaudio" loop="loop" preload="none"> 
-  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715 type="audio/mpeg">
-</audio>
+    </a>
+  
+  
+    <a href="/2016/10/21/timer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深入理解定时器：setTimeout与setInterval</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-<script>
-$(document).ready(function(){
-  //播放按钮点击
-  var audio = $("#bgaudio")[0];
-  var img = $("#play-img")[0];
-  $("#play-button").click(function(){ 
-    if (audio.paused || audio.ended) {
-      audio.play();
-      img.src = "/images/playback_pause.png";
-    } else {
-      audio.pause();
-      img.src = "/images/playback_play.png";
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="es6Basics" data-title="ES6 你可能不知道的事 - 基础篇" data-url="http://yoursite.com/2016/10/21/es6Basics/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left" id="footer-left">
+    	</div>
+	<script>
+		//封装时间补零方法
+		function toZero(num){//补零操作
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;
+			};
+		};
+		
+		setInterval(function(){
+			var timeDate = new Date();
+			var hours    = toZero(timeDate.getHours());
+			var minutes  = toZero(timeDate.getMinutes());
+			var seconds  = toZero(timeDate.getSeconds());
+			var footerLeft = document.getElementById("footer-left");
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
+
+			//console.log(time)
+			footerLeft.innerHTML = time;	
+		},1000);
+	</script>
+      	<div class="footer-right">
+		&copy; 2015-2016 <a href="https://betrs.github.io/" target="_blank"> 吴佳 </a>  All Rights Reserved 
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cspan id='cnzz_stat_icon_1260617449'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260617449%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+      	</div>
+    </div>
+    <script type="text/javascript">
+	  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+	  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+	  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+	  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+	  
+	  _st('install','z3dx7kRzWg4zhAjxxqUx','2.0.0');
+	</script>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     }
-  });
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
 });
 </script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
     
 
     
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 15px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
+    			</div>
+    	</section>
     
 
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div id="reward_comment">文章对我有帮助，打赏作者</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wechatpay.png" alt="吴佳 WeChat Pay"/>
-          <p>微信</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/alipay.png" alt="吴佳 Alipay"/>
-          <p>支付宝</p>
-        </div> 
-      
-    </div>
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xuanmomo.com">轩陌博客</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.njalex.com">alex博客</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">真实姓名 :吴佳显&lt;br&gt;破蛋日 :1994-11-03&lt;br&gt;籍贯 :湖北省孝感市&lt;br&gt;职业 :程序员&lt;br&gt;前端Q群：62365713</div>
+  	  	
+    	</section>
+    
   </div>
-
-
   
-
-    </div>
-
-    <!-- 多说评论框 -->    
-    
-      <div class="ds-thread" data-thread-key="2016/10/21/es6Basics/" data-title="ES6 你可能不知道的事 - 基础篇" data-url="http://yoursite.com/2016/10/21/es6Basics/"></div>
-    
-  </div>
 </div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-<div id="bottom-outer">
-  
-  <div id="bottom-inner">
-    吴佳 
-    ©2016 |Powered by  
-    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
-    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
   </div>
-    
-    
-    
-      <a href="/atom.xml">
-      
-      <img src=/images/rss.png height="18" width="18">
-      
-</div> 
-
-
-  
-  
-    <script src="/js/legend.js"></script>
-  
-
-
 </body>
 </html>
-
-
-
-  
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"ihongren"};
-(function() {
-  var ds = document.createElement('script');
-  ds.type = 'text/javascript';ds.async = true;
-  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-  ds.charset = 'UTF-8';
-  (document.getElementsByTagName('head')[0] 
-   || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-
-
-
-<script>
-$(window).on('load', function(){
-   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
-   prettyPrint();
- });
-</script>
-
