@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="fe1ccc3f8d5847fb7e83dc2b87fe66dc"/>
+  <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JQuery3中新增的功能 | 吴佳（Jasn）博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="从jQuery 震撼整个 Web ，至今已有十年了，我们有很好的理由一直坚持使用维护它。jQuery为用户提供了 DOM 进行操作，执行 Ajax 请求，创建动画等等，极为友好的接口。此外，与 DOM API 不同的是，jQuery 采用了 复合模式（composite pattern）。 正因为如此，你可以在一个jQuery集合上调用jQuery方法，而不用担心集合包含的元素数量（零，一个或多个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery3中新增的功能">
+<meta property="og:url" content="http://yoursite.com/2016/12/14/JQuery3NewFunction/index.html">
+<meta property="og:site_name" content="吴佳（Jasn）博客">
+<meta property="og:description" content="从jQuery 震撼整个 Web ，至今已有十年了，我们有很好的理由一直坚持使用维护它。jQuery为用户提供了 DOM 进行操作，执行 Ajax 请求，创建动画等等，极为友好的接口。此外，与 DOM API 不同的是，jQuery 采用了 复合模式（composite pattern）。 正因为如此，你可以在一个jQuery集合上调用jQuery方法，而不用担心集合包含的元素数量（零，一个或多个">
+<meta property="og:updated_time" content="2016-12-14T01:55:22.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JQuery3中新增的功能">
+<meta name="twitter:description" content="从jQuery 震撼整个 Web ，至今已有十年了，我们有很好的理由一直坚持使用维护它。jQuery为用户提供了 DOM 进行操作，执行 Ajax 请求，创建动画等等，极为友好的接口。此外，与 DOM API 不同的是，jQuery 采用了 复合模式（composite pattern）。 正因为如此，你可以在一个jQuery集合上调用jQuery方法，而不用担心集合包含的元素数量（零，一个或多个">
+  
+    <link rel="alternative" href="/atom.xml" title="吴佳（Jasn）博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+  
+
+  <style>
+	.left-col { 
+		background:url(/img/blog_left.jpg) center center !important;
+		background-size:cover; 
+		width: 300px; 
+		position:fixed; 
+		opacity:1; 
+		transition:all .2s ease-in; 
+		height:100%;
+
+		    .overlay{
+			width: 100%;
+			height: 180px;
+			background-color: black;
+			position: absolute;
+			opacity: 0.7;
+			z-index: -1;//������
+		    }
+
+		    .intrude-less {
+			width: 76%;
+			text-align: center;
+			margin: 112px auto 0;
+		    }
+	}
+	
+  </style>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?e491c72fc1b629cfa350015981ca1691";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/betrs.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">吴佳（Jasn）</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一名JavaScript狂热分子 ，推崇开源精神 ，为开源事业添砖加瓦！</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+		        
+					<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">吴佳（Jasn）</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/betrs.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">吴佳（Jasn）</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一名JavaScript狂热分子 ，推崇开源精神 ，为开源事业添砖加瓦！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-JQuery3NewFunction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 class="article-title" itemprop="name">
+      JQuery3中新增的功能
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+		
+		
+		  <p>从jQuery 震撼整个 Web ，至今已有十年了，我们有很好的理由一直坚持使用维护它。jQuery为用户提供了 DOM 进行操作，执行 Ajax 请求，创建动画等等，极为友好的接口。此外，与 DOM API 不同的是，jQuery 采用了 复合模式（composite pattern）。 正因为如此，你可以在一个jQuery集合上调用jQuery方法，而不用担心集合包含的元素数量（零，一个或多个）。</p>
+<p>在未来的几周内，随着 jQuery 3 的发布，jQuery 会到达一个重要的里程碑。jQuery 3 修复了很多 bug，增加了新的方法，弃用并移除了一些功能，并改变了一些功能的行为。在这篇文章中，我重点讲解jQuery 3所带来的一些最大的变化。</p>
+<p>#新特性（New Features）<br>在下面的章节中，我将讨论jQuery 3中新增的重要特性。</p>
+<a id="more"></a>
+<p>#for…of 循环<br>jQuery 3 将提供for…of循环语句，可以用来遍历一个jQuery集合所有的 DOM 元素。这种新的迭代器ECMAScript 2015（又名的ECMAScript6）规范的一部分。它能实现对可遍历对象（包括Array、Map、Set 等）的循环。</p>
+<p>当使用这个新的迭代方法时，您每次接收的值不是一个jQuery集合，而是一个DOM元素。当你对一个jQuery集合执行操作时，这个新的迭代方法可以少许改善你的代码。</p>
+<p>为了理解这个迭代方法是如何工作的，假设你想给页面中每个input元素分配一个 ID。在 jQuery 3 之前，你可以这样写：</p>
+<pre><code>var $inputs = $(&apos;input&apos;);
+
+for(var i = 0; i &lt; $inputs.length; i++) {
+   $inputs[i].id = &apos;input-&apos; + i;
+}
+</code></pre><p>而在 jQuery 3 中，你可以这样写：</p>
+<pre><code>var $inputs = $(&apos;input&apos;);
+var i = 0; 
+
+for(var input of $inputs) {
+   input.id = &apos;input-&apos; + i++;
+}
+</code></pre><p>#$.get() 和 $.post()的新签名<br>jQuery 3 为 $.get() 和 $.post() 工具函数增加了新签名，为的是使得它们和 $.ajax() 的接口风格保持一致。新签名是这样的：</p>
+<p>$.get([settings])</p>
+<p>$.post([settings])<br>settings 是一个可以具有许多属性的对象。这是对象和 提供给$.ajax() 的对象 是相同的。更多详细的介绍，详细介绍，请参考 $.ajax()页面。</p>
+<p>传递给$.get() 和 $.post() 的对象，跟传递给 $.ajax() 的对象相比，唯一的区别是前者 method 属性总是会被忽略。其原因是，$.get() 和 $.post() 都有一个预设的HTTP方法来执行Ajax请求（ $.get() 用 GET，而 $.post() 用 POST）。一般说来，你不要用 $.get()尝试发送 POST 请求。</p>
+<p>考虑下面这段代码：</p>
+<pre><code>$.get({
+   url: &apos;https://www.audero.it&apos;,
+   method: &apos;POST&apos; // This property is ignored
+});
+</code></pre><p>尽管设置了method属性，该语句还是不能发送 POST 请求，而只能发送 GET 请求。</p>
+<p>#采用 requestAnimationFrame() 来实现动画<br>所有现代浏览器，包括Internet Explorer10及以上版本，都支持 requestAnimationFrame。jQuery 3 将会在内部采用这个 API 来实现动画，以便达到更流畅、更省CPU资源的动画效果。</p>
+<p>#unwrap()<br>jQuery 3 为 unwrap() 方法增加了一个可选的选择器参数。这个方法的新签名为：<br>unwrap([selector])<br>有了这一变化，你就可以传入包含一个选择器表达式的字符串，在父元素内进行匹配。如果存在匹配，匹配的子元素将被解包;否则，不进行任何操作。</p>
+<p>被变更的特性<br>jQuery 3 还修改了一些特性的行为。</p>
+<p>:visible 和 :hidden<br>jQuery 3修改了 :visible 与 :hidden 过滤器的含义。只要元素具有任何布局盒，包括那些宽度和/或高度为0的情况，则元素被认为是:visible。比如说，br 元素和没有内容的内联元素进可以通过 :visible过滤器进行选择。</p>
+<p>所以，假如页面有如下标记：</p>
+<div></div><br><br><br>然后执行下面的语句：<br><br>    console.log($(‘body :visible’).length);<br><br>在 jQuery 1.x 和 2.x 中，你得到的结果会是 0；但在 jQuery 3 中，你会得到 2。<br><br>#data()<br>另一个重要变化是跟 data() 方法的行为有关。调整主要是为了让该方法符合 Dataset API 规范。jQuery 3 将所有属性的键都改为驼峰式大小写形式。要理解这个变化，先看下面这个例子。<br><br><div id="container"></div><br>如果你使用 jQuery 3 之前的版本，你可以写如下代码：<br><br>    var $elem = $(‘#container’);<br><br>    $elem.data({<br>       ‘my-property’: ‘hello’<br>    });<br>    console.log($elem.data());<br><br>您将在控制台上获得如下结果：<br><br>    {my-property: “hello”}<br><br>而在jQuery 3 中，你会获得如下结果：<br><br>    {myProperty: “hello”}<br><br>请注意，在 jQuery 3 中，属性名已经变成了驼峰形式，没有横杠（连字符）；而在以前的版本中，属性名会保持全小写，并原样保留横杠（连字符）。<br><br>#Deferred 对象<br>jQuery 3改变了Deferred 对象的行为，Promise 对象的前身，改善与 Promise/A+ 提案的兼容性。这个对象及其历史非常有意思，你可以读读官方文档，或者看看我的书 《jQuery 实战，第 3 版》，这本书也涵盖了 jQuery 3。<br><br>在 jQuery 1.x 和 2.x 中，传入 Deferred 中的回调函数中如果出现未捕获异常，会导致程序停止执行。而原生的 Promise 对象并非如此，它会抛出异常，并不断向上冒泡，直至到达 window.onerror（通常）。如果你没有定义一个函数来处理这个错误事件的话（通常我们都不会这么做），则会显示异常消息，程序终止执行。<br><br>jQuery 3 会遵循原生的 Promise 对象的模式。因此，抛出的异常将被视为一个失败状态（rejection），从而执行失败回调。完成之后，整个进程就继续执行，后续的成功回调将被执行。<br><br>为了让你更好地理解这个差异，让我们来看一个小例子。考虑下面的代码：<br><br>    var deferred = $.Deferred();<br><br>    deferred<br>      .then(function() {<br>        throw new Error(‘An error’);<br>      })<br>      .then(<br>        function() {<br>          console.log(‘Success 1’);<br>        },<br>        function() {<br>          console.log(‘Failure 1’);<br>        }<br>      )<br>      .then(<br>        function() {<br>          console.log(‘Success 2’);<br>        },<br>        function() {<br>          console.log(‘Failure 2’);<br>        }<br>      );<br><br>#deferred.resolve();<br>在 jQuery 1.x 和 2.x 中，只执行第一个函数（抛出错误的函数）会被执行到。此外，由于我们没有为window.onerror 定义任何事件处理函数，所以控制台将输出消息：“Uncaught Error: An error”，而且程序的执行将中止。<br><br>而在 jQuery 3 中，行为则完全不同的。你将在控制台中看到 “Failure 1” 和 “Success 2” 两条消息。异常将会被第一个失败回调处理，一旦被处理，则继续执行下面的成功函数。<br><br><br>#SVG 文档<br>没有哪一个 jQuery 版本，包括 jQuery 3，正式支持 SVG 文档。不过事实上有很多方法是可以正常工作的，另外一些方法，比如操作类名的方法，已经在 jQuery 3 中进行了更新，因此也适用。因此，在未来的版本中，你应该可以放心使用诸如 addClass() 和 hasClass() 这样的方法来操作 SVG 文档了。<br><br>已废弃、已移除的方法和属性<br>除了前面说的改进，jQuery 也移除、废弃了一些特性。<br><br>废弃bind(),unbind(),delegate()和undelegate()<br>jQuery 以前引入的 on() 方法提供了统一的访问接口，取代  bind()、delegate() 以及 live() 方法。与此同时，jQuery 用 off() 方法来取代 unbind()、undelegated() 及 die() 方法。bind()、delegate()、unbind() 和 undelegate() 今后不建议使用，但是并没有采取进一步的行动。<br><br>jQuery 3 已经废弃这些方法，并计划在未来的版本（可能是 jQuery 4）中移除它们，要坚持在项目中使用 on() 和 off() 方法，这样你就不用担心未来版本的变更了。<br><br>移除 load(), unload() 和 error()方法<br>jQuery 3 彻底抛弃了已经废弃的 load()、unload() 和 error() 方法。这些方法在很早以前（从 jQuery 1.8 开始）就已经被标记为废弃了，但仍一直存在。如果你正在使用的插件仍然依赖这些方法，那么升级到 jQuery 3 的时候，代码就会出错。因此，在升级过程中要注意。<br><br>移除 context, support 和 selector<br>jQuery 3 彻底抛弃了已经废弃的 context、support 和 selector 属性。如前所述，如果项目中仍然使用着这些属性，或者某个插件仍在依赖这些属性，那么更新到 jQuery 3 时，代码就会出错。<br><br>#Bugs 修复<br>jQuery 3 修复了以前版本中的一些重大 Bug。在下面的章节中，我将着重介绍其中两处，因为这两处会对你的编码产生重大影响<br><br>width() 和 height()的返回值不再四舍五入<br>jQuery 3 修复了 width()、height() 和其它相关方法中的一个 bug。这些方法的返回值将不再四舍五入取整到像素了，因为，这使得在某些情况下很难，对元素进行定位。<br><br>要理解这个问题，让我们假设你有一个具有100像素的宽度的容器元素，这个元素有宽度均为三分之一（即 33.333333%）的3个子元素：<br><br>    <div class="container"><br>       <div>My name</div><br>       <div>is</div><br>       <div>Aurelio De Rosa</div><br>    </div>
+
+<p>在 jQuery 3 以前的版本中，如果你尝试通过以下代码来获取子元素的宽度……</p>
+<pre><code>$(&apos;.container div&apos;).width();
+</code></pre><p>……那么你得到结果将是 33。原因在于 jQuery 会将 33.33333 这个值四舍五入取整。而在 jQuery 3 中，这个 Bug 已经得到修复，你的结果会更精确（比如会得到浮点数）。</p>
+<p>#wrapAll()<br>jQuery的新版本中还修复 wrapAll() 方法的一个bug，这个bug会在传递一个函数给 wrapAll() 方法时发生。在 jQuery 3 以前的版本中，当一个函数被传给 wrapAll() 方法时，它会把 jQuery 集合中的每个元素单独包裹起来。换句话说，这种行为和把一个函数传给 wrap() 时的行为是完全一样的。</p>
+<p>除了修复这个问题，因为这种函数在 jQuery 3 中只会被调用一次，所以jQuery 集合元素的索引不可能被传入。最后，该函数上下文（this）将指向 jQuery 集合中的第一个元素。</p>
+<p>下载 jQuery 3 beta 1<br>如果此文让你产生了兴趣，你可以试试 jQuery 3 的第一个 beta 版。通过下面两个 URL 都可以下载到它。</p>
+<p>未压缩版本: <a href="https://code.jquery.com/jquery-3.0.0-beta1.js" target="_blank" rel="external">https://code.jquery.com/jquery-3.0.0-beta1.js</a><br>压缩版本: <a href="https://code.jquery.com/jquery-3.0.0-beta1.min.js" target="_blank" rel="external">https://code.jquery.com/jquery-3.0.0-beta1.min.js</a></p>
+<p>它也可在npm，通过运行以下命令下载它：<br>npm install jquery@3.0.0-beta1</p>
+<p>#总结<br>很多人在说jQuery 已死，认为在现代网页开发中已经没有一席之地了。然而，jQuery 的开发仍在继续，客观的统计数据（在排名前一百万名的网站中占有率高达 78.5%）驳斥这些说法。</p>
+<p>在本文中，我已经带你了解了一遍 jQuery 3 将会带来的一些重大变化。或许你已经注意到了，这个版本是可能对你现有的项目产生太大的影响，因为没有引入太多许多重大更改。尽管如此，仍然需要注意一些因素，比如 Deferred 对象的改进。就像更新第三方依赖所经常要面的那样，对项目一定要做一个复查，从而防止意外行为或功能崩溃的情况出现。</p>
+
+		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/12/14/JQuery3NewFunction/" class="archive-article-date">
+  	<time datetime="2016-12-14T01:47:45.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-14</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/09/webProblem/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">总结40条常见移动端Web页面问题解决方案</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JQuery3NewFunction" data-title="JQuery3中新增的功能" data-url="http://yoursite.com/2016/12/14/JQuery3NewFunction/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left" id="footer-left">
+    	</div>
+	<script>
+		//封装时间补零方法
+		function toZero(num){//补零操作
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;
+			};
+		};
+		
+		setInterval(function(){
+			var timeDate = new Date();
+			var hours    = toZero(timeDate.getHours());
+			var minutes  = toZero(timeDate.getMinutes());
+			var seconds  = toZero(timeDate.getSeconds());
+			var footerLeft = document.getElementById("footer-left");
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
+
+			//console.log(time)
+			footerLeft.innerHTML = time;	
+		},1000);
+	</script>
+      	<div class="footer-right">
+		&copy; 2015-2016 <a href="https://betrs.github.io/" target="_blank"> 吴佳（Jasn） </a>  All Rights Reserved 
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cspan id='cnzz_stat_icon_1260617449'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260617449%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+      	</div>
+    </div>
+    <script type="text/javascript">
+	  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+	  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+	  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+	  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+	  
+	  _st('install','z3dx7kRzWg4zhAjxxqUx','2.0.0');
+	</script>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 16.67px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xuanmomo.com">轩陌博客</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.njalex.com">alex博客</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">真实姓名 :吴佳显&lt;br&gt;破蛋日 :1994-11-03&lt;br&gt;籍贯 :湖北省孝感市&lt;br&gt;职业 :程序员&lt;br&gt;前端Q群：62365713</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
