@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/14/JQuery3NewFunction/index.html">
 <meta property="og:site_name" content="吴佳（Jasn）博客">
 <meta property="og:description" content="从jQuery 震撼整个 Web ，至今已有十年了，我们有很好的理由一直坚持使用维护它。jQuery为用户提供了 DOM 进行操作，执行 Ajax 请求，创建动画等等，极为友好的接口。此外，与 DOM API 不同的是，jQuery 采用了 复合模式（composite pattern）。 正因为如此，你可以在一个jQuery集合上调用jQuery方法，而不用担心集合包含的元素数量（零，一个或多个">
-<meta property="og:updated_time" content="2016-12-14T01:55:22.178Z">
+<meta property="og:updated_time" content="2016-12-14T01:58:30.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JQuery3中新增的功能">
 <meta name="twitter:description" content="从jQuery 震撼整个 Web ，至今已有十年了，我们有很好的理由一直坚持使用维护它。jQuery为用户提供了 DOM 进行操作，执行 Ajax 请求，创建动画等等，极为友好的接口。此外，与 DOM API 不同的是，jQuery 采用了 复合模式（composite pattern）。 正因为如此，你可以在一个jQuery集合上调用jQuery方法，而不用担心集合包含的元素数量（零，一个或多个">
@@ -218,8 +218,10 @@ for(var input of $inputs) {
    input.id = &apos;input-&apos; + i++;
 }
 </code></pre><p>#$.get() 和 $.post()的新签名<br>jQuery 3 为 $.get() 和 $.post() 工具函数增加了新签名，为的是使得它们和 $.ajax() 的接口风格保持一致。新签名是这样的：</p>
-<p>$.get([settings])</p>
-<p>$.post([settings])<br>settings 是一个可以具有许多属性的对象。这是对象和 提供给$.ajax() 的对象 是相同的。更多详细的介绍，详细介绍，请参考 $.ajax()页面。</p>
+<pre><code>$.get([settings])
+
+$.post([settings])
+</code></pre><p>settings 是一个可以具有许多属性的对象。这是对象和 提供给$.ajax() 的对象 是相同的。更多详细的介绍，详细介绍，请参考 $.ajax()页面。</p>
 <p>传递给$.get() 和 $.post() 的对象，跟传递给 $.ajax() 的对象相比，唯一的区别是前者 method 属性总是会被忽略。其原因是，$.get() 和 $.post() 都有一个预设的HTTP方法来执行Ajax请求（ $.get() 用 GET，而 $.post() 用 POST）。一般说来，你不要用 $.get()尝试发送 POST 请求。</p>
 <p>考虑下面这段代码：</p>
 <pre><code>$.get({
@@ -228,7 +230,9 @@ for(var input of $inputs) {
 });
 </code></pre><p>尽管设置了method属性，该语句还是不能发送 POST 请求，而只能发送 GET 请求。</p>
 <p>#采用 requestAnimationFrame() 来实现动画<br>所有现代浏览器，包括Internet Explorer10及以上版本，都支持 requestAnimationFrame。jQuery 3 将会在内部采用这个 API 来实现动画，以便达到更流畅、更省CPU资源的动画效果。</p>
-<p>#unwrap()<br>jQuery 3 为 unwrap() 方法增加了一个可选的选择器参数。这个方法的新签名为：<br>unwrap([selector])<br>有了这一变化，你就可以传入包含一个选择器表达式的字符串，在父元素内进行匹配。如果存在匹配，匹配的子元素将被解包;否则，不进行任何操作。</p>
+<p>#unwrap()<br>jQuery 3 为 unwrap() 方法增加了一个可选的选择器参数。这个方法的新签名为：</p>
+<pre><code>unwrap([selector])
+</code></pre><p>有了这一变化，你就可以传入包含一个选择器表达式的字符串，在父元素内进行匹配。如果存在匹配，匹配的子元素将被解包;否则，不进行任何操作。</p>
 <p>被变更的特性<br>jQuery 3 还修改了一些特性的行为。</p>
 <p>:visible 和 :hidden<br>jQuery 3修改了 :visible 与 :hidden 过滤器的含义。只要元素具有任何布局盒，包括那些宽度和/或高度为0的情况，则元素被认为是:visible。比如说，br 元素和没有内容的内联元素进可以通过 :visible过滤器进行选择。</p>
 <p>所以，假如页面有如下标记：</p>
