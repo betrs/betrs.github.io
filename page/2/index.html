@@ -178,6 +178,78 @@
       <div class="body-wrap">
         
   
+    <article id="post-timer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/21/timer/">深入理解定时器：setTimeout与setInterval</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+	    <p>#setTimeout</p>
+<p>setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。</p>
+<pre><code>1    setTimeout(function(){
+2         console.log(&apos;hello&apos;)
+3    },1000)
+</code></pre><p>这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 </p>
+<p>setTimeout创建的定时器会返回一个ID值，利用这个ID值配合cleartimeout可以取消要延迟执行的代码块：</p>
+<pre><code>1     var t =setTimeout(function(){
+2    alert(&apos;hello&apos;)
+3     },1000)
+4     clearTimeout(t)
+5     setInterval
+</code></pre><p>setInterval()与setTimeout()相同，区别在于后者是重复性的检测和执行：</p>
+<pre><code>1    var t = setInterval(function(){
+2        console.log(&apos;hello&apos;)
+3    },1000)
+</code></pre><p>上面的代码每隔1s在控制台输出‘ hello’</p>
+<p>setInterval创建的定时器可以使用clearInterval取消</p>
+	    
+		<p class="article-more-link"><a href="/2016/10/21/timer/#more">more >></a></p>
+	    
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/10/21/timer/" class="archive-article-date">
+  	<time datetime="2016-10-21T01:01:55.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-21</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-datatype" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -675,7 +747,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 16.67px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
+    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 16.67px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a>
     			</div>
     	</section>
     

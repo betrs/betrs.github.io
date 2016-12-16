@@ -178,6 +178,83 @@
       <div class="body-wrap">
         
   
+    <article id="post-React" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/React/">Node+React+Webpack+es6+less的环境配置</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+	    <p>#React Demo</p>
+<p>React环境配置：Node+React+Webpack+es6+Less （清单），案例地址：<a href="https://github.com/betrs/ReactDemo.git">https://github.com/betrs/ReactDemo.git</a></p>
+<p>#安装依赖：</p>
+<p>命令中 –save-dev  含义是安装时顺便把配置信息写入到package.json文件中</p>
+<p>1.生成一个 package.json文件 ：</p>
+<pre><code>//使用命令：
+            npm init  //（一路默认即可）
+</code></pre><p>2.安装 react 和 react-dom 依赖：</p>
+<pre><code>//使用命令：
+            npm install react react-dom --save-dev
+</code></pre><p>3.安装 webpack 和 webpack-dev-server 依赖：</p>
+<pre><code>//使用命令：
+            npm install webpack webpack-dev-server --save-dev
+</code></pre><p>4.安装 babel 依赖：</p>
+<pre><code>//使用命令：
+            npm install babel-loader babel-core babel-preset-react babel-preset-es2015 --save-dev
+</code></pre><p>5.安装 less css 处理样式依赖：</p>
+<pre><code>//使用命令：
+            npm install less-loader css-loader style-loader --save-dev
+</code></pre><p>6.安装 url-loader 处理资源依赖：</p>
+<pre><code>//使用命令：
+            npm install url-loader --save-dev
+</code></pre>
+	    
+		<p class="article-more-link"><a href="/2016/12/16/React/#more">more >></a></p>
+	    
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/12/16/React/" class="archive-article-date">
+  	<time datetime="2016-12-16T10:40:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-JQuery3NewFunction" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -783,78 +860,6 @@ parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数
 
 
   
-    <article id="post-timer" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-	
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/21/timer/">深入理解定时器：setTimeout与setInterval</a>
-    </h1>
-  
-
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>#setTimeout</p>
-<p>setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。</p>
-<pre><code>1    setTimeout(function(){
-2         console.log(&apos;hello&apos;)
-3    },1000)
-</code></pre><p>这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 </p>
-<p>setTimeout创建的定时器会返回一个ID值，利用这个ID值配合cleartimeout可以取消要延迟执行的代码块：</p>
-<pre><code>1     var t =setTimeout(function(){
-2    alert(&apos;hello&apos;)
-3     },1000)
-4     clearTimeout(t)
-5     setInterval
-</code></pre><p>setInterval()与setTimeout()相同，区别在于后者是重复性的检测和执行：</p>
-<pre><code>1    var t = setInterval(function(){
-2        console.log(&apos;hello&apos;)
-3    },1000)
-</code></pre><p>上面的代码每隔1s在控制台输出‘ hello’</p>
-<p>setInterval创建的定时器可以使用clearInterval取消</p>
-	    
-		<p class="article-more-link"><a href="/2016/10/21/timer/#more">more >></a></p>
-	    
-	  
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-
-      <div id="more" style="float:right;">
-        <a href="/2016/10/21/timer/" class="archive-article-date">
-  	<time datetime="2016-10-21T01:01:55.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-21</time>
-</a>   
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -975,7 +980,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 16.67px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a>
+    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 16.67px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a>
     			</div>
     	</section>
     
