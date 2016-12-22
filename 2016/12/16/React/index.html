@@ -26,7 +26,7 @@ React环境配置：Node+React+Webpack+es6+Less （清单），案例地址：ht
 1.生成一个 package.json文件 ：
 //使用命令：
             npm">
-<meta property="og:updated_time" content="2016-12-16T10:43:19.481Z">
+<meta property="og:updated_time" content="2016-12-22T08:38:58.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node+React+Webpack+es6+less的环境配置">
 <meta name="twitter:description" content="#React Demo
@@ -238,16 +238,20 @@ React环境配置：Node+React+Webpack+es6+Less （清单），案例地址：ht
 </code></pre><p>6.安装 url-loader 处理资源依赖：</p>
 <pre><code>//使用命令：
             npm install url-loader --save-dev
-</code></pre><a id="more"></a>
-<p>#最终目录结构：</p>
+</code></pre><p>#最终目录结构：</p>
 <pre><code>--React
     |--node_modules（程序所有依赖）
     |--components（组件目录）
-        |--hello（组件hello）
+        |--wujia（组件wujia）
             |--images（图片夹子）
             |--index.jsx
             |--index.less
-        |--react（组件react）
+        |--input（组件input）
+            |--images（图片夹子）
+                |-- js.jpg
+            |--input.jsx
+            |--input.less
+        |--blog（组件blog）
             |--images（图片夹子）
             |--index.jsx
             |--index.less
@@ -288,7 +292,7 @@ module.exports = {
     },
     entry: [ //自动更新入口配置
         &apos;webpack/hot/dev-server&apos;,
-        &apos;webpack-dev-server/client?http://localhost:8080&apos;,
+        &apos;webpack-dev-server/client?http://localhost:3000&apos;,
         APP_PATH
     ]
 }
@@ -299,7 +303,7 @@ module.exports = {
       &quot;description&quot;: &quot;this is my first react case.&quot;,
       &quot;main&quot;: &quot;index.js&quot;,
       &quot;scripts&quot;: {
-        &quot;dev&quot;: &quot;webpack-dev-server --devtool eval --progress --colors --hot --content-base build&quot;,
+        &quot;dev&quot;: &quot;webpack-dev-server --port 3000 --devtool eval --progress --colors --hot --content-base build&quot;,
         &quot;build&quot;: &quot;webpack&quot;,
         &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
       },
@@ -317,7 +321,7 @@ module.exports = {
       }    
 }
 </code></pre><p>#根据目录所示，我们需要创建两个组件，代码分别如下：</p>
-<p>1.Hello组件代码：</p>
+<p>1.wujia组件代码：</p>
 <pre><code>&quot;use strict&quot;; //开启严格模式
 
 import React from &apos;react&apos;; //导入react依赖    
@@ -325,22 +329,26 @@ import ReactDOM from &quot;react-dom&quot;; //导入react-dom依赖
 
 
 /**
-*    创建一个组件，取名 Hello
-*    export default  把创建的组件 Hello 暴露出去
+*    创建一个组件，取名 Wujia
+*    export default  把创建的组件 Wujia 暴露出去
 *    extends React.Component 让组件继承Component所有属性与方法
 **/    
-export default class Hello extends React.Component{
+export default class Wujia extends React.Component{
     render(){
-        return &lt;span className={this.props.color}&gt;{this.props.title}&lt;/span&gt;
+        return &lt;a className={this.props.color} href={this.props.src} title={this.props.mes}&gt;{this.props.title}&lt;/a&gt;
     };
 };
-</code></pre><p>组件Hello编写的less样式 :</p>
+</code></pre><p>组件Wujia编写的less样式 :</p>
 <pre><code>@color:blue;
 
 .hello{
     color:@color;
+    text-decoration: none;
+    &amp;:hover{
+        text-decoration:underline;
+    }
 }
-</code></pre><p>2.Word组件代码：</p>
+</code></pre><p>2.blog组件代码：</p>
 <pre><code>&quot;use strict&quot;; //开启严格模式
 
 import React from &quot;react&quot;; //导入react依赖    
@@ -348,21 +356,68 @@ import ReactDOM from &quot;react-dom&quot;; //导入react-dom依赖
 
 
 /**
-*    创建一个组件，取名 Word
-*    export default  把创建的组件 Word 暴露出去
+*    创建一个组件，取名 Blog
+*    export default  把创建的组件 Blog 暴露出去
 *    extends React.Component 让组件继承Component所有属性与方法
 **/
-export default class Word extends React.Component {
+export default class Blog extends React.Component {
     render(){
-        return &lt;span className={this.props.color}&gt;{this.props.name}&lt;/span&gt;
+        return &lt;a className={this.props.color} href={this.props.src} title={this.props.mes}&gt;{this.props.name}&lt;/a&gt;
     };
 };
-</code></pre><p>组件Word编写的less样式 :</p>
+</code></pre><p>组件blog编写的less样式 :</p>
 <pre><code>@color:red;
 
 .react{
     color:@color;
+    text-decoration: none;
+    &amp;:hover{
+        text-decoration:underline;
+    }
 }
+</code></pre><p>3.input组件代码：</p>
+<pre><code>&quot;use strict&quot;; //开启严格模式
+
+import React from &quot;react&quot;; //导入react依赖    
+import ReactDOM from &quot;react-dom&quot;; //导入react-dom依赖
+
+
+/**
+*    创建一个组件，取名 Input
+*    export default  把创建的组件 Input 暴露出去
+*    extends React.Component 让组件继承Component所有属性与方法
+**/
+export default class Input extends React.Component{
+    //初始化状态
+    constructor(props,context){
+        super(props,context);
+        this.state = {
+            value: this.props.value
+        };
+    };
+
+    //事件函数（输入框改变触发）
+    changeHandle(ev){
+        //设置状态
+        this.setState({
+            value: ev.target.value
+        });
+    };
+
+    render(){
+        return (
+            &lt;div&gt;
+                &lt;input className={this.props.class1} type=&quot;text&quot; value={this.state.value} onChange={this.changeHandle.bind(this)}/&gt;
+                &lt;p className={this.props.class2}&gt;{this.state.value}&lt;/p&gt;
+                &lt;img className={this.props.class3} src={this.props.src}/&gt;            
+            &lt;/div&gt;
+        );
+    };
+};
+</code></pre><p>组件input编写的less样式 :</p>
+<pre><code>.input{width: 180px;height: 30px;line-height: 30px;padding:0 10px;border:1px solid #ddd;font-size:14px;color:#333;}
+.tishi{display: inline-block;font-size:16px;color:green;margin-left:20px;}
+.img{display:block;margin-top:20px;}
 </code></pre><p>#创建页面 index.html （ build目录下 ）来使用前面创建的两个组件，代码如下：</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -384,19 +439,36 @@ export default class Word extends React.Component {
 import React from &quot;react&quot;; //导入react依赖
 import ReactDOM from &quot;react-dom&quot;; //导入react-dom依赖
 
-import Hello from &quot;./hello/index.jsx&quot;; //导入Hello组件
-import Word from &quot;./react/index.jsx&quot;; //导入Word组件
+import Wujia from &quot;./wujia/index.jsx&quot;;//导入wujia组件
+import Blog from &quot;./blog/index.jsx&quot;;//导入blog组件
+import Input from &quot;./input/input.jsx&quot;;//导入input组件
 
-import &quot;./hello/index.less&quot;; //导入Hello组件样式
-import &quot;./react/index.less&quot;; //导入word组件样式
+import url from &quot;./input/images/js.jpg&quot;;//导入图片资源
+
+import &quot;./wujia/index.less&quot;;//导入wujia组件样式
+import &quot;./blog/index.less&quot;;//导入blog组件样式
+import &quot;./input/input.less&quot;;//导入input组件样式
+
+//创建一个input组件数据对象
+const obj2 = {
+    value:&quot;吴佳&quot;,
+    class1:&quot;input&quot;,
+    class2:&quot;tishi&quot;,
+    class3:&quot;img&quot;,
+    src:url
+};
 
 //开始渲染DOM结构
 ReactDOM.render(
     (
-        &lt;h1&gt;
-            &lt;Hello color=&quot;hello&quot; title=&quot;Hello&quot;/&gt;
-            &lt;Word color=&quot;react&quot; name=&quot;React&quot;/&gt;
-        &lt;/h1&gt;
+        &lt;div&gt;
+            &lt;h1&gt;
+                &lt;Wujia color=&quot;hello&quot; title=&quot;吴佳&quot; src=&quot;https://www.github.com/betrs&quot; mes=&quot;吴佳Github&quot;/&gt;
+                &lt;Blog color=&quot;react&quot; name=&quot;博客&quot; src=&quot;http://www.wujiabk.com&quot; mes=&quot;吴佳博客&quot;/&gt;
+            &lt;/h1&gt;
+            &lt;Input {...obj2}/&gt;
+        &lt;/div&gt;
+
     ), document.querySelector(&quot;.wrap&quot;)
 );
 </code></pre><p>   最后，需要将编译打包后的文件 bundle.js 引入到 index.html 中：</p>
@@ -415,21 +487,21 @@ ReactDOM.render(
 <p>但这种方式显得略 low，一是它是双击以文件的形式打开 HTML 页面，二是每次有更改都要手动执行 npm run build 重新打包。</p>
 <p>一种更好的方式是启动一个静态资源服务器，监听文件内容修改并自动打包。在这里用的是前面安装好的 webpack-dev-server ，在 package.json 配置中可以看到如下代码：</p>
 <pre><code>&quot;scripts&quot;: {
-      &quot;dev&quot;: &quot;webpack-dev-server --devtool eval --progress --colors --hot --content-base build&quot;
+      &quot;dev&quot;: &quot;webpack-dev-server --port 3000 --devtool eval --progress --colors --hot --content-base build&quot;
 }
-</code></pre><p>简单解释一下 dev 中各个参数的含义： webpack-dev-server 在 localhost:8080 建立一个 Web 服务器；</p>
+</code></pre><p>简单解释一下 dev 中各个参数的含义： webpack-dev-server 在 localhost:3000（不设置端口默认是8080） 建立一个 Web 服务器；</p>
 <p> –devtool eval 映射编译好的源码，用于调试；</p>
 <p> –progress 显示代码打包进度； </p>
 <p> –colors 表示在命令行中显示颜色；</p>
 <p> –content-base 来指定 server 启动后的内容目录。</p>
-<p>执行命令 npm run dev 启动 server，此时打开浏览器输入 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> ，即可看到效果。修改一下 Hello 或者 World 组件中的内容，刷新页面，你会发现浏览器中内容也相应改变了。</p>
+<p>执行命令 npm run dev 启动 server，此时打开浏览器输入 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> ，即可看到效果。修改一下 Hello 或者 World 组件中的内容，刷新页面，你会发现浏览器中内容也相应改变了。</p>
 <p>#自动刷新</p>
 <p>前面实现了对文件修改的监听和自动打包，但浏览器还需要手动刷新。其实可以在 Webpack 的配置文件中增加一个入口点，实现自动刷新。</p>
 <p>在webpack.config.js中我们可以看到如下代码：</p>
 <pre><code>···
     entry: [
     &apos;webpack/hot/dev-server&apos;,
-        &apos;webpack-dev-server/client?http://localhost:8080&apos;,
+        &apos;webpack-dev-server/client?http://localhost:3000&apos;,
         APP_PATH
   ],
 ···
@@ -437,9 +509,9 @@ ReactDOM.render(
 <p>#说明：<br>如果设置了自动更新入口，我们需要在package.json配置文件中scripts中设置dev，代码如下：</p>
 <pre><code>...
     &quot;scripts&quot;: {
-          &quot;dev&quot;: &quot;webpack-dev-server --devtool eval --progress --colors --hot --content-base build&quot;,
+          &quot;dev&quot;: &quot;webpack-dev-server --port 3000 --devtool eval --progress --colors --hot --content-base build&quot;,
             &quot;build&quot;: &quot;webpack&quot;,
-        &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+            &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
       }
 ...
 </code></pre><p>最后执行命令：</p>
