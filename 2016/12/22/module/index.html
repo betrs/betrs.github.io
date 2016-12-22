@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="fe1ccc3f8d5847fb7e83dc2b87fe66dc"/>
+  <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>ǰ��ģ�黯��CMD&amp;AMD�� | 吴佳（Jasn）博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="��JavaScript��չ���ھ���Ϊ��ʵ�ּ򵥵�ҳ�潻���߼����������Ｔ�ɣ�����CPU�����������ܵõ��˼������������ܶ�ҳ���߼�Ǩ�Ƶ��˿ͻ��ˣ�������֤�ȣ�������web2.0ʱ���ĵ�����Ajax�����õ��㷺Ӧ�ã�jQuery��ǰ�˿��������ǰ�˴����������� ��
+��ʱ��Ja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ǰ��ģ�黯��CMD&AMD��">
+<meta property="og:url" content="http://yoursite.com/2016/12/22/module/index.html">
+<meta property="og:site_name" content="吴佳（Jasn）博客">
+<meta property="og:description" content="��JavaScript��չ���ھ���Ϊ��ʵ�ּ򵥵�ҳ�潻���߼����������Ｔ�ɣ�����CPU�����������ܵõ��˼������������ܶ�ҳ���߼�Ǩ�Ƶ��˿ͻ��ˣ�������֤�ȣ�������web2.0ʱ���ĵ�����Ajax�����õ��㷺Ӧ�ã�jQuery��ǰ�˿��������ǰ�˴����������� ��
+��ʱ��Ja">
+<meta property="og:updated_time" content="2016-12-22T09:00:40.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ǰ��ģ�黯��CMD&AMD��">
+<meta name="twitter:description" content="��JavaScript��չ���ھ���Ϊ��ʵ�ּ򵥵�ҳ�潻���߼����������Ｔ�ɣ�����CPU�����������ܵõ��˼������������ܶ�ҳ���߼�Ǩ�Ƶ��˿ͻ��ˣ�������֤�ȣ�������web2.0ʱ���ĵ�����Ajax�����õ��㷺Ӧ�ã�jQuery��ǰ�˿��������ǰ�˴����������� ��
+��ʱ��Ja">
+  
+    <link rel="alternative" href="/atom.xml" title="吴佳（Jasn）博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+  
+
+  <style>
+	.left-col { 
+		background:url(/img/blog_left.jpg) center center !important;
+		background-size:cover; 
+		width: 300px; 
+		position:fixed; 
+		opacity:1; 
+		transition:all .2s ease-in; 
+		height:100%;
+
+		    .overlay{
+			width: 100%;
+			height: 180px;
+			background-color: black;
+			position: absolute;
+			opacity: 0.7;
+			z-index: -1;//������
+		    }
+
+		    .intrude-less {
+			width: 76%;
+			text-align: center;
+			margin: 112px auto 0;
+		    }
+	}
+	
+  </style>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?e491c72fc1b629cfa350015981ca1691";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/betrs.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">吴佳（Jasn）</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一名JavaScript狂热分子 ，推崇开源精神 ，为开源事业添砖加瓦！</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+		        
+					<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">吴佳（Jasn）</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/betrs.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">吴佳（Jasn）</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一名JavaScript狂热分子 ，推崇开源精神 ，为开源事业添砖加瓦！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 class="article-title" itemprop="name">
+      ǰ��ģ�黯��CMD&amp;AMD��
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+		
+		
+		  <p>��JavaScript��չ���ھ���Ϊ��ʵ�ּ򵥵�ҳ�潻���߼����������Ｔ�ɣ�����CPU�����������ܵõ��˼������������ܶ�ҳ���߼�Ǩ�Ƶ��˿ͻ��ˣ�������֤�ȣ�������web2.0ʱ���ĵ�����Ajax�����õ��㷺Ӧ�ã�jQuery��ǰ�˿��������ǰ�˴����������� ��</p>
+<p>��ʱ��JavaScript��ΪǶ��ʽ�Ľű����ԵĶ�λ��ҡ�ˣ�JavaScriptȴû��Ϊ��֯�����ṩ�κ����԰���������û�����ĸ��������˵ģ�飨module���ˣ�JavaScript�����򵥵Ĵ�����֯�淶�����Լ�Ԧ�����Ӵ���ģ�Ĵ���</p>
+<p>#ģ��</p>
+<p>��ȻJavaScript����handle���˴���ģ�Ĵ��룬���ǿ��Խ���һ��������������ô��������ģ�������Ƶģ���Java����һ����Ҫ�������package���߼������صĴ�����֯��ͬһ�����ڣ�������һ�����Զ��������������õ���������ͻʲô�ģ���ô�ⲿ����ʹ���أ�ֱ��import��Ӧ��package����</p>
+<pre><code>import java.util.ArrayList;
+</code></pre><a id="more"></a>
+<p>�ź�����JavaScript������ʱ��λԭ����û���ṩ���ƵĹ��ܣ���������Ҫģ�������ƵĹ��ܣ������롢��֯���ӵ�JavaScript���룬���ǳ�Ϊģ�黯�� </p>
+<p>һ��ģ������ʵ���ض����ܵ��ļ�������ģ�飬���ǾͿ��Ը�������ʹ�ñ��˵Ĵ��룬��Ҫʲô���ܣ��ͼ���ʲôģ�顣ģ�鿪����Ҫ��ѭһ���Ĺ淶���������ǾͶ������� </p>
+<p>�淶�γɵĹ�����ʹ���ģ�ǰ�˵������ڵ������֡���ë��Ѫ�Ľ׶ο�ʼ����չ�����ڳ��߹�ģ�������˽�һ�����β���������</p>
+<p>#������װ</p>
+<p>�����ڽ�������ʱ���ᵽ������һ�����ܾ���ʵ���ض��߼���һ����������������JavaScript�����������ǻ��ں����ģ����԰Ѻ�����Ϊģ�黯�ĵ�һ���Ǻ���Ȼ�����飬��һ���ļ�������д�������غ��������ʼ��ģ����</p>
+<pre><code>function fn1(){
+    statement
+}
+
+function fn2(){
+    statement
+}
+</code></pre><p>��������Ҫ���Ժ����ں��������ļ������ú����Ϳ����� </p>
+<p>����������ȱ�������ԣ���Ⱦ��ȫ�ֱ������޷���֤��������ģ�鷢����������ͻ������ģ����Ա֮��ûʲô��ϵ��</p>
+<p>#����</p>
+<p>Ϊ�˽����������⣬������д��Ӧ�˶��������԰����е�ģ����Ա��װ��һ��������</p>
+<pre><code>var myModule = {
+    var1: 1,
+
+    var2: 2,
+
+    fn1: function(){
+
+    },
+
+    fn2: function(){
+
+    }
+}
+</code></pre><p>����������ϣ������ģ����ʱ�����ö�Ӧ�ļ���Ȼ��</p>
+<pre><code>myModule.fn2();
+</code></pre><p>���������˱�����Ⱦ��ֻҪ��֤ģ����Ψһ���ɣ�ͬʱͬһģ���ڵĳ�ԱҲ���˹�ϵ </p>
+<p>���Ʋ����Ľ�������������Ҳ��ȱ�ݣ��ⲿ���������޸��ڲ���Ա</p>
+<pre><code>myModel.var1 = 100;
+</code></pre><p>�����ͻ����������İ�ȫ����</p>
+<p>#����ִ�к���</p>
+<p>����ͨ������ִ�к��������ﵽ����ϸ�ڵ�Ŀ��</p>
+<pre><code>var myModule = (function(){
+    var var1 = 1;
+    var var2 = 2;
+
+    function fn1(){
+
+    }
+
+    function fn2(){
+
+    }
+
+    return {
+    fn1: fn1,
+    fn2: fn2
+    };
+})();
+</code></pre><p>������ģ���ⲿ�޷��޸�����û�б�¶�����ı��������� </p>
+<p>����������������ģ�黯�Ļ�����Ŀǰ��ͨ�е�JavaScriptģ���淶��Ҫ�����֣�CommonJS��AMD</p>
+<p>#CommonJS</p>
+<p>�����ȴ�CommonJS̸������Ϊ����ҳ��û��ģ�黯����ֻ��ҳ��JavaScript�߼����ӣ���Ҳ���Թ�����ȥ���ڷ�������ȴһ��Ҫ��ģ�飬������ȻJavaScript��web�˷�չ��ô���꣬��һ�����е�ģ�黯�淶ȴ�ɷ������˵�JavaScriptӦ�ô�����CommonJS�淶����NodeJS��������������־��JavaScriptģ�黯������ʽ������̨�� </p>
+<p>#����ģ�� </p>
+<p>����CommonJS�淶��һ���������ļ�����һ��ģ�顣ÿһ��ģ�鶼��һ����������������Ҳ����˵���ڸ�ģ���ڲ������ı������޷�������ģ����ȡ�����Ƕ���Ϊglobal���������� </p>
+<p>#ģ�������� </p>
+<p>ģ��ֻ��һ�����ڣ�module.exports������������Ҫ��ģ��ϣ�����������ݷ����ö��� </p>
+<p>#����ģ�飺 </p>
+<p>����ģ��ʹ��require�������÷�����ȡһ���ļ���ִ�У������ļ��ڲ���module.exports���� </p>
+<p>#��������</p>
+<pre><code>//ģ�鶨�� myModel.js
+
+var name = &apos;Byron&apos;;
+
+function printName(){
+    console.log(name);
+}
+
+function printFullName(firstName){
+    console.log(firstName + name);
+}
+
+module.exports = {
+    printName: printName,
+    printFullName: printFullName
+}
+
+//����ģ��
+
+var nameModule = require(&apos;./myModel.js&apos;);
+
+nameModule.printName();
+</code></pre><p>��ͬ��ʵ�ֶ�requireʱ��·���в�ͬҪ����һ����������ʡ��js��չ��������ʹ������·����Ҳ����ʹ�þ���·������������ʡ��·��ֱ��ʹ��ģ������ǰ���Ǹ�ģ����ϵͳ����ģ�飩</p>
+<p>#���ε�������</p>
+<p>��ϸ�������Ĵ��룬�ᷢ��require��ͬ���ġ�ģ��ϵͳ��Ҫͬ����ȡģ���ļ����ݣ�������ִ���Եõ�ģ���ӿڡ� </p>
+<p>���ڷ�������ʵ�ֺܼ򵥣�Ҳ����Ȼ��Ȼ���� ������������ʵ������ȴ�ܶࡣ<br>�������ˣ�����JavaScript���ѡ������׵ķ�ʽ����document�в���script ��ǩ�����ű���ǩ�����첽����ͳCommonJSģ�����������������޷��������ء� </p>
+<p>����˼·֮һ�ǣ�����һ������������������ģ����������̬��������ģ�������������б�һ�𷵻ظ��������ˡ� ���ܺ�ʹ������Ҫ��������װ������������������Ҫ����һϵ�еײ��ܹ��� </p>
+<p>��һ�ֽ���˼·�ǣ���һ�ױ�׼ģ������װģ�鶨�壬���Ƕ���ģ��Ӧ����ô��������ô���أ��ֲ����ķ��磺 </p>
+<p>#AMD </p>
+<p>AMD ��Asynchronous Module Definition�����������첽ģ�鶨������˼������һ������������ģ�黯�����Ĺ淶</p>
+<p>���ڲ���JavaScriptԭ��֧�֣�ʹ��AMD�淶����ҳ�濪����Ҫ�õ���Ӧ�Ŀ⺯����Ҳ���Ǵ�������RequireJS��ʵ����AMD �� RequireJS ���ƹ������ж�ģ�鶨���Ĺ淶���Ĳ��� </p>
+<p>#requireJS��Ҫ������������ </p>
+<p>����js�ļ�������������ϵ�����������ļ���Ҫ�������������ļ����ص�������<br>js���ص�ʱ����������ֹͣҳ����Ⱦ�������ļ�Խ�࣬ҳ��ʧȥ��Ӧʱ��Խ�� </p>
+<p>#��һ��ʹ��requireJS������</p>
+<pre><code>// ����ģ�� myModule.js
+define([&apos;dependency&apos;], function(){
+    var name = &apos;Byron&apos;;
+    function printName(){
+    console.log(name);
+    }
+
+    return {
+    printName: printName
+    };
+});
+
+// ����ģ��
+require([&apos;myModule&apos;], function (my){
+�� my.printName();
+});
+</code></pre><p>#�﷨</p>
+<p>requireJS������һ������ define������ȫ�ֱ�������������ģ�� </p>
+<p>define(id?, dependencies?, factory); </p>
+<p>id����ѡ��������������ģ���ı�ʶ������û���ṩ�ò������ű��ļ�����ȥ����չ���� </p>
+<p>dependencies����һ����ǰģ��������ģ���������� </p>
+<p>factory������������ģ����ʼ��Ҫִ�еĺ���������������Ϊ��������Ӧ��ֻ��ִ��һ�Ρ������Ƕ��󣬴˶���Ӧ��Ϊģ��������ֵ </p>
+<p>#��ҳ����ʹ��require��������ģ��</p>
+<p>require([dependencies], function(){});</p>
+<p>require()���������������� </p>
+<p>��һ��������һ�����飬��ʾ��������ģ�� </p>
+<p>�ڶ���������һ���ص���������ǰ��ָ����ģ�鶼���سɹ��������������á����ص�ģ�����Բ�����ʽ�����ú������Ӷ��ڻص������ڲ��Ϳ���ʹ����Щģ�� </p>
+<p>require()�����ڼ��������ĺ�����ʱ�����첽���صģ���������������ʧȥ��Ӧ����ָ���Ļص�������ֻ��ǰ����ģ�鶼���سɹ��󣬲Ż����У������������Ե����⡣</p>
+<p>#CMD</p>
+<p>CMD ��Common Module Definitionͨ��ģ�鶨�壬CMD�淶�ǹ��ڷ�չ�����ģ�����AMD�и�requireJS��CMD�и���������ʵ��SeaJS��SeaJSҪ������������requireJSһ����ֻ������ģ�鶨�巽ʽ��ģ�����أ�����˵���С�������ʱ����������ͬ</p>
+<p>#�﷨</p>
+<p>Sea.js �Ƴ�һ��ģ��һ���ļ�����ѭͳһ��д�� </p>
+<p>define</p>
+<p>define(id?, deps?, factory)</p>
+<p>��ΪCMD�Ƴ� </p>
+<p>һ���ļ�һ��ģ�飬���Ծ��������ļ�����Ϊģ��id </p>
+<p>CMD�Ƴ������ͽ�������һ�㲻��define�Ĳ�����д��������factory��д</p>
+<p>factory���������� </p>
+<p>function(require, exports, module) </p>
+<p>#require </p>
+<p>require �� factory �����ĵ�һ������</p>
+<p>require(id)</p>
+<p>require ��һ������������ ģ����ʶ ��ΪΨһ������������ȡ����ģ���ṩ�Ľӿ� </p>
+<p>exports </p>
+<p>exports ��һ�����������������ṩģ���ӿ� </p>
+<p>#module </p>
+<p>module ��һ�������������洢���뵱ǰģ����������һЩ���Ժͷ��� </p>
+<pre><code>demo
+
+// ����ģ��  myModule.js
+define(function(require, exports, module) {
+  var $ = require(&apos;jquery.js&apos;)
+  $(&apos;div&apos;).addClass(&apos;active&apos;);
+});
+
+// ����ģ��
+seajs.use([&apos;myModule.js&apos;], function(my){
+
+});
+</code></pre><p>#AMD��CMD����</p>
+<p>�������������������Ͽ����ѳ�һ�����£������ܽ�һ�� </p>
+<p>�����Ե�����������ģ�鶨��ʱ�������Ĵ�����ͬ </p>
+<p>AMD�Ƴ�����ǰ�ã��ڶ���ģ����ʱ����Ҫ������������ģ��</p>
+<p>CMD�Ƴ��ͽ�������ֻ�����õ�ĳ��ģ����ʱ����ȥrequire </p>
+<p>���������������ӣ�ֻ���﷨�ϵĲ��࣬����requireJS��SeaJS��֧�ֶԷ���д��<br>AMD��CMD�����������Ƕ�����ģ����ִ��ʱ��������ͬ��ע�ⲻ�Ǽ��ص�ʱ�����߷�ʽ��ͬ </p>
+<p>�ܶ���˵requireJS���첽����ģ�飬SeaJS��ͬ������ģ�飬��ô����ʵ�����ǲ�׼ȷ�ģ���ʵ����ģ�鶼���첽�ģ�ֻ����AMD����ǰ�ã�js���Է���֪������ģ����˭���������أ���CMD�ͽ���������Ҫʹ�ð�ģ����Ϊ�ַ�������һ����֪����������Щģ�飬��Ҳ�Ǻܶ���ڸ��CMD��һ�㣬�������������������ı����ԣ�ʵ���Ͻ���ģ���õ�ʱ���̵����Ժ��� </p>
+<p>Ϊʲô����˵����������������ģ��ִ��ʱ����ͬ��Ϊʲô�ܶ�����ΪADM���첽�ģ�CMD��ͬ���ģ��������ֵ�ԭ�򡣡����� </p>
+<p>ͬ�������첽����ģ�飬AMD�ڼ���ģ�����ɺ��ͻ�ִ�и�ģ�飬����ģ�鶼����ִ������������require�Ļص�������ִ�����߼���������Ч����������ģ����ִ��˳������д˳����һ��һ�£��������ٶȣ��ĸ��������������ĸ���ִ�У��������߼�һ�������������������ɺ���ִ�� </p>
+<p>CMD������ĳ������ģ���󲢲�ִ�У�ֻ�����ض��ѣ�����������ģ���������ɺ��������߼�������require������ʱ����ִ�ж�Ӧ��ģ�飬����ģ����ִ��˳������д˳������ȫһ�µ� </p>
+<p>��Ҳ�Ǻܶ���˵AMD�û������ã���Ϊû���ӳ٣�����ģ����ǰִ���ˣ�CMD���ܺã���Ϊֻ���û���Ҫ��ʱ����ִ�е�ԭ��</p>
+
+		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Module/">Module</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/12/22/module/" class="archive-article-date">
+  	<time datetime="2016-12-22T08:55:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-22</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/16/React/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node+React+Webpack+es6+less的环境配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="module" data-title="ǰ��ģ�黯��CMD&amp;AMD��" data-url="http://yoursite.com/2016/12/22/module/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"betrsblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left" id="footer-left">
+    	</div>
+	<script>
+		//封装时间补零方法
+		function toZero(num){//补零操作
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;
+			};
+		};
+		
+		setInterval(function(){
+			var timeDate = new Date();
+			var hours    = toZero(timeDate.getHours());
+			var minutes  = toZero(timeDate.getMinutes());
+			var seconds  = toZero(timeDate.getSeconds());
+			var footerLeft = document.getElementById("footer-left");
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
+
+			//console.log(time)
+			footerLeft.innerHTML = time;	
+		},1000);
+	</script>
+      	<div class="footer-right">
+		&copy; 2015-2016 <a href="https://betrs.github.io/" target="_blank"> 吴佳（Jasn） </a>  All Rights Reserved 
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cspan id='cnzz_stat_icon_1260617449'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260617449%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+      	</div>
+    </div>
+    <script type="text/javascript">
+	  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+	  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+	  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+	  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+	  
+	  _st('install','z3dx7kRzWg4zhAjxxqUx','2.0.0');
+	</script>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 16.67px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Module/" style="font-size: 10px;">Module</a> <a href="/tags/React/" style="font-size: 10px;">React</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xuanmomo.com">轩陌博客</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.njalex.com">alex博客</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">真实姓名 :吴佳显&lt;br&gt;破蛋日 :1994-11-03&lt;br&gt;籍贯 :湖北省孝感市&lt;br&gt;职业 :程序员&lt;br&gt;前端Q群：62365713</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
