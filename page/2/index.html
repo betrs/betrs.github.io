@@ -193,6 +193,415 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jsapi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/08/jsapi/">JavaScript常用API总结</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/08/jsapi/" class="archive-article-date">
+  	<time datetime="2016-11-08T00:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>下面是我整理的一些JavaScript常用的API清单。</p>
+<p>目录</p>
+<p>元素查找</p>
+<p>class操作</p>
+<p>节点操作</p>
+<p>属性操作</p>
+<p>内容操作</p>
+<p>css操作</p>
+<p>位置大小</p>
+<p>事件</p>
+<p>DOM加载完毕</p>
+<p>绑定上下文</p>
+<p>去除空格</p>
+<p>Ajax</p>
+<p>JSON处理</p>
+<p>节点遍历</p>
+<p>元素查找</p>
+<pre><code>// Node
+document.getElementById(id) // document.getElementById(&apos;test&apos;)
+document.querySelector(selectors) // document.querySelector(&apos;#test div&apos;)
+document.doctype
+document.documentElement
+document.head
+document.title
+document.body
+
+// NodeList
+document.getElementsByClassName(names) // document.getElementsByClassName(&apos;test&apos;)
+document.getElementsByName(name) // document.getElementsByName(&apos;demo&apos;)
+document.getElementsByTagName(name) // document.getElementsByTagName(&apos;div&apos;)
+document.getElementsByTagNameNS(namespace, name) // document.getElementsByTagNameNS(&apos;http://www.w3.org/1999/xhtml&apos;, &apos;div&apos;)
+document.querySelectorAll(selectors) // document.querySelectorAll(&apos;#test div&apos;)
+document.links
+document.scripts
+document.images
+document.embeds
+document.forms
+class操作
+
+// ie8
+// add class
+el.className += &apos; &apos; + className;
+
+// has class
+function hasClass(el,className){
+  return new RegExp(&apos;(^| )&apos; + className + &apos;( |$)&apos;, &apos;gi&apos;).test(el.className);
+}
+
+// toggle class
+function toggleClass(el,className){
+  var classes = el.className.split(&apos; &apos;);
+  var existingIndex = -1;
+  for (var i = classes.length; i--;) {
+    if (classes[i] === className){
+      existingIndex = i;
+    }
+  }
+  if (existingIndex &gt;= 0){
+    classes.splice(existingIndex, 1);
+  }
+  else{
+    classes.push(className);
+  }
+  el.className = classes.join(&apos; &apos;);
+}
+
+// remove class
+function remove(el,className){
+  el.className = el.className.replace(new RegExp(&apos;(^|\\b)&apos; + className.split(&apos; &apos;).join(&apos;|&apos;) + &apos;(\\b|$)&apos;, &apos;gi&apos;), &apos; &apos;);
+}
+
+// ie 10
+el.classList.add(className); // add class
+el.classList.remove(className); // remove class
+el.classList.contains(className); // has class
+el.classList.toggle(className); // toggle class
+</code></pre><p>#节点操作</p>
+<pre><code>// 创建
+var el = document.createElement(name);
+
+// 复制
+el.cloneNode(true); // 默认为false(克隆节点及其后代), true(克隆节点及其属性，以及后代)
+
+// 向节点添加最后一个子节点
+parent.appendChild(el);
+
+// 在指定子节点之前插入新的子节点
+parent.insertBefore(el, parent.childNodes[0]);
+
+// insertAdjacentHTML方法
+el.insertAdjacentHTML(where, htmlString);
+el.insertAdjacentHTML(&apos;beforeBegin&apos;, htmlString); // 在该元素前插入
+el.insertAdjacentHTML(&apos;afterBegin&apos;, htmlString); // 在该元素第一个子元素前插入
+el.insertAdjacentHTML(&apos;beforeEnd&apos;, htmlString); // 在该元素最后一个子元素后面插入
+el.insertAdjacentHTML(&apos;afterEnd&apos;, htmlString); // 在该元素后插入
+
+// 父元素
+el.parentNode
+
+// 删除节点
+el.parentNode.removeChild(el);
+
+// 兄弟节点 ie9+
+var siblings = Array.prototype.filter.call(el.parentNode.children, function(child){
+  return child !== el;
+})
+
+// 下一个兄弟节点
+// ie8
+function nextElementSibling(el) {
+  do { el = el.nextSibling; } while ( el &amp;&amp; el.nodeType !== 1 );
+  return el;
+}
+nextElementSibling(el);
+// ie9+
+el.nextElementSibling;
+
+// 上一个兄弟节点
+// ie8
+function previousElementSibling(el) {
+  do { 
+    el = el.previousSibling;
+  } 
+  while ( el &amp;&amp; el.nodeType !== 1 );
+  return el;
+}
+previousElementSibling(el);
+// ie9+
+el.previousElementSibling;
+
+// Children
+// ie8
+var children = [];
+for (var i = el.children.length; i--;) {
+  // Skip comment nodes on IE8
+  if (el.children[i].nodeType != 8)
+    children.unshift(el.children[i]);
+}
+// ie9+
+el.children
+</code></pre><p>#属性操作</p>
+<pre><code>// 获取属性值
+el.getAttribute(&apos;alt&apos;);
+
+// 设置属性值
+el.setAttribute(&apos;alt&apos;, &apos;图片描述&apos;);
+</code></pre><p>#内容操作</p>
+<pre><code>// 获取元素内容
+el.innerHTML
+// 设置元素内容
+el.innerHTML = string
+// 获取元素内容(包含元素自身)
+el.outerHTML
+// 设置元素内容(包含元素自身)
+el.outerHTML = string
+
+// 获取文本内容
+// ie8
+el.innerText
+// ie9+
+el.textContent
+// 设置文本内容
+// ie8
+el.innerText = string
+// ie9+
+el.textContent = string
+</code></pre><p>#CSS操作</p>
+<pre><code>// 获取css样式
+// ie8
+el.currentStyle[attrName]
+// ie9+
+window.getComputedStyle(el)[attrName]
+// 伪类
+window.getComputedStyle(el , &quot;:after&quot;)[attrName];
+
+// 设置CSS样式
+el.style.display = &apos;none&apos;;
+</code></pre><p>#位置大小</p>
+<pre><code>// getBoundingClientRect返回一个对象，包含top,left,right,bottom,width,height
+// width、height 元素自身宽高
+// top 元素上外边界距窗口最上面的距离
+// right 元素右外边界距窗口最上面的距离
+// bottom 元素下外边界距窗口最上面的距离
+// left 元素左外边界距窗口最上面的距离
+// width 元素自身宽(包含border,padding) 
+// height 元素自身高(包含border,padding) 
+
+// 元素在页面上的偏移量
+var rect = el.getBoundingClientRect()
+return {
+  top: rect.top + document.body.scrollTop,
+  left: rect.left + document.body.scrollLeft
+}
+
+// 元素自身宽(包含border,padding) 
+el.offsetWidth
+// 元素自身高(包含border,padding) 
+el.offsetHeight
+// 元素的左外边框至包含元素的左内边框之间的像素距离
+el.offsetLeft
+// 元素的上外边框至包含元素的上内边框之间的像素距离
+el.offsetTop 
+
+//通常认为 &lt;html&gt; 元素是在 Web 浏览器的视口中滚动的元素（IE6 之前版本运行在混杂模式下时是 &lt;body&gt; 元素） 
+//因此，带有垂直滚动条的页面总高度就是 document.documentElement.scrollHeight
+// 在没有滚动条的情况下，元素内容的总高度
+scrollHeight
+// 在没有滚动条的情况下，元素内容的总宽度
+scrollWidth
+// 被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置
+scrollLeft
+// 被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置
+scrollTop
+
+// 视口大小
+// ie9+
+var pageWidth = window.innerWidth,
+    pageHeight = window.innerHeight;
+if (typeof pageWidth != &quot;number&quot;){ 
+  // ie8
+  if (document.compatMode == &quot;CSS1Compat&quot;){
+    pageWidth = document.documentElement.clientWidth;
+    pageHeight = document.documentElement.clientHeight;
+  } else { 
+    // ie6混杂模式
+    pageWidth = document.body.clientWidth;
+    pageHeight = document.body.clientHeight;
+  }
+}
+</code></pre><p>#事件</p>
+<pre><code>// 绑定事件
+// ie9+
+el.addEventListener(eventName, handler , Booleans); // Booleans默认false(事件在冒泡阶段执行),true(事件在捕获阶段执行)
+// ie8
+el.attachEvent(&apos;on&apos; + eventName, function(){
+  handler.call(el);
+});
+
+// 移除事件
+// ie9+
+el.removeEventListener(eventName, handler); 
+// ie8
+el.detachEvent(&apos;on&apos; + eventName, handler);
+
+// 事件触发
+if (document.createEvent) {
+  // ie9+
+  var event = document.createEvent(&apos;HTMLEvents&apos;);
+  event.initEvent(&apos;change&apos;, true, false);
+  el.dispatchEvent(event);
+} else {
+  // ie8
+  el.fireEvent(&apos;onchange&apos;);
+}
+
+// event对象
+var event = window.event||event;
+
+// 事件的目标节点
+var target = event.target || event.srcElement;
+
+// 事件代理
+ul.addEventListener(&apos;click&apos;, function(event) {
+  if (event.target.tagName.toLowerCase() === &apos;li&apos;) {
+    console.log(event.target.innerHTML)
+  }
+});
+</code></pre><p>#DOM加载完毕</p>
+<pre><code>function ready(fn) {
+  if (document.readyState != &apos;loading&apos;){
+    // ie9+
+    document.addEventListener(&apos;DOMContentLoaded&apos;, fn);
+  } else {
+    // ie8
+    document.attachEvent(&apos;onreadystatechange&apos;, function() {
+      if (document.readyState != &apos;loading&apos;){
+        fn();
+      }
+    });
+  }
+}
+</code></pre><p>#绑定上下文</p>
+<pre><code>// ie8
+fn.apply(context, arguments);
+// ie9+
+fn.bind(context);
+去除空格
+
+// ie8
+string.replace(/^\s+|\s+$/g, &apos;&apos;);
+// ie9+
+string.trim();
+ajax
+
+// GET
+var request = new XMLHttpRequest();
+request.open(&apos;GET&apos;, &apos;user.php?fname=Bill&amp;lname=Gates&apos;, true); // false（同步）
+request.send();
+
+// ie8
+request.onreadystatechange = function() {
+  if (this.readyState === 4) {
+    if (this.status &gt;= 200 &amp;&amp; this.status &lt; 400) {
+      // Success!
+      var data = JSON.parse(this.responseText);
+    } else {
+      // 错误
+    }
+  }
+};
+
+// ie9+
+request.onload = function() {
+  if (request.status &gt;= 200 &amp;&amp; request.status &lt; 400) {
+    // Success!
+    var data = JSON.parse(request.responseText);
+  } else {
+    // 服务器返回出错
+  }
+};
+request.onerror = function() {
+  // 连接错误
+};
+
+// POST
+var request = new XMLHttpRequest(); 
+request.open(&apos;POST&apos;, &apos;user.php&apos;, true); // false（同步）
+request.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+request.send(dataString);
+</code></pre><p>#JSON处理</p>
+<pre><code>JSON.parse(string);
+JSON.String(Object)
+</code></pre><p>#节点遍历</p>
+<pre><code>function forEach( nodeList, callback ) {
+  if(Array.prototype.forEach){
+    // ie9+
+    Array.prototype.forEach.call( nodeList, callback );
+  }else {
+    // ie8
+    for (var i = 0; i &lt; nodeList.length; i++){
+      callback(nodeList[i], i);
+    }
+  }
+}
+
+forEach(document.querySelectorAll(selector),function(el, i){
+
+})
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/08/jsapi/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-creatObject" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1000,10 +1409,6 @@ b();//Hello Closure!
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
@@ -1013,6 +1418,10 @@ b();//Hello Closure!
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
