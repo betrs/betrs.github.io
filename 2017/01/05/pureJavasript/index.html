@@ -20,7 +20,7 @@
 #纯函数与非纯函数
 纯函数是指不依赖，修改其作用域之外变量的函数。这么说有点拗口，还是让我们看几个具体的例子吧。
 以这个计">
-<meta property="og:updated_time" content="2017-01-05T01:50:25.090Z">
+<meta property="og:updated_time" content="2017-01-05T01:51:15.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编写“纯粹”的JavaScript代码">
 <meta name="twitter:description" content="一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。
@@ -219,7 +219,8 @@
 document.onmousemove = function(e) {
     console.log(mouseOnLeftSide(e.pageX));
 };
-</code></pre><p>mouseOnLeftSide()接受一个X坐标并判断它是否小于屏幕宽度数值的一半。然而，mouseOnLeftSide()并不是一个纯函数。我们之所以这么说是因为在函数内部，它引用了一个没有被明确传入的变量：</p>
+</code></pre><a id="more"></a>
+<p>mouseOnLeftSide()接受一个X坐标并判断它是否小于屏幕宽度数值的一半。然而，mouseOnLeftSide()并不是一个纯函数。我们之所以这么说是因为在函数内部，它引用了一个没有被明确传入的变量：</p>
 <pre><code>return mouseX &lt; window.innerWidth / 2;
 </code></pre><p>这个函数被调用时传入了mouseX，但没有传入window.innerWidth。这意味着该函数访问了一个不是作为参数传入的变量，因此它不是纯函数。</p>
 <p>#非纯函数的问题</p>

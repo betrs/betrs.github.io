@@ -198,13 +198,21 @@
 
     <div class="article-entry" itemprop="articleBody">
 	  
-		
-		
-		  <p>一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。</p>
-		  
-			<p class="article-more-link"><a href="/2017/01/05/pureJavasript/#more">more >></a></p>
-	      
-		
+	    <p>一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。</p>
+<p>#纯函数与非纯函数</p>
+<p>纯函数是指不依赖，修改其作用域之外变量的函数。这么说有点拗口，还是让我们看几个具体的例子吧。</p>
+<p>以这个计算用户的鼠标是否在屏幕左侧的函数为例。当鼠标在屏幕左侧时向控制台输出true，反之输出false。在现实中你的函数很可能会比这个例子更复杂，执行更多的操作，此处只是为了演示说明问题：</p>
+<pre><code>function mouseOnLeftSide(mouseX) {
+    return mouseX &lt; window.innerWidth / 2;
+}
+
+document.onmousemove = function(e) {
+    console.log(mouseOnLeftSide(e.pageX));
+};
+</code></pre>
+	    
+		<p class="article-more-link"><a href="/2017/01/05/pureJavasript/#more">more >></a></p>
+	    
 	  
     </div>
     <div class="article-info article-info-index">
