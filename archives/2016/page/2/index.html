@@ -491,8 +491,8 @@
     	<div class="footer-left" id="footer-left">
     	</div>
 	<script>
-		//��װʱ�䲹�㷽��
-		function toZero(num){//��������
+		//封装时间补零方法
+		function toZero(num){//补零操作
 			if(num<10){
 				return '0'+num;
 			}else{
@@ -506,7 +506,7 @@
 			var minutes  = toZero(timeDate.getMinutes());
 			var seconds  = toZero(timeDate.getSeconds());
 			var footerLeft = document.getElementById("footer-left");
-			var time = "����ʱ�䣺"+hours+":"+minutes+":"+seconds;
+			var time = "北京时间："+hours+":"+minutes+":"+seconds;
 
 			//console.log(time)
 			footerLeft.innerHTML = time;	
@@ -514,7 +514,7 @@
 	</script>
       	<div class="footer-right">
 		&copy; 2017 <a href="http://www.wujiabk.com/" target="_blank"> 吴佳（Jasn） </a>  All Rights Reserved 
-		<a href="http://tongji.baidu.com/web/welcome/ico?s=e491c72fc1b629cfa350015981ca1691" style="color:#1a1a1a;text-decoration:none;">�ٶ�ͳ��</a>
+		<a href="http://tongji.baidu.com/web/welcome/ico?s=e491c72fc1b629cfa350015981ca1691" style="color:#1a1a1a;text-decoration:none;">百度统计</a>
       	</div>
     </div>
   </div>
@@ -613,11 +613,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
