@@ -6,27 +6,27 @@
   <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>jQuery的14个数据类型 | 吴佳（Jasn）博客</title>
+  <title>编写“纯粹”的JavaScript代码 | 吴佳（Jasn）博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
-#1. String
-String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
-var typeOfStr = typeof &amp;quot;">
+  <meta name="description" content="一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。
+#纯函数与非纯函数
+纯函数是指不依赖，修改其作用域之外变量的函数。这么说有点拗口，还是让我们看几个具体的例子吧。
+以这个计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery的14个数据类型">
-<meta property="og:url" content="http://yoursite.com/2016/10/18/datatype/index.html">
+<meta property="og:title" content="编写“纯粹”的JavaScript代码">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/pureJavasript/index.html">
 <meta property="og:site_name" content="吴佳（Jasn）博客">
-<meta property="og:description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
-#1. String
-String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
-var typeOfStr = typeof &amp;quot;">
-<meta property="og:updated_time" content="2016-10-18T04:56:49.905Z">
+<meta property="og:description" content="一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。
+#纯函数与非纯函数
+纯函数是指不依赖，修改其作用域之外变量的函数。这么说有点拗口，还是让我们看几个具体的例子吧。
+以这个计">
+<meta property="og:updated_time" content="2017-01-05T01:50:25.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery的14个数据类型">
-<meta name="twitter:description" content="jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。
-#1. String
-String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如
-var typeOfStr = typeof &amp;quot;">
+<meta name="twitter:title" content="编写“纯粹”的JavaScript代码">
+<meta name="twitter:description" content="一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。
+#纯函数与非纯函数
+纯函数是指不依赖，修改其作用域之外变量的函数。这么说有点拗口，还是让我们看几个具体的例子吧。
+以这个计">
   
     <link rel="alternative" href="/atom.xml" title="吴佳（Jasn）博客" type="application/atom+xml">
   
@@ -187,7 +187,7 @@ var typeOfStr = typeof &amp;quot;">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-datatype" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-pureJavasript" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -197,7 +197,7 @@ var typeOfStr = typeof &amp;quot;">
 	
   
     <h1 class="article-title" itemprop="name">
-      jQuery的14个数据类型
+      编写“纯粹”的JavaScript代码
     </h1>
   
 
@@ -208,131 +208,80 @@ var typeOfStr = typeof &amp;quot;">
 	  
 		
 		
-		  <p>jQuery除了包含原生JS中的内置数据类型(built-in datatype)，还包括一些扩展的数据类型(virtual types)，如Selectors、Events等。</p>
-<p>#1. String</p>
-<p>String最常见，几乎任何一门高级编程语言和脚本语言中都支持，比如”Hello world!”即字符串。字符串的类型为string。比如</p>
-<pre><code>var typeOfStr = typeof &quot;hello world&quot;;//typeOfStr为“string&quot;
-</code></pre><p>1.1 String内置方法</p>
-<pre><code>&quot;hello&quot;.charAt(0) // &quot;h&quot;
-&quot;hello&quot;.toUpperCase() // &quot;HELLO&quot;
-&quot;Hello&quot;.toLowerCase() // &quot;hello&quot;
-&quot;hello&quot;.replace(/e|o/g, &quot;x&quot;) // &quot;hxllx&quot;
-&quot;1,2,3&quot;.split(&quot;,&quot;) // [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]
-</code></pre><p>1.2 length属性：返回字符长度，比如”hello”.length返回5</p>
-<p>1.3 字符串转换为Boolean：</p>
-<p>一个空字符串（””）默认为false，而一个非空字符串为true（比如”hello”）。</p>
-<a id="more"></a>
-<p>#2. Number</p>
-<p>数字类型，比如3.1415926或者1、2、3…</p>
-<pre><code>typeof 3.1415926 //返回的是&quot;number&quot;
-</code></pre><p>2.1 Number转换为Boolean：</p>
-<p>如果一个Number值为0，则默认为false，否则为true。</p>
-<p>2.2 由于Number是采用双精度浮点数实现的，所以下面这种情况是合理的：</p>
-<pre><code>0.1 + 0.2 // 0.30000000000000004
-</code></pre><p>#3. Math</p>
-<p>下面的方法与Java中的Math类的静态方法类似。</p>
-<pre><code>Math.PI // 3.141592653589793
-Math.cos(Math.PI) // -1
-</code></pre><p>3.1 将字符串化为数字：parseInt和parseFloat方法：</p>
-<pre><code>parseInt(&quot;123&quot;) = 123 (采用十进制转换)
-parseInt(&quot;010&quot;) = 8 (采用八进制转换)
-parseInt(&quot;0xCAFE&quot;) = 51966 (采用十六进制转换)
-parseInt(&quot;010&quot;, 10) = 10 (指定用10进制转换)
-parseInt(&quot;11&quot;, 2) = 3 (指定用二进制转换)
-parseFloat(&quot;10.10&quot;) = 10.1
-</code></pre><p>3.2 数字到字符串</p>
-<p>当将Number粘到（append）字符串后的时候，将得到字符串。</p>
-<pre><code>&quot;&quot; + 1 + 2; // &quot;12&quot;
-&quot;&quot; + (1 + 2); // &quot;3&quot;
-&quot;&quot; + 0.0000001; // &quot;1e-7&quot;
-</code></pre><p>或者用强制类型转换：</p>
-<pre><code>String(1) + String(2); //&quot;12&quot;
-String(1 + 2); //&quot;3&quot;
-</code></pre><p>#4. NaN 和 Infinity</p>
-<p>如果对一个非数字字符串调用parseInt方法，将返回NaN(Not a Number)，NaN常用来检测一个变量是否数字类型，如下：</p>
-<pre><code>isNaN(parseInt(&quot;hello&quot;, 10)) // true
-//Infinity表示数值无穷大或无穷小，比如1 / 0 // Infinity。
-//对NaN和Infinity调用typeof运算符都返回&quot;numuber&quot;。
-//另外 NaN==NaN 返回false，但是 Infinity==Infinity 返回true。
-</code></pre><p>#5. Integer 和 Float<br>分为表示整型和浮点型。</p>
-<pre><code>http://w去ww.cn掉blogs.c中文om/roucheng/
-</code></pre><p>#6. BOOLEAN<br>布尔类型，true或者false。</p>
-<p>#7. OBJECT<br>JavaScript中的一切皆对象。对一个对象进行typeof运算返回 “object”。</p>
-<pre><code>var x = {};
-var y = { name: &quot;Pete&quot;, age: 15 };
-</code></pre><p>对于上面的y对象，可以采用圆点获取属性值，比如y.name返回”Pete”，y.age返回15</p>
-<p>7.1 Array Notation（数组访问方式访问对象）</p>
-<pre><code>var operations = { increase: &quot;++&quot;, decrease: &quot;--&quot; }
-var operation = &quot;increase&quot;;
-operations[operation] // &quot;++&quot;;
-operations[&quot;multiply&quot;] = &quot;*&quot;; // &quot;*&quot;
-//上面operations[&quot;multiply&quot;]=&quot;*&quot;; 往operations对象中添加了一个key-value对。
-</code></pre><p>7.2 对象循环访问：for-in</p>
-<pre><code>var obj = { name: &quot;Pete&quot;, age: 15};
-for(key in obj) {
-    alert(&quot;key is &quot;+[key]+&quot;, value is &quot;+obj[key]);
+		  <p>一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。</p>
+<p>#纯函数与非纯函数</p>
+<p>纯函数是指不依赖，修改其作用域之外变量的函数。这么说有点拗口，还是让我们看几个具体的例子吧。</p>
+<p>以这个计算用户的鼠标是否在屏幕左侧的函数为例。当鼠标在屏幕左侧时向控制台输出true，反之输出false。在现实中你的函数很可能会比这个例子更复杂，执行更多的操作，此处只是为了演示说明问题：</p>
+<pre><code>function mouseOnLeftSide(mouseX) {
+    return mouseX &lt; window.innerWidth / 2;
 }
-</code></pre><p>7.3 任何对象不管有无属性和值，都默认为true</p>
-<p>7.4 对象的Prototype属性</p>
-<p>jQuery中用fn（Prototype的别名）动态为jQuery Instances添加对象（函数）</p>
-<pre><code>var form = $(&quot;#myform&quot;);
-form.clearForm; // undefined
-form.fn.clearForm = function() {
-    return this.find(&quot;:input&quot;).each(function() { this.value = &quot;&quot;; }).end();
+
+document.onmousemove = function(e) {
+    console.log(mouseOnLeftSide(e.pageX));
 };
-form.clearForm() // works for all instances of jQuery objects, because the new method was added
-</code></pre><p>#8. OPTIONS<br>几乎所有的jQuery插件都提供了一个基于OPTIONS的API，OPTIONS是JS对象，意味着该对象以及它的属性都是optional（可选的）。允许customization。</p>
-<p>比如采用Ajax方式提交表单，</p>
-<pre><code>$(&quot;#myform&quot;).ajaxForm();//默认采用Form的Action属性值作为Ajax-URL，Method值作为提交类型(GET/POST)
-$(&quot;#myform&quot;).ajaxForm({ url: &quot;mypage.php&quot;, type: &quot;POST&quot; });//则覆盖了提交到的URL和提交类型
-</code></pre><p>#9. ARRAY</p>
-<pre><code>var arr = [1, 2, 3];
-</code></pre><p>ARRAY是可变的lists。ARRAY也是对象。<br>读取或设置ARRAY中元素的值，采用这种方式：</p>
-<pre><code>var val = arr[0];//val为1
-arr[2] = 4;//现在arr第三个元素为4
-</code></pre><p>9.1 数组循环（遍历）</p>
-<pre><code>for (var i = 0; i &lt; a.length; i++) { // Do something with a[i] }
-</code></pre><p>但是当考虑性能时，则最好只读一次length属性，如下：</p>
-<pre><code>for (var i = 0, j = a.length; i &lt; j; i++) { // Do something with a[i] }
-</code></pre><p>jQuery提供了each方法遍历数组：</p>
-<pre><code>var x = [1, 2, 3];
-$.each(x,
-function(index, value) {
-    console.log(&quot;index&quot;, index, &quot;value&quot;, value);
-});
-</code></pre><p>9.2 对数组调用push方法意味着将一个元素添加到数组末尾，比如 x.push(5); 和 x.[x.length] = 5; 等价</p>
-<p>9.3 数组其他内置方法：</p>
-<pre><code>var x = [0, 3, 1, 2];
-x.reverse() // [2, 1, 3, 0]
-x.join(&quot; – &quot;) // &quot;2 - 1 - 3 - 0&quot;
-x.pop() // [2, 1, 3]
-x.unshift(-1) // [-1, 2, 1, 3]
-x.shift() // [2, 1, 3]
-x.sort() // [1, 2, 3]
-x.splice(1, 2) // 用于插入、删除或替换数组元素，这里为删除从index=1开始的2个元素
-</code></pre><p>9.4 数组为对象，所以始终为true</p>
-<p>#10. MAP</p>
-<p>The map type is used by the AJAX function to hold the data of a request. This type could be a string, an array<form elements="">, a jQuery object with form elements or an object with key/value pairs. In the last case, it is possible to assign multiple values to one key by assigning an array. As below:</form></p>
-<pre><code>{&apos;key[]&apos;:[&apos;valuea&apos;,&apos;valueb&apos;]}
-</code></pre><p>#11. FUNCTION:匿名和有名两种</p>
-<p>11.1 Context、Call和Apply</p>
-<p>In JavaScript, the variable “this” always refers to the current context.</p>
-<pre><code>$(document).ready(function() {
-    // this refers to window.document});
-    $(&quot;a&quot;).click(function() { // this refers to an anchor DOM element
-});
-</code></pre><p>#12. SELECTOR</p>
-<p>There are lot of plugins that leverage jQuery’s selectors in other ways. The validation plugin accepts a selector to specify a dependency, whether an input is required or not:</p>
-<pre><code>emailrules: { required: &quot;#email:filled&quot; }
-</code></pre><p>This would make a checkbox with name “emailrules” required only if the user entered an email address in the email field, selected via its id, filtered via a custom selector “:filled” that the validation plugin provides.</p>
-<p>#13. EVENT</p>
-<p>DOM标准事件包括：blur, focus, load, resize, scroll, unload, beforeunload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, andkeyup</p>
-<p>#14. JQUERY</p>
-<p>JQUERY对象包含DOM元素的集合。比如$(‘p’)即返回所有</p><p>…</p><p></p>
-<p>JQUERY对象行为类似数组，也有length属性，也可以通过index访问DOM元素集合中的某个。但是不是数组，不具备数组的某些方法，比如join()。</p>
-<p>许多jQuery方法返回jQuery对象本身，所以可以采用链式调用：</p>
-<pre><code>$(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;).find(&quot;.special&quot;).css(&quot;color&quot;, &quot;green&quot;);
-</code></pre><p>但是如果你调用的方法会破坏jQuery对象，比如find()和filter()，则返回的不是原对象。要返回到原对象只需要再调用end()方法即可。</p>
+</code></pre><p>mouseOnLeftSide()接受一个X坐标并判断它是否小于屏幕宽度数值的一半。然而，mouseOnLeftSide()并不是一个纯函数。我们之所以这么说是因为在函数内部，它引用了一个没有被明确传入的变量：</p>
+<pre><code>return mouseX &lt; window.innerWidth / 2;
+</code></pre><p>这个函数被调用时传入了mouseX，但没有传入window.innerWidth。这意味着该函数访问了一个不是作为参数传入的变量，因此它不是纯函数。</p>
+<p>#非纯函数的问题</p>
+<p>你可能会问这有问题呢 —— 这段代码明明可以正常工作。假设有人向你报告了一个bug：当window的宽度小于500像素时该函数不能正常工作。你该如何验证该问题呢？你有两个选择：</p>
+<p>你可以手工进行测试。打开浏览器，移动鼠标直到能复现问题。<br>你可以编写一些单元测试(Rebecca Murphey的编写可测试的JavaScript代码是个不错的入门)，这不仅可以用于此次调查问题，还可以避免以后再出现相同的问题。</p>
+<p>为了避免问题再次发生，我们决定选择第二种方案并编写测试代码。现在一个新问题出现了：如何正确的建立我们的测试呢？我们知道需要在window宽度小于500像素的情况下建立测试，但是该如何操作呢？该函数依赖于window.innerWidth，然而要确保window.innerWidth为某个确定值将是件痛苦的事情。</p>
+<p>#纯函数的好处</p>
+<p>##方便测试</p>
+<p>假设在考虑过如何测试的问题之后，我们这样编写代码：</p>
+<pre><code>function mouseOnLeftSide(mouseX, windowWidth) {
+    return mouseX &lt; windowWidth / 2;
+}
+
+document.onmousemove = function(e) {
+    console.log(mouseOnLeftSide(e.pageX, window.innerWidth));
+};
+</code></pre><p>关键的区别在于这次mouseOnLeftSide()函数接受2个参数：鼠标的X坐标和window的宽度。这意味现在mouseOnLeftSide()已经是一个纯函数了，它所需的所有数据都被明确传入了，不再需要访问函数外部的变量。</p>
+<p>在功能方面，它和我们之前的例子完全一样。但在可维护性和可测试性两方面却得到了极大的改善。现在我们不再需要为了测试而对window.innerWidth动手脚，只需要给mouseOnLeftSide()传入合适的参数就可以了：</p>
+<pre><code>mouseOnLeftSide(5, 499) // 确保window宽度小于500时可以正常工作
+</code></pre><p>#自我注释</p>
+<p>除了方便测试外，还有其它特点促使你应该在任何可能的时候使用纯函数。就其本质而言，纯函数是自我注释的。如果一个函数不会访问其作用域之外的变量，那么你就知道它能操作的数据就只能是传入的参数。考虑以下的函数定义：</p>
+<pre><code>function mouseOnLeftSide(mouseX, windowWidth)
+</code></pre><p>从定义可以看出该函数与两个参数打交道，如果参数被合理的命名，你还能看出它们是什么数据。我们都经历过阅读6个月之前编写的代码时的痛苦，因此能快速熟悉代码是一项很重要的能力。</p>
+<p>#避免函数内的全局变量</p>
+<p>JavaScript中全局变量的问题是有据可查的。在JavaScript中你可以很容易的创建全局变量，这些变量可以在所有函数中访问到。这也是一个导致bug的常见原因，因为程序中的任何部分都可能修改全局变量从而导致函数的行为出现异常。</p>
+<p>纯函数的另一个特性是引用透明。这个复杂术语包含的含义很简单：给定相同的输入，输出结果始终是相同的。让我们回到mouseOnLeftSide函数，看看它的第一个版本：</p>
+<pre><code>function mouseOnLeftSide(mouseX) {
+    return mouseX &lt; window.innerWidth / 2;
+}
+</code></pre><p>这个版本的函数不是引用透明的。如果我调用该函数5次，在这期间不断的改变window大小，那这5次调用的结果就会各不相同。这个例子可能看上去不太自然，但那种输入一致输出却不一致的函数实在是难以使用。由于它们的行为捉摸不定，要想预测它们就更难了。基于同样的原因，针对它们的测试也会很麻烦，因为你不能完全控制该函数依赖的数据。</p>
+<p>另一方面，由于我们改进过的mouseOnLeftSide函数依赖的数据都来自输入并且没有访问外部数据，因此它是依赖透明的。</p>
+<pre><code>function mouseOnLeftSide(mouseX, windowWidth) {
+    return mouseX &lt; windowWidth / 2;
+}
+</code></pre><p>当你遵循了把所有依赖的数据都声明为参数的原则后，你的代码就自动获得了依赖透明的能力。通过这种编码方式你可以摆脱各类由副作用导致的bug以及意外的函数行为。如果你对数据有完全的控制，你就可以非常快速，轻松的复现，调试bug而不必费尽心思的调查可能导致问题的全局变量。</p>
+<p>#选择把哪个函数变成纯函数</p>
+<p>想要在所有场景中都使用纯函数是不现实的 —— 总有一些情况需要你跳出函数获取数据，这其中最常见的情景就是查询DOM以获取某个DOM元素。 </p>
+<p>这是JavaScript的一个实际情况并且你不得不这样做，你也不必为这种跳出函数获取数据的行为感到担心。相反的，你应该仔细考虑如何组织代码以便把非纯函数隔离开来。防止它们对你的代码造成广泛影响，并在任何合适的地方使用纯函数。</p>
+<p>让我们看看以下的代码，它从DOM中获取一个元素并将该元素的背景色设置为红色：</p>
+<pre><code>function changeElementToRed() {
+    var foo = document.getElementById(&apos;foo&apos;);
+    foo.style.backgroundColor = &quot;red&quot;;
+}
+
+changeElementToRed();
+</code></pre><p>这段代码有2个问题，都可以通过转变为纯函数来解决：</p>
+<p>这个函数完全不能被重用。它和特定的DOM元素紧密的联系在一起。我们不能使用它修改其它的元素。<br>由于是非纯函数，它很难被测试。要想测试它，我们不得不创建带有某个特定ID的元素。</p>
+<p>考虑到以上2点，我会把它重写成以下的形式：</p>
+<pre><code>function changeElementToRed(elem) {
+    elem.style.backgroundColor = &quot;red&quot;;
+}
+
+function changeFooToRed() {
+    var foo = document.getElementById(&apos;foo&apos;);
+    changeElementToRed(foo);
+}
+
+changeFooToRed();
+</code></pre><p>我们修改changeElementToRed()函数以使它不再与任何特定的元素有关联。与此同时，我们把它变纯了，这就带来了我们之前讨论过的所有的优点。</p>
+<p>需要注意的是，修改后的代码里还是有非纯函数代码，就是changeFooToRed()。这是不可避免的，但这里要说的是把一个函数改造成纯函数会增加它的可读性，可复用性以及可测试性。通过创建尽可能多的纯的，可复用的代码同时把不纯代码限制在最低程度你可以编写出更好的代码并在未来避免更多烦恼。</p>
+<p>#总结</p>
+<p>“纯函数”，“副作用”以及“引用透明”都是函数式编程语言中的术语，但这并不意味着我们不能把这些理念引用到JavaScript中。通过铭记这些原则，并明智地运用它们，你的代码可以变得更加可靠，自我注释同时更不容易出错。我建议你下次编写新代码甚至是查看现有代码时把这些概念铭记在心。要熟悉这些理念可能会需要一段时间，但是很快你就会发现自己在不知不觉中就应用它们了。你的小伙伴和未来的你都会感谢你自己的。</p>
 
 		  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
 		  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
@@ -344,14 +293,14 @@ x.splice(1, 2) // 用于插入、删除或替换数组元素，这里为删除�
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
       
 
       <div id="more" style="float:right;">
-        <a href="/2016/10/18/datatype/" class="archive-article-date">
-  	<time datetime="2016-10-18T03:52:23.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-18</time>
+        <a href="/2017/01/05/pureJavasript/" class="archive-article-date">
+  	<time datetime="2017-01-05T01:45:43.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-05</time>
 </a>   
       </div>
       <div class="clearfix"></div>
@@ -362,18 +311,9 @@ x.splice(1, 2) // 用于插入、删除或替换数组元素，这里为删除�
   
 <nav id="article-nav">
   
-    <a href="/2016/10/21/timer/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          深入理解定时器：setTimeout与setInterval
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/10/14/JqSkill/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">一些好用的JQuery技巧</div>
+    <a href="/2016/12/22/module/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端模块化（CMD&amp;AMD）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,7 +328,7 @@ x.splice(1, 2) // 用于插入、删除或替换数组元素，这里为删除�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="datatype" data-title="jQuery的14个数据类型" data-url="http://yoursite.com/2016/10/18/datatype/"></div>
+	<div class="ds-thread" data-thread-key="pureJavasript" data-title="编写“纯粹”的JavaScript代码" data-url="http://yoursite.com/2017/01/05/pureJavasript/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

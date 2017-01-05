@@ -179,6 +179,74 @@
       <div class="body-wrap">
         
   
+    <article id="post-creatObject" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+	
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/07/creatObject/">javascript创建对象的7种模式</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+	  
+	    <p>#1）工厂模式<br>这种模式抽象了创建具体对象的过程<br>考虑到在 ECMAScript 中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节</p>
+<pre><code>1 function createPerson(name, age, job){
+2     var o = new Object();
+3    o.name = name;
+4    o.age = age;
+5    o.job = job;
+6    o.sayName = function(){
+7        alert(this.name);
+8    };
+9     return o;
+10 }
+11 var person1 = createPerson(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+12 var person2 = createPerson(&quot;Greg&quot;, 27, &quot;Doctor&quot;);
+</code></pre><p>函数 createPerson() 能够根据接受的参数来构建一个包含所有必要信息的 Person 对象。<br>可以无数次地调用这个函数，而每次它都会返回一个包含三个属性一个方法的对象。<br>工厂模式虽然解决了创建多个相似对象的问题，但却没有解决对象识别的问题（即怎样知道一个对象的类型） 。<br>随着 JavaScript的发展，又一个新模式出现了。</p>
+	    
+		<p class="article-more-link"><a href="/2016/11/07/creatObject/#more">more >></a></p>
+	    
+	  
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+
+      <div id="more" style="float:right;">
+        <a href="/2016/11/07/creatObject/" class="archive-article-date">
+  	<time datetime="2016-11-07T01:16:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-07</time>
+</a>   
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-es6Basics" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -743,7 +811,7 @@ b();//Hello Closure!
 		},1000);
 	</script>
       	<div class="footer-right">
-		&copy; 2015-2016 <a href="https://betrs.github.io/" target="_blank"> 吴佳（Jasn） </a>  All Rights Reserved 
+		&copy; 2015-2017 <a href="https://betrs.github.io/" target="_blank"> 吴佳（Jasn） </a>  All Rights Reserved 
 		<a href="http://tongji.baidu.com/web/welcome/ico?s=e491c72fc1b629cfa350015981ca1691" style="color:#1a1a1a;text-decoration:none;">百度统计</a>
       	</div>
     </div>
