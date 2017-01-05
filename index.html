@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="fe1ccc3f8d5847fb7e83dc2b87fe66dc"/>
-  <link rel="shortcut icon" href="http://www.wujiabk.com/favicon.ico" type="image/x-icon" />
   
+  <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
   <title>吴佳（Jasn）博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="关注前端领域，JavaScript狂热分子。推崇开源精神，为开源事业添砖加瓦 - 吴佳（Jasn）博客">
@@ -21,66 +21,35 @@
     <link rel="alternative" href="/atom.xml" title="吴佳（Jasn）博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="//favicon.ico">
+    <link rel="icon" href="/favicon.png">
   
-  <script src="/style.js"></script>
+  <link rel="stylesheet" type="text/css" href="/main.d221b8.css">
+  <style type="text/css">
   
-
-  <style>
-	.left-col { 
-		background:url(/img/blog_left.jpg) center center !important;
-		background-size:cover; 
-		width: 300px; 
-		position:fixed; 
-		opacity:1; 
-		transition:all .2s ease-in; 
-		height:100%;
-
-		    .overlay{
-			width: 100%;
-			height: 180px;
-			background-color: black;
-			position: absolute;
-			opacity: 0.7;
-			z-index: -1;//������
-		    }
-
-		    .intrude-less {
-			width: 76%;
-			text-align: center;
-			margin: 112px auto 0;
-		    }
-	}
-	
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
   </style>
+  
 
-  <script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?e491c72fc1b629cfa350015981ca1691";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-</script>
+  
+
 </head>
 
 <body>
-  <div id="container">
-    <div class="left-col">
-      <div class="overlay"></div>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			
-			<img src="/img/betrs.png" class="js-avatar">
-			
+			<img src="null" class="js-avatar">
 		</a>
-
 		<hgroup>
 		  <h1 class="header-author"><a href="/">吴佳（Jasn）</a></h1>
 		</hgroup>
-
 		
 		<p class="header-subtitle">一名JavaScript狂热分子 ，推崇开源精神 ，为开源事业添砖加瓦！</p>
 		
@@ -90,42 +59,35 @@
 			
 				<li><a href="/">主页</a></li>
 	        
+				<li><a href="/tags/随笔/">随笔</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-	        
     		
     			
-    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
-    			
-    			
-            
-    			
-    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
-    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
     			
-    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
-    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
-    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
-    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -133,72 +95,90 @@
 </div>
 
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"><i class="icon-list"></i></div>
-  		<h1 class="header-author js-mobile-header hide">吴佳（Jasn）</h1>
-  	</div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				
-					<img src="/img/betrs.png" class="js-avatar">
-				
+				<img src="null" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author">吴佳（Jasn）</h1>
+			  <h1 class="header-author js-header-author">吴佳（Jasn）</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">一名JavaScript狂热分子 ，推崇开源精神 ，为开源事业添砖加瓦！</p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>一名JavaScript狂热分子 ，推崇开源精神 ，为开源事业添砖加瓦！<i class="icon icon-quo-right"></i></p>
 			
-			<nav class="header-menu">
-				<ul>
+			
+			
 				
-					<li><a href="/">主页</a></li>
-		        
-				</ul>
-			</nav>
+			
+				
+			
+			
+			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://www.github.com/betrs" title="github">github</a>
+						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/betrs" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=QyEmNzEwAzIybSAsLg" title="mail">mail</a>
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/%E4%BD%B3%E6%98%BE-%E5%90%B4-433398117" title="linkedin">linkedin</a>
+						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
+
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 50%">
+				
+				
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+		        
+				</ul>
+			</nav>
 		</header>				
 	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
 
-      <div class="body-wrap">
-        
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            
   
-    <article id="post-pureJavasript" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-pureJavasript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2017/01/05/pureJavasript/">编写“纯粹”的JavaScript代码</a>
     </h1>
   
 
+        
+        <a href="/2017/01/05/pureJavasript/" class="archive-article-date">
+  	<time datetime="2017-01-05T01:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-05</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。</p>
+      
+        <p>一旦你网站或应用的代码量达到一定程度，它将不可避免的包含某种bug。这不是JavaScript特有的问题，而是一个几乎所有语言都有的通病 —— 虽然不是不可能，但是想要彻底清除程序中的所有bug还是非常难办到的。但是，这并不意味着我们不可以通过某些编码方式来预防bug的引入。</p>
 <p>#纯函数与非纯函数</p>
 <p>纯函数是指不依赖，修改其作用域之外变量的函数。这么说有点拗口，还是让我们看几个具体的例子吧。</p>
 <p>以这个计算用户的鼠标是否在屏幕左侧的函数为例。当鼠标在屏幕左侧时向控制台输出true，反之输出false。在现实中你的函数很可能会比这个例子更复杂，执行更多的操作，此处只是为了演示说明问题：</p>
@@ -210,26 +190,36 @@ document.onmousemove = function(e) {
     console.log(mouseOnLeftSide(e.pageX));
 };
 </code></pre>
-	    
-		<p class="article-more-link"><a href="/2017/01/05/pureJavasript/#more">more >></a></p>
-	    
-	  
+        
+          <a class="article-more-a" href="/2017/01/05/pureJavasript/#more">more >></a>
+        
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2017/01/05/pureJavasript/" class="archive-article-date">
-  	<time datetime="2017-01-05T01:45:43.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-05</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/05/pureJavasript/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -242,54 +232,63 @@ document.onmousemove = function(e) {
 
 
 
-
-
   
-    <article id="post-module" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-module" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/12/22/module/">前端模块化（CMD&amp;AMD）</a>
     </h1>
   
 
+        
+        <a href="/2016/12/22/module/" class="archive-article-date">
+  	<time datetime="2016-12-22T08:55:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-22</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>在JavaScript发展初期就是为了实现简单的页面交互逻辑，寥寥数语即可；如今CPU、浏览器性能得到了极大的提升，很多页面逻辑迁移到了客户端（表单验证等），随着web2.0时代的到来，Ajax技术得到广泛应用，jQuery等前端库层出不穷，前端代码日益膨胀 。</p>
+      
+        <p>在JavaScript发展初期就是为了实现简单的页面交互逻辑，寥寥数语即可；如今CPU、浏览器性能得到了极大的提升，很多页面逻辑迁移到了客户端（表单验证等），随着web2.0时代的到来，Ajax技术得到广泛应用，jQuery等前端库层出不穷，前端代码日益膨胀 。</p>
 <p>这时候JavaScript作为嵌入式的脚本语言的定位动摇了，JavaScript却没有为组织代码提供任何明显帮助，甚至没有类的概念，更不用说模块（module）了，JavaScript极其简单的代码组织规范不足以驾驭如此庞大规模的代码</p>
 <p>#模块</p>
 <p>既然JavaScript不能handle如此大规模的代码，我们可以借鉴一下其它语言是怎么处理大规模程序设计的，在Java中有一个重要带概念——package，逻辑上相关的代码组织到同一个包内，包内是一个相对独立的王国，不用担心命名冲突什么的，那么外部如果使用呢？直接import对应的package即可</p>
 <pre><code>import java.util.ArrayList;
 </code></pre>
-	    
-		<p class="article-more-link"><a href="/2016/12/22/module/#more">more >></a></p>
-	    
-	  
+        
+          <a class="article-more-a" href="/2016/12/22/module/#more">more >></a>
+        
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Module/">Module</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Module</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/12/22/module/" class="archive-article-date">
-  	<time datetime="2016-12-22T08:55:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-22</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/22/module/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -302,29 +301,28 @@ document.onmousemove = function(e) {
 
 
 
-
-
   
-    <article id="post-React" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-React" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/12/16/React/">Node+React+Webpack+es6+less的环境配置</a>
     </h1>
   
 
+        
+        <a href="/2016/12/16/React/" class="archive-article-date">
+  	<time datetime="2016-12-16T10:40:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-16</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>#React Demo</p>
+      
+        <p>#React Demo</p>
 <p>React环境配置：Node+React+Webpack+es6+Less （清单），案例地址：<a href="https://github.com/betrs/ReactDemo.git">https://github.com/betrs/ReactDemo.git</a></p>
 <p>#安装依赖：</p>
 <p>命令中 –save-dev  含义是安装时顺便把配置信息写入到package.json文件中</p>
@@ -347,26 +345,36 @@ document.onmousemove = function(e) {
 <pre><code>//使用命令：
             npm install url-loader --save-dev
 </code></pre>
-	    
-		<p class="article-more-link"><a href="/2016/12/16/React/#more">more >></a></p>
-	    
-	  
+        
+          <a class="article-more-a" href="/2016/12/16/React/#more">more >></a>
+        
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/12/16/React/" class="archive-article-date">
-  	<time datetime="2016-12-16T10:40:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/16/React/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -379,51 +387,60 @@ document.onmousemove = function(e) {
 
 
 
-
-
   
-    <article id="post-JQuery3NewFunction" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JQuery3NewFunction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/12/14/JQuery3NewFunction/">JQuery3中新增的功能</a>
     </h1>
   
 
+        
+        <a href="/2016/12/14/JQuery3NewFunction/" class="archive-article-date">
+  	<time datetime="2016-12-14T01:47:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-14</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>从jQuery 震撼整个 Web ，至今已有十年了，我们有很好的理由一直坚持使用维护它。jQuery为用户提供了 DOM 进行操作，执行 Ajax 请求，创建动画等等，极为友好的接口。此外，与 DOM API 不同的是，jQuery 采用了 复合模式（composite pattern）。 正因为如此，你可以在一个jQuery集合上调用jQuery方法，而不用担心集合包含的元素数量（零，一个或多个）。</p>
+      
+        <p>从jQuery 震撼整个 Web ，至今已有十年了，我们有很好的理由一直坚持使用维护它。jQuery为用户提供了 DOM 进行操作，执行 Ajax 请求，创建动画等等，极为友好的接口。此外，与 DOM API 不同的是，jQuery 采用了 复合模式（composite pattern）。 正因为如此，你可以在一个jQuery集合上调用jQuery方法，而不用担心集合包含的元素数量（零，一个或多个）。</p>
 <p>在未来的几周内，随着 jQuery 3 的发布，jQuery 会到达一个重要的里程碑。jQuery 3 修复了很多 bug，增加了新的方法，弃用并移除了一些功能，并改变了一些功能的行为。在这篇文章中，我重点讲解jQuery 3所带来的一些最大的变化。</p>
 <p>#新特性（New Features）<br>在下面的章节中，我将讨论jQuery 3中新增的重要特性。</p>
-	    
-		<p class="article-more-link"><a href="/2016/12/14/JQuery3NewFunction/#more">more >></a></p>
-	    
-	  
+        
+          <a class="article-more-a" href="/2016/12/14/JQuery3NewFunction/#more">more >></a>
+        
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JQuery</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/12/14/JQuery3NewFunction/" class="archive-article-date">
-  	<time datetime="2016-12-14T01:47:45.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-14</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/14/JQuery3NewFunction/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -436,29 +453,28 @@ document.onmousemove = function(e) {
 
 
 
-
-
   
-    <article id="post-webProblem" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-webProblem" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/12/09/webProblem/">总结40条常见移动端Web页面问题解决方案</a>
     </h1>
   
 
+        
+        <a href="/2016/12/09/webProblem/" class="archive-article-date">
+  	<time datetime="2016-12-09T01:20:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-09</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>#1、安卓浏览器看背景图片，有些设备会模糊。</p>
+      
+        <p>#1、安卓浏览器看背景图片，有些设备会模糊。</p>
 <p>用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？</p>
 <p>经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960640分辨率，在网页里只显示了480320，这样devicePixelRatio＝2。现在android比较乱，有1.5的，有2的也有3的。</p>
 <p>想让图片在手机里显示更为清晰，必须使用2x的背景图来代替img标签（一般情况都是用2倍）。例如一个div的宽高是100100，背景图必须得200200，然后background-size:contain;，这样显示出来的图片就比较清晰了。</p>
@@ -467,26 +483,36 @@ document.onmousemove = function(e) {
 -webkit-background-size:50px 50px;
 background-size: 50px 50px;display:inline-block; width:100%; height:50px;
 </code></pre><p>或者指定 background-size:contain;都可以，大家试试！</p>
-	    
-		<p class="article-more-link"><a href="/2016/12/09/webProblem/#more">more >></a></p>
-	    
-	  
+        
+          <a class="article-more-a" href="/2016/12/09/webProblem/#more">more >></a>
+        
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/12/09/webProblem/" class="archive-article-date">
-  	<time datetime="2016-12-09T01:20:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/09/webProblem/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -499,29 +525,28 @@ background-size: 50px 50px;display:inline-block; width:100%; height:50px;
 
 
 
-
-
   
-    <article id="post-gitCommand" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-gitCommand" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/12/06/gitCommand/">工作常用的Git命令</a>
     </h1>
   
 
+        
+        <a href="/2016/12/06/gitCommand/" class="archive-article-date">
+  	<time datetime="2016-12-06T05:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>我每天使用 Git ，但是很多命令记不住。<br>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
+      
+        <p>我每天使用 Git ，但是很多命令记不住。<br>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
 <p>下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。</p>
 <p>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库</p>
 <p>#一、新建代码库</p>
@@ -534,26 +559,36 @@ $ git init [project-name]
 # 下载一个项目和它的整个代码历史
 $ git clone [url]
 </code></pre>
-	    
-		<p class="article-more-link"><a href="/2016/12/06/gitCommand/#more">more >></a></p>
-	    
-	  
+        
+          <a class="article-more-a" href="/2016/12/06/gitCommand/#more">more >></a>
+        
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/12/06/gitCommand/" class="archive-article-date">
-  	<time datetime="2016-12-06T05:31:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-06</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/06/gitCommand/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -566,29 +601,28 @@ $ git clone [url]
 
 
 
-
-
   
-    <article id="post-cssSkill" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-cssSkill" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/12/06/cssSkill/">12 个 CSS 高级技巧汇总</a>
     </h1>
   
 
+        
+        <a href="/2016/12/06/cssSkill/" class="archive-article-date">
+  	<time datetime="2016-12-06T05:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>下面这些CSS高级技巧，一般人我可不告诉他哦。</p>
+      
+        <p>下面这些CSS高级技巧，一般人我可不告诉他哦。</p>
 <p>使用 :not() 在菜单上应用/取消应用边框</p>
 <p>给body添加行高</p>
 <p>所有一切都垂直居中</p>
@@ -608,26 +642,36 @@ $ git clone [url]
     border-right: 1px solid #666;
 }
 </code></pre>
-	    
-		<p class="article-more-link"><a href="/2016/12/06/cssSkill/#more">more >></a></p>
-	    
-	  
+        
+          <a class="article-more-a" href="/2016/12/06/cssSkill/#more">more >></a>
+        
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/12/06/cssSkill/" class="archive-article-date">
-  	<time datetime="2016-12-06T05:19:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-06</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/06/cssSkill/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -640,29 +684,28 @@ $ git clone [url]
 
 
 
-
-
   
-    <article id="post-stringTurnNumber" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-stringTurnNumber" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/12/01/stringTurnNumber/">JavaScript字符串转换为数字的方法</a>
     </h1>
   
 
+        
+        <a href="/2016/12/01/stringTurnNumber/" class="archive-article-date">
+  	<time datetime="2016-12-01T01:56:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-01</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-	    <p>#1. 函数转换<br>parseInt()和parseFloat()分别用来将数字型字符串或数字转换为整数和浮点数，其他则返回NaN(Not a Number)。 parseInt()支持进制参数，表示以何进制读取字符串，返回结果均为10进制数字。</p>
+      
+        <p>#1. 函数转换<br>parseInt()和parseFloat()分别用来将数字型字符串或数字转换为整数和浮点数，其他则返回NaN(Not a Number)。 parseInt()支持进制参数，表示以何进制读取字符串，返回结果均为10进制数字。</p>
 <pre><code>parseInt() =&gt; NaN
 parseInt(&apos; &apos;) =&gt; NaN
 parseInt(null) =&gt; NaN
@@ -689,26 +732,36 @@ parseInt(&apos;A&apos;, 16) =&gt; 10 // 以16进制读取，结果为10进制数
 parseInt(&quot;012&quot;, 8) =&gt; 10 // 以8进制读取，结果为10进制数字10
 parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数字8
 </code></pre>
-	    
-		<p class="article-more-link"><a href="/2016/12/01/stringTurnNumber/#more">more >></a></p>
-	    
-	  
+        
+          <a class="article-more-a" href="/2016/12/01/stringTurnNumber/#more">more >></a>
+        
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/12/01/stringTurnNumber/" class="archive-article-date">
-  	<time datetime="2016-12-01T01:56:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/01/stringTurnNumber/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -721,52 +774,182 @@ parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数
 
 
 
-
-
   
-    <article id="post-javascriptThis" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascriptThis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/11/15/javascriptThis/">学会JS的this这一篇就够了，根本不用记</a>
     </h1>
   
 
+        
+        <a href="/2016/11/15/javascriptThis/" class="archive-article-date">
+  	<time datetime="2016-11-15T01:04:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-15</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-		
-		
-		  <p>#以前看某本书上讲：<br>掌握了JS中this的用法才算真正的跨过了JS的门槛<br>我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌握了this的用法。然而可能是由于我太笨了，经常过一段时间就忘得一干二净了，这真的是一件很尴尬的事情……直到后来我仔细地琢磨又琢磨，终于感觉我可能以后不会再忘记了。所以想把我琢磨的内容和大家分享一下。</p>
-		  
-			<p class="article-more-link"><a href="/2016/11/15/javascriptThis/#more">more >></a></p>
-	      
-		
-	  
+      
+        <p>#以前看某本书上讲：<br>掌握了JS中this的用法才算真正的跨过了JS的门槛<br>我深以为是！但是JS的this却并不是那么简单的内容，许多同学都很困惑，也肯定有同学像我曾经一样查阅各种资料想知道How to understand this of javascript。很幸运的是，网上有非常非常多的文章关于this的，简直就是琳琅满目…曾经，我看到某些文章非常开心，因为他们讲得确实非常好，以至于我确信我已掌握了this的用法。然而可能是由于我太笨了，经常过一段时间就忘得一干二净了，这真的是一件很尴尬的事情……直到后来我仔细地琢磨又琢磨，终于感觉我可能以后不会再忘记了。所以想把我琢磨的内容和大家分享一下。</p>
+<p>说到this，就不得不提到function，相信看过其它类似文章的同学也知道，正是由于调用function的对象不同，才导致了this的指向不同。所以以前老是去记忆每种调用function的情况所对应的this，因为情况有限而且很少，所以这当然是可行的——对于聪明人来说。所以我不得不思考另外一些方式来让我记住。</p>
+<p>那么首先我们需要明确的一个事情是：function也是对象<br>同时我们还需要明确的一个事情是：function执行时是在某个特定的上下文中执行的。那什么是上下文呢？打个比方，比如你练会了辟邪剑谱，那这时候你的掌门让你用辟邪剑谱砍人。如果仅仅是这样的话，你是没法完成这个任务的，因为你必须得知道要砍谁吧，其次去哪儿砍吧，那么是个地下通道还是一望无尽的大草原，要是地下通道你走路都困难，还怎么用辟邪剑谱呢对吧。这就是上下文，函数执行时它也需要一些额外的信息来支撑它的运行。那么既然function是对象的话，就会有方法。而function中最核心的方法是call方法。因此我们就从这儿入手。</p>
+<p>#call方法<br>先来看一下如何使用call方法:</p>
+<pre><code>function say(content) {
+   console.log(&quot;From &quot; + this + &quot;: Hello &quot;+ content);
+}
+say.call(&quot;Bob&quot;, &quot;World&quot;); //==&gt; From Bob: Hello World
+</code></pre><p>接下来仔细分析一下call的用法：<br>Step1: 把第二个到最后一个参数作为函数执行时要传入的参数<br>Step2: 把函数执行时的this指向第一个参数<br>Step3: 在上面这个特殊的上下文中执行函数<br>上面例子中，我们通过call方法，让say函数执行时的this指向”Bob”，然后把”World”作为参数传进去，所以输出结果是可以预见的。<br>js执行函数时会默认完成以上的步骤，你可以把直接调用函数理解为一种语法糖<br>比如：</p>
+<pre><code>function say(word) {
+   console.log(world);
+}
+say(&quot;Hello world&quot;);
+say.call(window, &quot;Hello world&quot;);
+</code></pre><p>以上可以把say(“Hello world”)看做是say.call(window,”Hello world”)的语法糖。</p>
+<p>这个结论非常关键，所以以后每次看见functionName(xxx)的时候，你需要马上在脑海中把它替换为functionName.call(window,xxxx)，这对你理解this的指向非常重要。不过也有例外，在ES5的strict mode中call的第一个参数不是window而是undefined。之后的例子我假设总是不在strictmode下，但你需要记住strictmode有一点儿不同。<br>对于匿名函数来说，上面的结论也是成立的</p>
+<pre><code>(function(name) {
+    //
+})(&quot;aa&quot;);
+//等价于
+(function(name) {    
+  //
+}).call(window, &quot;aa&quot;);
+</code></pre><p>函数作为对象的方法被调用<br>直接来看代码：</p>
+<pre><code>var person = {
+    name : &quot;caibirdme&quot;,
+    run : function(time) {
+        console.log(this.name + &quot;has been running for over &quot;+ time+ &quot; minutes&quot;);
+    }};
+person.run(30);
+//==&gt; caibirdme has been running for over 30 minutes//等价于
+person.run.call(person, 30); // the same
+</code></pre><p>你会发现这里call的第一个参数是person而不是window。<br>当你明白了这两点，下意识地把函数调用翻译成foo.call()的形式，明确call的第一个参数，那基本上this的问题就难不住你了。<br>还是来举几个例子吧</p>
+<p>#例一：</p>
+<pre><code>function hello(thing) {  
+  console.log(this + &quot; says hello &quot; + thing);
+}
+  person = { name: &quot;caibirdme&quot; }  
+  person.hello = hello;
+  person.hello(&quot;world&quot;) 
+// 相当于执行 person.hello.call(person, &quot;world&quot;)
+hello(&quot;world&quot;) 
+// 相当于执行 hello.call(window, &quot;world&quot;)
+</code></pre><p>#例二：</p>
+<pre><code>var obj = {
+    x: 20,
+    f: function(){ console.log(this.x); }
+};
+    obj.f(); // obj.f.call(obj)//==&gt; 20
+obj.innerobj = {
+    x: 30,
+    f: function(){ console.log(this.x); }
+}
+obj.innerobj.f(); 
+// obj.innerobj.f.call(obj.innerobj)// ==&gt; 30
+</code></pre><p>#例三：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){
+        console.log(this.x); //this equals obj
+                // ==&gt; 20
+        var foo = function(){ console.log(this.x); }
+        foo(); 
+        // foo.call(window)
+        //foo中this被指定为window，所以==&gt; 10
+    }
+};
+obj.f();  // obj.f.call(obj)// ==&gt; 20 10
+</code></pre><p>由例三引出一个非常common的问题，如果我想让foo输出20怎么办？这时候需要用到一点小技巧</p>
+<p>#例四：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){
+        console.log(this.x);
+        var that = this; 
+//使用that保留当前函数执行上下文的this
+        var foo = function(){ console.log(that.x); } 
+//此时foo函数中的this仍然指向window，但我们使用that取得obj
+        foo(); // foo.call(window)
+    }
+};
+obj.f(); 
+obj.f.call(obj)// ==&gt; 20 20
+</code></pre><p>再来一个稍微难一点点的(但其实用call替换法一点儿也不难)</p>
+<p>#例五：</p>
+<pre><code>var x = 10;
+var obj = {
+    x: 20,
+    f: function(){ console.log(this.x); }
+};
+obj.f(); // obj.f.call(obj)// ==&gt; 20
+var fOut = obj.f;
+fOut(); 
+// fOut.call(window)//==&gt; 10
+var obj2 = {
+    x: 30,
+    f: obj.f
+}
+obj2.f(); // obj2.f.call(obj2)//==&gt; 30
+</code></pre><p>例五有些同学会可能出错的原因，是没有明确我上面说的：<br>this是在执行是才会被确认的<br>他可能会认为说obj.f那个函数定义在obj里面，那this就该指向obj。如果看完这篇文章你还这么想的话，我会觉得我的表达水平太失败了……<br>用于构造函数<br>先看一段代码：</p>
+<pre><code>func person(name) {
+    this.name = name;}
+    var caibirdme = new person(&quot;deen&quot;);
+    // caibirdme.name == deen
+</code></pre><p>我上面也说了，函数在用作构造函数时同样可以用call方法去代替，那这里怎么代替呢？<br>这里你又需要明确一点：<br>new constrcut()是一种创建对象的语法糖<br>它等价于</p>
+<pre><code>function person(name) {
+   this.name = name;
+}
+var foo = new person(&quot;deen&quot;);
+//通过new创建了一个对象
+//new是一种语法糖，new person等价于
+var bar = (function(name) {
+    var _newObj = {
+        constructor : person,
+        __proto__ : person.prototype,
+    };
+    _newObj.constructor(name);
+     // _newObj.constructor.call(_newObj, name)
+    return _newObj;
+})();
+</code></pre><p>So you can see……为什么new的时候this就指向新的对象了吧？<br>通过我这篇文章，我希望学会通过把一个函数调用替换成funcName.call的形式，从而理解运行时上下文中this到底指向谁。总结来说就是下面两个等价变形：</p>
+<pre><code>foo() ---&gt; foo.call(window)
+obj.foo() --&gt; obj.foo.call(obj)
+</code></pre><p>只要理解以上两个变形，this就不再是问题啦！！希望我的这种方法对各位同学认识this有所帮助，不要再像我曾经一样掉入this的坑中，相关面试题也不再怕怕啦，哈哈。</p>
+<p>（想了想，还是给朋友们说下我自己的理解吧，this：当前执行环境的上下文，call和apply：修改对象的上下文）</p>
+
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/11/15/javascriptThis/" class="archive-article-date">
-  	<time datetime="2016-11-15T01:04:33.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/15/javascriptThis/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -779,58 +962,407 @@ parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数
 
 
 
-
-
   
-    <article id="post-jsapi" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-jsapi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
-	
+        
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/11/08/jsapi/">JavaScript常用API总结</a>
     </h1>
   
 
+        
+        <a href="/2016/11/08/jsapi/" class="archive-article-date">
+  	<time datetime="2016-11-08T00:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
+</a>
+        
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
-	  
-		
-		
-		  <p>下面是我整理的一些JavaScript常用的API清单。</p>
-		  
-			<p class="article-more-link"><a href="/2016/11/08/jsapi/#more">more >></a></p>
-	      
-		
-	  
+      
+        <p>下面是我整理的一些JavaScript常用的API清单。</p>
+<p>目录</p>
+<p>元素查找</p>
+<p>class操作</p>
+<p>节点操作</p>
+<p>属性操作</p>
+<p>内容操作</p>
+<p>css操作</p>
+<p>位置大小</p>
+<p>事件</p>
+<p>DOM加载完毕</p>
+<p>绑定上下文</p>
+<p>去除空格</p>
+<p>Ajax</p>
+<p>JSON处理</p>
+<p>节点遍历</p>
+<p>元素查找</p>
+<pre><code>// Node
+document.getElementById(id) // document.getElementById(&apos;test&apos;)
+document.querySelector(selectors) // document.querySelector(&apos;#test div&apos;)
+document.doctype
+document.documentElement
+document.head
+document.title
+document.body
+
+// NodeList
+document.getElementsByClassName(names) // document.getElementsByClassName(&apos;test&apos;)
+document.getElementsByName(name) // document.getElementsByName(&apos;demo&apos;)
+document.getElementsByTagName(name) // document.getElementsByTagName(&apos;div&apos;)
+document.getElementsByTagNameNS(namespace, name) // document.getElementsByTagNameNS(&apos;http://www.w3.org/1999/xhtml&apos;, &apos;div&apos;)
+document.querySelectorAll(selectors) // document.querySelectorAll(&apos;#test div&apos;)
+document.links
+document.scripts
+document.images
+document.embeds
+document.forms
+class操作
+
+// ie8
+// add class
+el.className += &apos; &apos; + className;
+
+// has class
+function hasClass(el,className){
+  return new RegExp(&apos;(^| )&apos; + className + &apos;( |$)&apos;, &apos;gi&apos;).test(el.className);
+}
+
+// toggle class
+function toggleClass(el,className){
+  var classes = el.className.split(&apos; &apos;);
+  var existingIndex = -1;
+  for (var i = classes.length; i--;) {
+    if (classes[i] === className){
+      existingIndex = i;
+    }
+  }
+  if (existingIndex &gt;= 0){
+    classes.splice(existingIndex, 1);
+  }
+  else{
+    classes.push(className);
+  }
+  el.className = classes.join(&apos; &apos;);
+}
+
+// remove class
+function remove(el,className){
+  el.className = el.className.replace(new RegExp(&apos;(^|\\b)&apos; + className.split(&apos; &apos;).join(&apos;|&apos;) + &apos;(\\b|$)&apos;, &apos;gi&apos;), &apos; &apos;);
+}
+
+// ie 10
+el.classList.add(className); // add class
+el.classList.remove(className); // remove class
+el.classList.contains(className); // has class
+el.classList.toggle(className); // toggle class
+</code></pre><p>#节点操作</p>
+<pre><code>// 创建
+var el = document.createElement(name);
+
+// 复制
+el.cloneNode(true); // 默认为false(克隆节点及其后代), true(克隆节点及其属性，以及后代)
+
+// 向节点添加最后一个子节点
+parent.appendChild(el);
+
+// 在指定子节点之前插入新的子节点
+parent.insertBefore(el, parent.childNodes[0]);
+
+// insertAdjacentHTML方法
+el.insertAdjacentHTML(where, htmlString);
+el.insertAdjacentHTML(&apos;beforeBegin&apos;, htmlString); // 在该元素前插入
+el.insertAdjacentHTML(&apos;afterBegin&apos;, htmlString); // 在该元素第一个子元素前插入
+el.insertAdjacentHTML(&apos;beforeEnd&apos;, htmlString); // 在该元素最后一个子元素后面插入
+el.insertAdjacentHTML(&apos;afterEnd&apos;, htmlString); // 在该元素后插入
+
+// 父元素
+el.parentNode
+
+// 删除节点
+el.parentNode.removeChild(el);
+
+// 兄弟节点 ie9+
+var siblings = Array.prototype.filter.call(el.parentNode.children, function(child){
+  return child !== el;
+})
+
+// 下一个兄弟节点
+// ie8
+function nextElementSibling(el) {
+  do { el = el.nextSibling; } while ( el &amp;&amp; el.nodeType !== 1 );
+  return el;
+}
+nextElementSibling(el);
+// ie9+
+el.nextElementSibling;
+
+// 上一个兄弟节点
+// ie8
+function previousElementSibling(el) {
+  do { 
+    el = el.previousSibling;
+  } 
+  while ( el &amp;&amp; el.nodeType !== 1 );
+  return el;
+}
+previousElementSibling(el);
+// ie9+
+el.previousElementSibling;
+
+// Children
+// ie8
+var children = [];
+for (var i = el.children.length; i--;) {
+  // Skip comment nodes on IE8
+  if (el.children[i].nodeType != 8)
+    children.unshift(el.children[i]);
+}
+// ie9+
+el.children
+</code></pre><p>#属性操作</p>
+<pre><code>// 获取属性值
+el.getAttribute(&apos;alt&apos;);
+
+// 设置属性值
+el.setAttribute(&apos;alt&apos;, &apos;图片描述&apos;);
+</code></pre><p>#内容操作</p>
+<pre><code>// 获取元素内容
+el.innerHTML
+// 设置元素内容
+el.innerHTML = string
+// 获取元素内容(包含元素自身)
+el.outerHTML
+// 设置元素内容(包含元素自身)
+el.outerHTML = string
+
+// 获取文本内容
+// ie8
+el.innerText
+// ie9+
+el.textContent
+// 设置文本内容
+// ie8
+el.innerText = string
+// ie9+
+el.textContent = string
+</code></pre><p>#CSS操作</p>
+<pre><code>// 获取css样式
+// ie8
+el.currentStyle[attrName]
+// ie9+
+window.getComputedStyle(el)[attrName]
+// 伪类
+window.getComputedStyle(el , &quot;:after&quot;)[attrName];
+
+// 设置CSS样式
+el.style.display = &apos;none&apos;;
+</code></pre><p>#位置大小</p>
+<pre><code>// getBoundingClientRect返回一个对象，包含top,left,right,bottom,width,height
+// width、height 元素自身宽高
+// top 元素上外边界距窗口最上面的距离
+// right 元素右外边界距窗口最上面的距离
+// bottom 元素下外边界距窗口最上面的距离
+// left 元素左外边界距窗口最上面的距离
+// width 元素自身宽(包含border,padding) 
+// height 元素自身高(包含border,padding) 
+
+// 元素在页面上的偏移量
+var rect = el.getBoundingClientRect()
+return {
+  top: rect.top + document.body.scrollTop,
+  left: rect.left + document.body.scrollLeft
+}
+
+// 元素自身宽(包含border,padding) 
+el.offsetWidth
+// 元素自身高(包含border,padding) 
+el.offsetHeight
+// 元素的左外边框至包含元素的左内边框之间的像素距离
+el.offsetLeft
+// 元素的上外边框至包含元素的上内边框之间的像素距离
+el.offsetTop 
+
+//通常认为 &lt;html&gt; 元素是在 Web 浏览器的视口中滚动的元素（IE6 之前版本运行在混杂模式下时是 &lt;body&gt; 元素） 
+//因此，带有垂直滚动条的页面总高度就是 document.documentElement.scrollHeight
+// 在没有滚动条的情况下，元素内容的总高度
+scrollHeight
+// 在没有滚动条的情况下，元素内容的总宽度
+scrollWidth
+// 被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置
+scrollLeft
+// 被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置
+scrollTop
+
+// 视口大小
+// ie9+
+var pageWidth = window.innerWidth,
+    pageHeight = window.innerHeight;
+if (typeof pageWidth != &quot;number&quot;){ 
+  // ie8
+  if (document.compatMode == &quot;CSS1Compat&quot;){
+    pageWidth = document.documentElement.clientWidth;
+    pageHeight = document.documentElement.clientHeight;
+  } else { 
+    // ie6混杂模式
+    pageWidth = document.body.clientWidth;
+    pageHeight = document.body.clientHeight;
+  }
+}
+</code></pre><p>#事件</p>
+<pre><code>// 绑定事件
+// ie9+
+el.addEventListener(eventName, handler , Booleans); // Booleans默认false(事件在冒泡阶段执行),true(事件在捕获阶段执行)
+// ie8
+el.attachEvent(&apos;on&apos; + eventName, function(){
+  handler.call(el);
+});
+
+// 移除事件
+// ie9+
+el.removeEventListener(eventName, handler); 
+// ie8
+el.detachEvent(&apos;on&apos; + eventName, handler);
+
+// 事件触发
+if (document.createEvent) {
+  // ie9+
+  var event = document.createEvent(&apos;HTMLEvents&apos;);
+  event.initEvent(&apos;change&apos;, true, false);
+  el.dispatchEvent(event);
+} else {
+  // ie8
+  el.fireEvent(&apos;onchange&apos;);
+}
+
+// event对象
+var event = window.event||event;
+
+// 事件的目标节点
+var target = event.target || event.srcElement;
+
+// 事件代理
+ul.addEventListener(&apos;click&apos;, function(event) {
+  if (event.target.tagName.toLowerCase() === &apos;li&apos;) {
+    console.log(event.target.innerHTML)
+  }
+});
+</code></pre><p>#DOM加载完毕</p>
+<pre><code>function ready(fn) {
+  if (document.readyState != &apos;loading&apos;){
+    // ie9+
+    document.addEventListener(&apos;DOMContentLoaded&apos;, fn);
+  } else {
+    // ie8
+    document.attachEvent(&apos;onreadystatechange&apos;, function() {
+      if (document.readyState != &apos;loading&apos;){
+        fn();
+      }
+    });
+  }
+}
+</code></pre><p>#绑定上下文</p>
+<pre><code>// ie8
+fn.apply(context, arguments);
+// ie9+
+fn.bind(context);
+去除空格
+
+// ie8
+string.replace(/^\s+|\s+$/g, &apos;&apos;);
+// ie9+
+string.trim();
+ajax
+
+// GET
+var request = new XMLHttpRequest();
+request.open(&apos;GET&apos;, &apos;user.php?fname=Bill&amp;lname=Gates&apos;, true); // false（同步）
+request.send();
+
+// ie8
+request.onreadystatechange = function() {
+  if (this.readyState === 4) {
+    if (this.status &gt;= 200 &amp;&amp; this.status &lt; 400) {
+      // Success!
+      var data = JSON.parse(this.responseText);
+    } else {
+      // 错误
+    }
+  }
+};
+
+// ie9+
+request.onload = function() {
+  if (request.status &gt;= 200 &amp;&amp; request.status &lt; 400) {
+    // Success!
+    var data = JSON.parse(request.responseText);
+  } else {
+    // 服务器返回出错
+  }
+};
+request.onerror = function() {
+  // 连接错误
+};
+
+// POST
+var request = new XMLHttpRequest(); 
+request.open(&apos;POST&apos;, &apos;user.php&apos;, true); // false（同步）
+request.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+request.send(dataString);
+</code></pre><p>#JSON处理</p>
+<pre><code>JSON.parse(string);
+JSON.String(Object)
+</code></pre><p>#节点遍历</p>
+<pre><code>function forEach( nodeList, callback ) {
+  if(Array.prototype.forEach){
+    // ie9+
+    Array.prototype.forEach.call( nodeList, callback );
+  }else {
+    // ie8
+    for (var i = 0; i &lt; nodeList.length; i++){
+      callback(nodeList[i], i);
+    }
+  }
+}
+
+forEach(document.querySelectorAll(selector),function(el, i){
+
+})
+</code></pre>
+      
+
+      
     </div>
     <div class="article-info article-info-index">
       
       
 	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
 	</div>
 
       
 
-      <div id="more" style="float:right;">
-        <a href="/2016/11/08/jsapi/" class="archive-article-date">
-  	<time datetime="2016-11-08T00:57:52.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-08</time>
-</a>   
-      </div>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/08/jsapi/">展开全文 >></a>
+        </p>
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-
 
 
 
@@ -847,55 +1379,25 @@ parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数
   
 
 
+          </div>
+        </div>
       </div>
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left" id="footer-left">
+    	<div class="footer-left">
+    		&copy; 2017 吴佳（Jasn）
     	</div>
-	<script>
-		//封装时间补零方法
-		function toZero(num){//补零操作
-			if(num<10){
-				return '0'+num;
-			}else{
-				return ''+num;
-			};
-		};
-		
-		setInterval(function(){
-			var timeDate = new Date();
-			var hours    = toZero(timeDate.getHours());
-			var minutes  = toZero(timeDate.getMinutes());
-			var seconds  = toZero(timeDate.getSeconds());
-			var footerLeft = document.getElementById("footer-left");
-			var time = "北京时间："+hours+":"+minutes+":"+seconds;
-
-			//console.log(time)
-			footerLeft.innerHTML = time;	
-		},1000);
-	</script>
       	<div class="footer-right">
-		&copy; 2015-2017 <a href="https://betrs.github.io/" target="_blank"> 吴佳（Jasn） </a>  All Rights Reserved 
-		<a href="http://tongji.baidu.com/web/welcome/ico?s=e491c72fc1b629cfa350015981ca1691" style="color:#1a1a1a;text-decoration:none;">百度统计</a>
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
-	<script type="text/javascript">
-		  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-		  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-		  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-		  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-	  
-		  _st('install','z3dx7kRzWg4zhAjxxqUx','2.0.0');
-	</script>
   </div>
 </footer>
     </div>
     <script>
 	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
+		mathjax: false,
 		isHome: true,
 		isPost: false,
 		isArchive: false,
@@ -903,83 +1405,193 @@ parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
-		innerArchive: true
+		innerArchive: true,
+		showTags: false
 	}
 </script>
 
-<script src="/./main.js"></script>
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
+<script>
+!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="/",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(71),d=r(p),v=e(72),y=(r(v),e(84)),h=r(y),b=e(69),x=r(b),m=e(75),g=r(m),w=e(70);l(),(0,w.addLoadEvent)(function(){g.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),m=x[f],g=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&g&&void 0!==g[a],s&&a in x||(l=s?g[a]:e[a],x[a]=d&&"function"!=typeof g[a]?e[a]:h&&s?i(l,r):b&&g[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&m&&!m[a]&&u(m,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,m,g,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=m==h,M=!1,A=t.prototype,T=A[p]||A[v]||m&&A[m],L=T||j(m),N=m?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,m)if(O={values:E?L:j(h),keys:g?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),m=e(10),g=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),m(t),n=w(n,!0),m(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){m(t);for(var e,r=b(n=g(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=g(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(g(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:g(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}]);
 </script>
-
-<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script src="/main.d221b8.js"></script>
+<script>
+(function() {
+	var loadScript = function(path) {
+	    var $script = document.createElement('script')
+	    document.getElementsByTagName('body')[0].appendChild($script)
+	    $script.setAttribute('src', path)
+	}
+	loadScript("/slider.59dfdc.js")
+})();
 </script>
 
 
 
+
     
-<div class="tools-col">
-  <ul class="btn-wrap">
-    
-      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
-    
-    
-      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
     
     
-      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
     
     
-      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+
+    <ul style="width: 70%">
     
-  </ul>
+    
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
+        
+    </ul>
+  </div>
   <div class="tools-wrap">
     
-    	<section class="tools-section tools-section-all chose">
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Module</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
     	</section>
     
 
     
-    	<section class="tools-section tools-section-tag">
-    			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JQuery/" style="font-size: 16.67px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Module/" style="font-size: 10px;">Module</a> <a href="/tags/React/" style="font-size: 10px;">React</a>
-    			</div>
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-friends">
+    	<section class="tools-section tools-section-friends" q-show="friends">
   		
-  			<div class="friends-wrap" id="js-friends">
-  			
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xuanmomo.com">轩陌博客</a>
-  	        
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.njalex.com">alex博客</a>
-  	        
-  	        </div>
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+            </li>
+          
+        </ul>
   		
     	</section>
     
 
     
-    	<section class="tools-section tools-section-me">
+    	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">真实姓名 :吴佳显&lt;br&gt;破蛋日 :1994-11-03&lt;br&gt;籍贯 :湖北省孝感市&lt;br&gt;职业 :程序员&lt;br&gt;前端Q群：62365713</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
   	  	
     	</section>
     
