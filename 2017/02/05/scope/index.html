@@ -6,27 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>meta常用标签总结 | JASN-吴佳博客</title>
+  <title>五句话搞定JavaScript作用域 | JASN-吴佳博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="meta元素共有三个可选属性（http-equiv、name和scheme）和一个必选属性（content），content定义与 http-equiv 或 name 属性相关的元信息
-##可选属性
-http-equiv = &amp;quot;content-type/expire/refresh/set-cookie&amp;quot;        //把content属性关联到HTTP头部
-name =">
+  <meta name="description" content="JavaScript的作用域一直以来是前端开发中比较难以理解的知识点，对于JavaScript的作用域主要记住几句话，走遍天下都不怕。
+#一、“JavaScript中无块级作用域”
+在Java或C#中存在块级作用域，即：大括号也是一个作用域。
+public static void main (){
+    if(1==1){
+        String name = &amp;quot;seven&amp;qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="meta常用标签总结">
-<meta property="og:url" content="http://yoursite.com/2017/01/16/htmlMeta/index.html">
+<meta property="og:title" content="五句话搞定JavaScript作用域">
+<meta property="og:url" content="http://yoursite.com/2017/02/05/scope/index.html">
 <meta property="og:site_name" content="JASN-吴佳博客">
-<meta property="og:description" content="meta元素共有三个可选属性（http-equiv、name和scheme）和一个必选属性（content），content定义与 http-equiv 或 name 属性相关的元信息
-##可选属性
-http-equiv = &amp;quot;content-type/expire/refresh/set-cookie&amp;quot;        //把content属性关联到HTTP头部
-name =">
-<meta property="og:updated_time" content="2017-01-16T03:59:20.431Z">
+<meta property="og:description" content="JavaScript的作用域一直以来是前端开发中比较难以理解的知识点，对于JavaScript的作用域主要记住几句话，走遍天下都不怕。
+#一、“JavaScript中无块级作用域”
+在Java或C#中存在块级作用域，即：大括号也是一个作用域。
+public static void main (){
+    if(1==1){
+        String name = &amp;quot;seven&amp;qu">
+<meta property="og:updated_time" content="2017-02-04T16:27:48.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="meta常用标签总结">
-<meta name="twitter:description" content="meta元素共有三个可选属性（http-equiv、name和scheme）和一个必选属性（content），content定义与 http-equiv 或 name 属性相关的元信息
-##可选属性
-http-equiv = &amp;quot;content-type/expire/refresh/set-cookie&amp;quot;        //把content属性关联到HTTP头部
-name =">
+<meta name="twitter:title" content="五句话搞定JavaScript作用域">
+<meta name="twitter:description" content="JavaScript的作用域一直以来是前端开发中比较难以理解的知识点，对于JavaScript的作用域主要记住几句话，走遍天下都不怕。
+#一、“JavaScript中无块级作用域”
+在Java或C#中存在块级作用域，即：大括号也是一个作用域。
+public static void main (){
+    if(1==1){
+        String name = &amp;quot;seven&amp;qu">
   
     <link rel="alternative" href="/atom.xml" title="JASN-吴佳博客" type="application/atom+xml">
   
@@ -195,110 +201,154 @@ name =">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-htmlMeta" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-scope" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      meta常用标签总结
+      五句话搞定JavaScript作用域
     </h1>
   
 
         
-        <a href="/2017/01/16/htmlMeta/" class="archive-article-date">
-  	<time datetime="2017-01-16T03:52:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-16</time>
+        <a href="/2017/02/05/scope/" class="archive-article-date">
+  	<time datetime="2017-02-04T16:24:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>meta元素共有三个可选属性（http-equiv、name和scheme）和一个必选属性（content），content定义与 http-equiv 或 name 属性相关的元信息</p>
-<p>##可选属性</p>
-<pre><code>http-equiv = &quot;content-type/expire/refresh/set-cookie&quot;        //把content属性关联到HTTP头部
-name = &quot;author / description / keywords / generator / revised / others&quot;     //把 content 属性关联到一个名称
-scheme = &quot;some_text&quot;    //定义用于翻译 content 属性值的格式
-</code></pre><p>##必选属性</p>
-<pre><code>content = &quot;some_text&quot;    //定义与 http-equiv 或 name 属性相关的元信息
-</code></pre><p>#name属性</p>
-<pre><code>&lt;!-- 页面作者 --&gt;
-&lt;meta name=&quot;author&quot; content=&quot;author name&quot; /&gt;
-&lt;!-- 页面描述 --&gt;
-&lt;meta name=&quot;description&quot; content=&quot;meta元素共有三个可选属性(不超过150字符)&quot; /&gt;
-&lt;!-- 页面关键词 --&gt;
-&lt;meta name=&quot;keywords&quot; content=&quot;meta标签总结,meta标签&quot; /&gt;
-&lt;!-- 页面生成器 --&gt;
-&lt;meta name=&quot;generator&quot; content=&quot;hexo&quot; /&gt;
-&lt;!-- 页面修改信息 --&gt;
-&lt;meta name=&quot;revised&quot; content=&quot;story,2015/07/22&quot; /&gt;
-&lt;!-- 版权信息 --&gt;
-&lt;meta name=&quot;copyright&quot; content=&quot;All Rights Reserved&quot; /&gt;
-&lt;!-- 页面爬虫设置 --&gt;
-&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot; /&gt;
-&lt;!-- robots的content取值 --&gt;
-&lt;!-- all：文件将被检索，且页面上的链接可以被查询 --&gt;
-&lt;!-- none：文件将不被检索，且页面上的链接不可以被查询 --&gt;
-&lt;!-- index：文件将被检索 --&gt;
-&lt;!-- follow：页面上的链接可以被查询 --&gt;
-&lt;!-- noindex：文件将不被检索，但页面上的链接可以被查询 --&gt;
-&lt;!-- nofollow：文件将被检索，但页面上的链接不可以被查询 --&gt;
-</code></pre><a id="more"></a>
-<p>#http-equiv</p>
-<pre><code>&lt;!-- 字符编码 --&gt;
-&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;
-&lt;!-- 页面到期时间 --&gt;
-&lt;meta http-equiv=&quot;expire&quot; content=&quot;Wed,22Jul201511:11:11GMT&quot; /&gt;
-&lt;!-- 页面重刷新，0秒后刷新并跳转 --&gt;
-&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;URL=&apos;&apos;&quot; /&gt;
-&lt;!-- cookie设置 --&gt;
-&lt;meta http-equiv=&quot;set-cookie&quot; content=&quot;cookie value=xxx;expires=Wed,22-Jul-201511:11:11GMT；path=/&quot; /&gt;
-&lt;!-- 脚本类型 --&gt;
-&lt;meta http-equiv=&quot;Content-Script-Type&quot;Content=&quot;text/javascript&quot;&gt;
-&lt;!-- 禁止从本地缓存中读取页面 --&gt;
-&lt;meta http-equiv=&quot;Pragma&quot;content=&quot;no-cache&quot;&gt; 
-</code></pre><p>#移动端</p>
-<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no&quot;/&gt;
-&lt;!-- viewport的content取值 --&gt;
-&lt;!-- width：宽度（数值 / device-width）（200~10000，默认为980px） --&gt;
-&lt;!-- height：高度（数值 / device-height）（223~10000） --&gt;
-&lt;!-- initial-scale：初始缩放比例 （0~10） --&gt;
-&lt;!-- minimum-scale：允许用户缩放到的最小比例 --&gt;
-&lt;!-- maximum-scale：允许用户缩放到的最大比例 --&gt;
-&lt;!-- user-scalable：是否允许用户缩放 (no/yes)  --&gt;
+        <p>JavaScript的作用域一直以来是前端开发中比较难以理解的知识点，对于JavaScript的作用域主要记住几句话，走遍天下都不怕。</p>
+<p>#一、“JavaScript中无块级作用域”</p>
+<p>在Java或C#中存在块级作用域，即：大括号也是一个作用域。</p>
+<pre><code>public static void main (){
+    if(1==1){
+        String name = &quot;seven&quot;;
+    }
+    System.out.println(name);
+}
+// 报错
+public static void Main()
+{
+    if(1==1){
+        string name = &quot;seven&quot;;
+    }
+    Console.WriteLine(name);
+}
+// 报错
+</code></pre><p>在JavaScript语言中无块级作用域</p>
+<pre><code>function Main(){
+    if(1==1){
+        var name = &apos;seven&apos;;
+    }
+    console.log(name);
+}
+// 输出： seven
+</code></pre><p>补充：标题之所以添加双引号是因为JavaScript6中新引入了 let 关键字，用于指定变量属于块级作用域。</p>
+<a id="more"></a>
+<p>#二、JavaScript采用函数作用域</p>
+<p>在JavaScript中每个函数作为一个作用域，在外部无法访问内部作用域中的变量。</p>
+<pre><code>function Main(){
+    var innerValue = &apos;seven&apos;;
+}
 
-&lt;!-- uc强制竖屏 --&gt;
-&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;
-&lt;!-- QQ强制竖屏 --&gt;
-&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;
-&lt;!-- UC强制全屏 --&gt;
-&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;
-&lt;!-- QQ强制全屏 --&gt;
-&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;
-&lt;!-- UC应用模式 --&gt;
-&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;
-&lt;!-- QQ应用模式 --&gt;
-&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;
+Main();
 
-&lt;!-- IOS启用 WebApp 全屏模式 --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
-&lt;!-- IOS全屏模式下隐藏状态栏/设置状态栏颜色 content的值为default | black | black-translucent  --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot; /&gt;
-&lt;!-- IOS添加到主屏后的标题 --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;&gt;
-&lt;!-- IOS添加智能 App 广告条 Smart App Banner --&gt;
-&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;&gt;
+console.log(innerValue);
 
-&lt;!-- 去除iphone 识别数字为号码 --&gt;
-&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
-&lt;!-- 不识别邮箱 --&gt;
-&lt;meta name=&quot;format-detection&quot; content=&quot;email=no&quot;&gt;
-&lt;!-- 禁止跳转至地图 --&gt;
-&lt;meta name=&quot;format-detection&quot; content=&quot;adress=no&quot;&gt;
-&lt;!-- 可以连写--&gt;
-&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no,email=no,adress=no&quot;&gt;
-</code></pre>
+// 报错：Uncaught ReferenceError: innerValue is not defined
+</code></pre><p>#三、JavaScript的作用域链</p>
+<p>由于JavaScript中的每个函数作为一个作用域，如果出现函数嵌套函数，则就会出现作用域链。</p>
+<pre><code>xo = &apos;alex&apos;;
+
+function Func(){
+    var xo = &quot;seven&quot;;
+    function inner(){
+        var xo = &apos;alvin&apos;;
+        console.log(xo);
+    }
+    inner();
+}
+Func();
+</code></pre><p>如上述代码则出现三个作用域组成的作用域链，如果出现作用域链后，那么寻找变量时候就会出现顺序，对于上述实例：</p>
+<p>当执行console.log(xo)时，其寻找顺序为根据作用域链从内到外的优先级寻找，如果内层没有就逐步向上找，直到没找到抛出异常。</p>
+<p>#四、JavaScript的作用域链执行前已创建</p>
+<p>JavaScript的作用域在被执行之前已经创建，日后再去执行时只需要按照作用域链去寻找即可。</p>
+<p>示例一：</p>
+<pre><code>xo = &apos;alex&apos;;
+
+function Func(){
+    var xo = &quot;seven&quot;;
+    function inner(){
+
+        console.log(xo);
+    }
+    return inner;
+}
+
+var ret = Func();
+ret();
+// 输出结果： seven
+</code></pre><p>上述代码，在函数被调用之前作用域链已经存在：<br>全局作用域 -&gt; Func函数作用域 -&gt; inner函数作用域 </p>
+<p>当执行【ret();】时，由于其代指的是inner函数，此函数的作用域链在执行之前已经被定义为：全局作用域 -&gt; Func函数作用域 -&gt; inner函数作用域，所以，在执行【ret();】时，会根据已经存在的作用域链去寻找变量。</p>
+<p>示例二：</p>
+<pre><code>xo = &apos;alex&apos;;
+
+function Func(){
+    var xo = &quot;eirc&quot;;
+    function inner(){
+
+        console.log(xo);
+    }
+    xo = &apos;seven&apos;;
+    return inner;
+}
+
+var ret = Func();
+ret();
+// 输出结果： seven
+</code></pre><p>上述代码和示例一的目的相同，也是强调在函数被调用之前作用域链已经存在：</p>
+<p>全局作用域 -&gt; Func函数作用域 -&gt; inner函数作用域 </p>
+<p>不同的时，在执行【var ret = Func();】时，Func作用域中的xo变量的值已经由 “eric” 被重置为 “seven”，所以之后再执行【ret();】时，就只能找到“seven”。</p>
+<p>示例三：</p>
+<pre><code>xo = &apos;alex&apos;;&lt;br&gt;
+function Bar(){
+    console.log(xo);
+}
+
+function Func(){
+    var xo = &quot;seven&quot;;
+
+    return Bar;
+}
+
+var ret = Func();
+ret();
+// 输出结果： alex
+</code></pre><p>上述代码，在函数被执行之前已经创建了两条作用域链：</p>
+<p>全局作用域 -&gt; Bar函数作用域<br>全局作用域 -&gt; Func函数作用域 </p>
+<p>当执行【ret();】时，ret代指的Bar函数，而Bar函数的作用域链已经存在：全局作用域 -&gt; Bar函数作用域，所以，执行时会根据已经存在的作用域链去寻找。</p>
+<p>#五、声明提前</p>
+<p>在JavaScript中如果不创建变量，直接去使用，则报错：</p>
+<pre><code>console.log(xxoo);
+// 报错：Uncaught ReferenceError: xxoo is not defined
+</code></pre><p>JavaScript中如果创建值而不赋值，则该值为 undefined，如：</p>
+<pre><code>var xxoo;
+console.log(xxoo);
+// 输出：undefined
+</code></pre><p>在函数内如果这么写：</p>
+<pre><code>function Foo(){
+    console.log(xo);
+    var xo = &apos;seven&apos;;
+}
+
+Foo();
+// 输出：undefined
+</code></pre><p>上述代码，不报错而是输出 undefined，其原因是：JavaScript的函数在被执行之前，会将其中的变量全部声明，而不赋值。所以，相当于上述实例中，函数在“预编译”时，已经执行了var xo；所以上述代码中输出的是undefined。</p>
+
       
 
       
@@ -342,7 +392,7 @@ scheme = &quot;some_text&quot;    //定义用于翻译 content 属性值的格�
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -398,7 +448,7 @@ scheme = &quot;some_text&quot;    //定义用于翻译 content 属性值的格�
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/16/htmlMeta/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/05/scope/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -412,18 +462,9 @@ scheme = &quot;some_text&quot;    //定义用于翻译 content 属性值的格�
   
 <nav id="article-nav">
   
-    <a href="/2017/02/05/scope/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          五句话搞定JavaScript作用域
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/05/es6core/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ES6/ES2015核心内容</div>
+    <a href="/2017/01/16/htmlMeta/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">meta常用标签总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -437,7 +478,7 @@ scheme = &quot;some_text&quot;    //定义用于翻译 content 属性值的格�
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="htmlMeta" data-title="meta常用标签总结" data-url="http://yoursite.com/2017/01/16/htmlMeta/"></div>
+	<div class="ds-thread" data-thread-key="scope" data-title="五句话搞定JavaScript作用域" data-url="http://yoursite.com/2017/02/05/scope/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

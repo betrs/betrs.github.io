@@ -187,6 +187,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-scope" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/05/scope/">五句话搞定JavaScript作用域</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/05/scope/" class="archive-article-date">
+  	<time datetime="2017-02-04T16:24:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript的作用域一直以来是前端开发中比较难以理解的知识点，对于JavaScript的作用域主要记住几句话，走遍天下都不怕。</p>
+<p>#一、“JavaScript中无块级作用域”</p>
+<p>在Java或C#中存在块级作用域，即：大括号也是一个作用域。</p>
+<pre><code>public static void main (){
+    if(1==1){
+        String name = &quot;seven&quot;;
+    }
+    System.out.println(name);
+}
+// 报错
+public static void Main()
+{
+    if(1==1){
+        string name = &quot;seven&quot;;
+    }
+    Console.WriteLine(name);
+}
+// 报错
+</code></pre><p>在JavaScript语言中无块级作用域</p>
+<pre><code>function Main(){
+    if(1==1){
+        var name = &apos;seven&apos;;
+    }
+    console.log(name);
+}
+// 输出： seven
+</code></pre><p>补充：标题之所以添加双引号是因为JavaScript6中新引入了 let 关键字，用于指定变量属于块级作用域。</p>
+        
+          <a class="article-more-a" href="/2017/02/05/scope/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/05/scope/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-htmlMeta" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -877,96 +967,6 @@ $ git clone [url]
 
 
   
-    <article id="post-stringTurnNumber" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/01/stringTurnNumber/">JavaScript字符串转换为数字的方法</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/01/stringTurnNumber/" class="archive-article-date">
-  	<time datetime="2016-12-01T01:56:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#1. 函数转换<br>parseInt()和parseFloat()分别用来将数字型字符串或数字转换为整数和浮点数，其他则返回NaN(Not a Number)。 parseInt()支持进制参数，表示以何进制读取字符串，返回结果均为10进制数字。</p>
-<pre><code>parseInt() =&gt; NaN
-parseInt(&apos; &apos;) =&gt; NaN
-parseInt(null) =&gt; NaN
-parseInt(undefined) =&gt; NaN
-parseInt(false) =&gt; NaN
-parseInt(true) =&gt; NaN
-parseInt(NaN) =&gt; NaN
-parseInt(Infinity) =&gt; NaN
-parseInt(1) =&gt; 1
-parseInt(&apos;1&apos;) =&gt; 1
-parseInt(&apos; 1 &apos;) =&gt; 1
-parseInt(&apos;1x&apos;) =&gt; 1
-parseInt(-1.5) =&gt; -1
-parseInt(&apos;-1.5&apos;) =&gt; -1
-parseInt(&apos;-1.5x&apos;) =&gt; -1
-parseInt(&apos;0xA&apos;) =&gt; 10
-parseInt(&apos;0xAx&apos;) =&gt; 10
-parseInt(&apos;010&apos;) =&gt; 10
-parseInt(&apos;x&apos;) =&gt; NaN
-parseInt({}) =&gt; NaN
-parseInt(new Date()) =&gt; NaN
-parseInt(&apos;010&apos;) =&gt; 10 // 注意可能识别为8进制
-parseInt(&apos;A&apos;, 16) =&gt; 10 // 以16进制读取，结果为10进制数字10
-parseInt(&quot;012&quot;, 8) =&gt; 10 // 以8进制读取，结果为10进制数字10
-parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数字8
-</code></pre>
-        
-          <a class="article-more-a" href="/2016/12/01/stringTurnNumber/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/01/stringTurnNumber/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1097,10 +1097,6 @@ parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
@@ -1109,11 +1105,15 @@ parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1121,7 +1121,7 @@ parseInt(&apos;1000&apos;, 2) =&gt; 8 // 以2进制读取，结果为10进制数
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
