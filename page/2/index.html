@@ -187,6 +187,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cssSkill" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/cssSkill/">12 个 CSS 高级技巧汇总</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/06/cssSkill/" class="archive-article-date">
+  	<time datetime="2016-12-06T05:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>下面这些CSS高级技巧，一般人我可不告诉他哦。</p>
+<p>使用 :not() 在菜单上应用/取消应用边框</p>
+<p>给body添加行高</p>
+<p>所有一切都垂直居中</p>
+<p>逗号分隔的列表</p>
+<p>使用负的 nth-child 选择项目</p>
+<p>对图标使用SVG</p>
+<p>优化显示文本</p>
+<p>对纯CSS滑块使用 max-height</p>
+<p>继承 box-sizing</p>
+<p>表格单元格等宽</p>
+<p>用Flexbox摆脱外边距的各种hack</p>
+<p>使用属性选择器用于空链接</p>
+<p>使用 :not() 在菜单上应用/取消应用边框</p>
+<p>先给每一个菜单项添加边框</p>
+<p>/<em> add border </em>/</p>
+<pre><code>.nav li {
+    border-right: 1px solid #666;
+}
+</code></pre>
+        
+          <a class="article-more-a" href="/2016/12/06/cssSkill/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/06/cssSkill/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-stringTurnNumber" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1345,81 +1428,6 @@ $.preloadImages(&apos;img/hover-on.png&apos;, &apos;img/hover-off.png&apos;);
 
 
   
-    <article id="post-learningClosure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/14/learningClosure/">教你分分钟学会javascript闭包操作</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/14/learningClosure/" class="archive-article-date">
-  	<time datetime="2016-10-14T09:45:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>闭包，是javascript中独有的一个概念，对于初学者来讲，闭包是一个特别抽象的概念，特别是ECMA规范给的定义，如果没有实战经验，你很难从定义去理解它。因此，本文不会对闭包的概念进行大篇幅描述，直接上干货，让你分分钟学会闭包!</p>
-<p>#一、闭包–爱的初体验<br>　　在接触一个新技术的时候，我首先会做的一件事就是：找它的demo code。对于码农们来说，代码有时候比自然语言更能理解一个事物。 其实，闭包无处不在，比如：jQuery、zepto的主要代码都包含在一个大的闭包中，所以下面我先写一个最简单最原始的闭包demo，好让你在大脑里产生闭包的画面：</p>
-<pre><code>function A(){
-    function B(){
-        console.log(&quot;Hello Closure!&quot;);
-    }
-       return B;
-}
-var b = A();
-b();//Hello Closure!
-//这是史上最简单的闭包，不能再简单了，再简单就不是闭包了!
-</code></pre><p>有了初步的认识后，我们简单分析一下它和普通函数有什么不同，这样我们才能从“茫茫人海”中一眼认出“她”。</p>
-        
-          <a class="article-more-a" href="/2016/10/14/learningClosure/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/14/learningClosure/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1550,6 +1558,10 @@ b();//Hello Closure!
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
@@ -1558,19 +1570,7 @@ b();//Hello Closure!
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1578,7 +1578,15 @@ b();//Hello Closure!
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Module</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">

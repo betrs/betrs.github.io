@@ -187,6 +187,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jsonp-yl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/18/jsonp-yl/">详解5种跨域方式及其原理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/18/jsonp-yl/" class="archive-article-date">
+  	<time datetime="2017-02-18T13:22:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#同源定义<br>如果两个页面拥有相同的协议（protocol），端口（如果指定），和主机，那么这两个页面就属于同一个源（origin）。</p>
+<p>以下是同源检测的示例</p>
+<pre><code>URL                                                        结果            原因
+http://store.company.com/dir2/other.html                Success    
+http://store.company.com/dir/inner/another.html            Success    
+https://store.company.com/secure.html                    Failure            协议不同
+http://store.company.com:81/dir/etc.html                 Failure            端口不同
+http://news.company.com/dir/other.html                    Failure            主机不同
+</code></pre><p>#1.jsonp</p>
+<p>script标签是不受同源策略影响的，它可以引入来自任何地方的js文件。<br>而jsonp的原理就是，在客户端和服务端定义一个函数，当客户端发起一个请求时，服务端返回一段javascript代码，其中调用了在客户端定义的函数，并将相应的数据作为参数传入该函数。</p>
+<pre><code>function jsonp_cb(data) {
+    console.log(data);
+}
+function ajax(){
+    var url = &quot;http://xx.com/test.php?jsonp_callback=jsonp_cb&quot;;
+    var script = document.createElement(&apos;script&apos;);
+    // 发送请求
+    script.src = url;
+    document.head.appendChild(script);
+}
+ajax()
+服务端获取到jsonp_callback传递的函数名jsonp_cb，返回一段对该函数调用的js代码
+
+jsonp_cb({
+   &quot;name&quot;: &quot;story&quot;
+});
+</code></pre>
+        
+          <a class="article-more-a" href="/2017/02/18/jsonp-yl/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/18/jsonp-yl/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-scope" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -884,89 +974,6 @@ $ git clone [url]
 
 
   
-    <article id="post-cssSkill" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/cssSkill/">12 个 CSS 高级技巧汇总</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/06/cssSkill/" class="archive-article-date">
-  	<time datetime="2016-12-06T05:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>下面这些CSS高级技巧，一般人我可不告诉他哦。</p>
-<p>使用 :not() 在菜单上应用/取消应用边框</p>
-<p>给body添加行高</p>
-<p>所有一切都垂直居中</p>
-<p>逗号分隔的列表</p>
-<p>使用负的 nth-child 选择项目</p>
-<p>对图标使用SVG</p>
-<p>优化显示文本</p>
-<p>对纯CSS滑块使用 max-height</p>
-<p>继承 box-sizing</p>
-<p>表格单元格等宽</p>
-<p>用Flexbox摆脱外边距的各种hack</p>
-<p>使用属性选择器用于空链接</p>
-<p>使用 :not() 在菜单上应用/取消应用边框</p>
-<p>先给每一个菜单项添加边框</p>
-<p>/<em> add border </em>/</p>
-<pre><code>.nav li {
-    border-right: 1px solid #666;
-}
-</code></pre>
-        
-          <a class="article-more-a" href="/2016/12/06/cssSkill/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/06/cssSkill/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1097,6 +1104,10 @@ $ git clone [url]
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
@@ -1105,19 +1116,7 @@ $ git clone [url]
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1125,7 +1124,15 @@ $ git clone [url]
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Module</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
