@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="JASN-吴佳博客">
 <meta property="og:description" content="简介HTTP（超文本传输）是一种获取网络资源的协议，例如获取一个html页面，一张图片，一个js文件，都需要遵守这个协议，HTTP协议是Web上数据交换的基础。
 客户端、服务端客户端通常是一个浏览器，当输入URL时，浏览器发起第一个请求以获取HTML文档，服务端收到请求后，生成相应的HTML文档，返回给浏览器，浏览器解析返回的HTML文档，并根据文档中的资源信息发送其他的请求获取这些资源，例如cs">
-<meta property="og:updated_time" content="2017-03-13T14:38:40.763Z">
+<meta property="og:updated_time" content="2017-03-13T14:42:10.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议浅析">
 <meta name="twitter:description" content="简介HTTP（超文本传输）是一种获取网络资源的协议，例如获取一个html页面，一张图片，一个js文件，都需要遵守这个协议，HTTP协议是Web上数据交换的基础。
@@ -211,6 +211,7 @@
       
         <p>简介<br>HTTP（超文本传输）是一种获取网络资源的协议，例如获取一个html页面，一张图片，一个js文件，都需要遵守这个协议，HTTP协议是Web上数据交换的基础。</p>
 <p>客户端、服务端<br>客户端通常是一个浏览器，当输入URL时，浏览器发起第一个请求以获取HTML文档，服务端收到请求后，生成相应的HTML文档，返回给浏览器，浏览器解析返回的HTML文档，并根据文档中的资源信息发送其他的请求获取这些资源，例如css文件，js脚本，图片等，浏览器根据这些资源绘制页面。</p>
+<a id="more"></a>
 <p>页面展现流程<br>解析HTML构建DOM树（Parsing HTML to construct the DOM tree ）<br>解析CSS，根据CSS选择器计算出的样式构建渲染树（Render tree construction）<br>布局渲染树（Layout of the render tree）<br>绘制渲染树（Painting the render tree）<br>代理服务器<br>在浏览器和服务器之间可能存在代理服务器，代理服务器主要有以下几个作用</p>
 <p>缓存功能，提高访问速度<br>过滤（像反病毒扫描，家长监护）<br>负载均衡，让多个服务器服务不同的请求<br>对不同资源的权限控制<br>登陆，允许存储历史信息<br>HTTP是无状态，有会话的<br>HTTP协议是无状态的，在同一个连接中，两个成功执行的请求之间是没有关系的，对服务器来说，它并不知道这两个请求来自同一个连接，为了解决这个问题，可以使用cookie以及session创建有状态的会话，也可以在请求头中添加token来解决这个问题</p>
 <pre><code>var request = new XMLHttpRequest();
@@ -542,11 +543,11 @@ Content-Encoding: gzip
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,7 +559,15 @@ Content-Encoding: gzip
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,14 +580,6 @@ Content-Encoding: gzip
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
