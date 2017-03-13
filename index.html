@@ -187,6 +187,125 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-httpxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/13/httpxy/">HTTP协议浅析</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/13/httpxy/" class="archive-article-date">
+  	<time datetime="2017-03-13T14:35:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简介<br>HTTP（超文本传输）是一种获取网络资源的协议，例如获取一个html页面，一张图片，一个js文件，都需要遵守这个协议，HTTP协议是Web上数据交换的基础。</p>
+<p>客户端、服务端<br>客户端通常是一个浏览器，当输入URL时，浏览器发起第一个请求以获取HTML文档，服务端收到请求后，生成相应的HTML文档，返回给浏览器，浏览器解析返回的HTML文档，并根据文档中的资源信息发送其他的请求获取这些资源，例如css文件，js脚本，图片等，浏览器根据这些资源绘制页面。</p>
+<p>页面展现流程<br>解析HTML构建DOM树（Parsing HTML to construct the DOM tree ）<br>解析CSS，根据CSS选择器计算出的样式构建渲染树（Render tree construction）<br>布局渲染树（Layout of the render tree）<br>绘制渲染树（Painting the render tree）<br>代理服务器<br>在浏览器和服务器之间可能存在代理服务器，代理服务器主要有以下几个作用</p>
+<p>缓存功能，提高访问速度<br>过滤（像反病毒扫描，家长监护）<br>负载均衡，让多个服务器服务不同的请求<br>对不同资源的权限控制<br>登陆，允许存储历史信息<br>HTTP是无状态，有会话的<br>HTTP协议是无状态的，在同一个连接中，两个成功执行的请求之间是没有关系的，对服务器来说，它并不知道这两个请求来自同一个连接，为了解决这个问题，可以使用cookie以及session创建有状态的会话，也可以在请求头中添加token来解决这个问题</p>
+<pre><code>var request = new XMLHttpRequest();
+request.open(&apos;GET&apos;, &apos;&apos;, true);
+request.setRequestHeader(&apos;Authorization&apos;,&apos;&apos;)
+request.send();
+</code></pre><p>HTTP 流<br>一个客户端与服务器的数据交换流程如下</p>
+<p>打开一个TCP连接（或者重用之前的一个）：TCP连接用来发送一条或多条请求，当然也用来接受回应消息。客户端可能重用一个已经存在的连接，或者也可能重开几个新的与服务端的TCP连接。<br>发送一个HTTP报文：HTTP报文（在HTTP/2之前）是语义可读的。在HTTP/2中，这些简单的消息被封装在了帧中，这使得报文不可能被直接读出来，但是规则仍旧是相同的。</p>
+<pre><code>GET / HTTP/1.1
+Host: developer.mozilla.org
+Accept-Language: fr
+读取服务端返回的报文：
+HTTP/1.1 200 OK
+Date: Sat, 09 Oct 2010 14:28:02 GMT
+Server: Apache
+Last-Modified: Tue, 01 Dec 2009 20:18:22 GMT
+ETag: &quot;51142bc1-7449-479b075b2891b&quot;
+Accept-Ranges: bytes
+Content-Length: 29769
+Content-Type: text/html
+</code></pre><p>&lt;!DOCTYPE html… )<br>关闭连接或者为以后的请求重用连接。<br>HTTP 报文<br>HTTP报文有两种类型，请求与回应<br>请求报文</p>
+<pre><code>GET / HTTP/1.1
+Host: 127.0.0.1
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+</code></pre><p>第一行 GET / HTTP/1.1 分别为请求方法 资源路径 HTTP协议版本号<br>之后为Headers</p>
+<p>响应报文</p>
+<pre><code>HTTP/1.1 200 OK
+Server: nginx/1.6.2
+Date: Mon, 07 Sep 2015 07:37:37 GMT
+Content-Type: text/html
+Last-Modified: Mon, 07 Sep 2015 07:18:00 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Content-Encoding: gzip
+</code></pre><p>&lt;!DOCTYPE html… )<br>第一行 HTTP/1.1 200 OK 分别代表HTTP协议版本号 状态码 状态码信息<br>之后为Headers<br>然后会有一个空行，空行之后即为响应的body了</p>
+<p>HTTP协议定义了很多与服务器交互的方法，最基本的有4种，分别是GET,POST,PUT,DELETE. 一个URL地址用于描述一个网络上的资源，而HTTP中的GET, POST, PUT, DELETE就对应着对这个资源的查，改，增，删4个操作。 我们最常见的就是GET和POST了。GET一般用于获取/查询资源信息，而POST一般用于更新资源信息.</p>
+<p>http1.0的问题<br>http1.0最引人诟病的是连接无法复用及线头阻塞</p>
+<p>连接无法复用直接导致每次请求都需要经历三次握手和慢启动，三次握手在高延迟下影响效果非常明显，慢启动则对大文件类请求影响较大，尽管可以通过设置 Connection:Keep-Alive 来复用短时间内的连接，但依然处理不了时间跨度比较大的请求</p>
+<p>线头阻塞即在http1.0中，请求是按顺序处理的，这就导致如果前一个请求耗时严重或者出错，后续的请求都会受到影响</p>
+<p>http2协议<br>http2是一个二进制协议，基于二进制的http2可以使成帧的使用变得更为便捷<br>http2规范一共定义了10种不同的帧，每种类型都有一个唯一的8字节类型编码。在整个TCP连接或者是各个独立的流的建立和管理过程中，每种类型的帧都为特定的目的而服务，其中最基础的两种分别对应于HTTP 1.1的DATA和HEADERS</p>
+<p>多路复用的流<br>http2连接上传输的每个帧都关联到一个“流”，一个流处理完毕，这个流生命周期完结</p>
+<p>每个单独的http2连接都可以包含多个并发的流，这些流中交错的包含着来自两端的帧。流既可以被客户端/服务器端单方面的建立和使用，也可以被双方共享，或者被任意一边关闭。在流里面，每一帧发送的顺序非常关键。接收方会按照收到帧的顺序来进行处理。</p>
+<p>优先级和依赖性<br>每个流都包含一个优先级（也就是“权重”），它被用来告诉对端哪个流更重要。当资源有限的时候，服务器会根据优先级来选择应该先发送哪些流。</p>
+<p>头部压缩<br>在http1.1中，状态行和头部是没有经过任何压缩的，而是直接以纯文本传输，当页面请求资源的个数上升的时候，cookies和请求的大小都会增加，而每个请求都会包含的cookie几乎是一模一样的，这就造成资源的额外浪费</p>
+<p>重置<br>在HTTP 1.1中，HTTP消息一旦送出就很难中断，在http2里面，可以通过发送RST_STREAM帧来中断HTTP消息，从而避免浪费带宽和中断TCP连接（可以通过切断TCP连接来中断HTTP消息）</p>
+<p>服务器推送<br>即在客户端需要某些资源的情况下，在客户端请求发送前，服务端提前把这些资源推送到客户端缓存起来，当用户需要这些资源时，可以有效的减少网络请求所耗费的时间。</p>
+<p>流量控制<br>http2上每个流都拥有自己的公示流量窗口，它可以限制另一端发送数据，流量控制的目的是在流量窗口初始值的约束下，给予接收端以全权，控制当下想要接受的流量大小</p>
+<p>参考链接：<a href="https://daniel.haxx.se/http2/" target="_blank" rel="external">https://daniel.haxx.se/http2/</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/13/httpxy/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-jsonp-yl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -898,82 +1017,6 @@ background-size: 50px 50px;display:inline-block; width:100%; height:50px;
 
 
   
-    <article id="post-gitCommand" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/gitCommand/">工作常用的Git命令</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/06/gitCommand/" class="archive-article-date">
-  	<time datetime="2016-12-06T05:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我每天使用 Git ，但是很多命令记不住。<br>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
-<p>下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。</p>
-<p>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库</p>
-<p>#一、新建代码库</p>
-<pre><code># 在当前目录新建一个Git代码库
-$ git init
-
-# 新建一个目录，将其初始化为Git代码库
-$ git init [project-name]
-
-# 下载一个项目和它的整个代码历史
-$ git clone [url]
-</code></pre>
-        
-          <a class="article-more-a" href="/2016/12/06/gitCommand/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/06/gitCommand/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1104,11 +1147,11 @@ $ git clone [url]
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,11 +1163,7 @@ $ git clone [url]
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1132,11 +1171,19 @@ $ git clone [url]
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
