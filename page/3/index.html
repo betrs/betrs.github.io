@@ -187,6 +187,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JqSkill" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/14/JqSkill/">一些好用的JQuery技巧</a>
+    </h1>
+  
+
+        
+        <a href="/2016/10/14/JqSkill/" class="archive-article-date">
+  	<time datetime="2016-10-14T10:10:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#一、返回顶部按钮</p>
+<p>通过使用jQuery中的animate 和scrollTop 方法，不用插件就可以创建一个滚动到顶部的简单动画：</p>
+<pre><code>// Back to top
+$(&apos;.top&apos;).click(function (e) {
+e.preventDefault();
+$(&apos;html, body&apos;).animate({scrollTop: 0}, 800);
+});
+&lt;!-- Create an anchor tag --&gt;
+&lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;
+</code></pre><p>改变scrollTop 的值可以更改你想要放置滚动条的位置。所有你真正需要做的是在800毫秒的时间内设置文档主体的动画，直到它滚动到文档的顶部。<br>注：小心scrollTop的一些错误行为。</p>
+<p>#二、预加载图像</p>
+<p>如果你的网页要使用大量开始不可见的（例如，悬停的）图像，那么可以预加载这些图像：</p>
+<pre><code>$.preloadImages = function () {
+    for (var i = 0; i &lt; arguments.length; i++) {
+        $(&apos;&lt;img&gt;&apos;).attr(&apos;src&apos;, arguments[i]);
+    }
+};
+$.preloadImages(&apos;img/hover-on.png&apos;, &apos;img/hover-off.png&apos;);
+</code></pre>
+        
+          <a class="article-more-a" href="/2016/10/14/JqSkill/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JQuery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/10/14/JqSkill/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-console" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -590,19 +672,11 @@ b();//Hello Closure!
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,15 +684,11 @@ b();//Hello Closure!
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,7 +696,19 @@ b();//Hello Closure!
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
             
             <div class="clearfix"></div>

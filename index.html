@@ -187,6 +187,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-domload" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/18/domload/">DOMContentLoaded：Javascript中的domReady引入机制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/18/domload/" class="archive-article-date">
+  	<time datetime="2017-04-18T13:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#一、扯淡部分<br>回想当年，在摆脱写页面时js全靠从各种DEMO中copy出来然后东拼西凑的幽暗岁月之后，毅然决然地打算放弃这种处处“拿来主义”的不正之风，然后开启通往高大上的“前端攻城狮”的飞升之旅。想想都有些小激动呢~然而人生不如意者十之八九，刚踏上征程就经常会被各种Error虐到体无完肤，有时候甚至会被在现在看来很低级的bug折磨得生不如死。</p>
+<p>但没有一种成长是不需要付出代价的，也就是那段刚跳入泥潭的日子开启了让自己成为一名真正的JSer的大门，也使自己在奔向高大上的路上让“见招拆招、兵来将挡”成为常态，以至于后来都慢慢觉得，做一个东西不遇上几个bug心里就没有稳妥扎实的安全感。再后来也就学着不断去安慰自己：踩到脚底下的bug越多，离翻过那座墙也就不远了~</p>
+<p>回望一路走来的林林种种，有一个bug大概是每个JSer在初入大门时都遇到过的。那就是用js获取页面元素的时候经常会报出一个TypeError:Cannot read property ‘XXX’of null.大意就是根本就没找到你要找的元素，更别说你要对它进行操作了。明明页面上有这个元素，但在js里偏偏获取不到，这让很多刚接触js不久的童鞋都伤透了脑筋，于是疯狂百度谷歌，最后才发现造成这个低级bug的始作俑者竟然是window.onload，也就是文档未就绪，DOM树还没有建完就开始对节点进行操作从而导致的错误。</p>
+<p>扯了那么多，终于扯到跟本文主题相干的东西了：domReady，也就是所谓的“文档就绪”。我们对DOM节点的任何操作在DOM树创建之后就可以进行。在理解这个概念之前，我们先来看看浏览器在载入一个文档时是怎么对HTML进行解析的。</p>
+        
+          <a class="article-more-a" href="/2017/04/18/domload/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/18/domload/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-httpxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -891,78 +958,6 @@ document.onmousemove = function(e) {
 
 
   
-    <article id="post-webProblem" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/09/webProblem/">总结40条常见移动端Web页面问题解决方案</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/09/webProblem/" class="archive-article-date">
-  	<time datetime="2016-12-09T01:20:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#1、安卓浏览器看背景图片，有些设备会模糊。</p>
-<p>用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？</p>
-<p>经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960640分辨率，在网页里只显示了480320，这样devicePixelRatio＝2。现在android比较乱，有1.5的，有2的也有3的。</p>
-<p>想让图片在手机里显示更为清晰，必须使用2x的背景图来代替img标签（一般情况都是用2倍）。例如一个div的宽高是100100，背景图必须得200200，然后background-size:contain;，这样显示出来的图片就比较清晰了。</p>
-<p>代码如下：</p>
-<pre><code>background:url(../images/icon/all.png) no-repeat center center;
--webkit-background-size:50px 50px;
-background-size: 50px 50px;display:inline-block; width:100%; height:50px;
-</code></pre><p>或者指定 background-size:contain;都可以，大家试试！</p>
-        
-          <a class="article-more-a" href="/2016/12/09/webProblem/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/09/webProblem/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1093,19 +1088,11 @@ background-size: 50px 50px;display:inline-block; width:100%; height:50px;
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1113,15 +1100,11 @@ background-size: 50px 50px;display:inline-block; width:100%; height:50px;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,7 +1112,19 @@ background-size: 50px 50px;display:inline-block; width:100%; height:50px;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
             
             <div class="clearfix"></div>
