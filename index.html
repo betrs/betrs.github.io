@@ -213,39 +213,9 @@
     console.log(&apos;hello&apos;)
 },1000)
 </code></pre><p>这段代码将会在1s后在控制台出‘hello’，setTimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。 </p>
-<p>setTimeout创建的定时器会返回一个ID值，利用这个ID值配合cleartimeout可以取消要延迟执行的代码块：</p>
-<pre><code>var t =setTimeout(function(){
-    alert(&apos;hello&apos;)
-},1000)
-clearTimeout(t)
-setInterval
-</code></pre><p>setInterval()与setTimeout()相同，区别在于后者是重复性的检测和执行：</p>
-<pre><code>var t = setInterval(function(){
-    console.log(&apos;hello&apos;)
-},1000)
-</code></pre><p>上面的代码每隔1s在控制台输出‘ hello’</p>
-<p>setInterval创建的定时器可以使用clearInterval取消</p>
-<p>// …<br>clearInterval(t)</p>
-<p>#定时器的问题</p>
-<p>setTimeout的问题在于它并不是精准的，例如使用setTimeout设定一个任务在10ms后执行，但是在9ms后，有一个任务占用了5ms的cpu时间片，再次轮到定时器执行时，时间已经过期了4ms，那么是不是说setInterval就是准确的呢？</p>
-<p>然而并不是，setInterval存在两个问题：</p>
-<p>时间间隔可能会跳过<br>时间间隔可能小于定时器设定的时间<br>请看以下代码</p>
-<pre><code>function click() { 
-    // code block1... 
-    setInterval(function() { 
-        // process ... 
-    }, 200); 
-    // code block2 
-}
-</code></pre><p>我们假设通过一个click, 触发了setInterval以实现每隔一个时间段执行process代码</p>
-<p>在205ms时执行setInterval, 以此为一个时间点, 在205ms时插入process代码, process代码开始执行, 然而process代码执行的时间超过了接下来一个插入时间点405ms, 这样代码队列后又插入了一份process代码, process继续执行着, 而且超过了605ms这个插入时间点<br>下面问题来了, 由于代码队列中已经有了一份未执行的process代码(405m时插入的), 所以605ms这个插入时间点将会被跳过, 因为js引擎只允许有一份未执行的process代码</p>
-<p>为了避免这种情况可以使用setTimeout递归调用<br>代码如下:</p>
-<pre><code>setTimeout(function(){ 
-    // processing 
-    setTimeout(arguments.callee, interval); 
-}, interval);
-</code></pre><p>每次函数执行的时候都会创建一个新的定时器，第二个setTimeout调用使用了arguments.callee来获取对当前执行的函数的引用，并为其设置另外一个定时器。这样做是为了在前一个定时器代码执行完之前，不会向队列插入新的定时器代码，确保不会有任何缺失的间隔，也保证了在下一次定时器代码执行之前，至少要等待指定的间隔，避免了连续的运行。</p>
-
+        
+          <a class="article-more-a" href="/2017/05/07/timer-1/#more">more >></a>
+        
       
 
       
@@ -1125,15 +1095,7 @@ document.onmousemove = function(e) {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1141,11 +1103,15 @@ document.onmousemove = function(e) {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1158,6 +1124,10 @@ document.onmousemove = function(e) {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
